@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1.64px solid #000;
+  max-width: 28%;
+  padding: 24px 16px;
+  border-radius: 20px;
+}
+
+.product_name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.product_type {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.product_infos_container {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product_description {
+  font-size: 11px;  
+}
+
+.product_button {
+  font-size: 16px;
+  text-align: center;
+  background-color: var(--blue-600);
+  color: var(--white);
+  font-weight: 600;
+  padding: 6px 0;
+  border-radius: 6px;
+}

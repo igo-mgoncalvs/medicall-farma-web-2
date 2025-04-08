@@ -1,0 +1,66 @@
+{
+  "data": {
+    "description": "Há mais de 16 anos, estamos envolvidos no cenário de vendas e distribuição de materiais médicos e medicamentos hospitalares em todo o estado de São Paulo. Asseguramos a melhor experiência desde o primeiro contato, oferecendo uma variedade de produtos de marcas renomadas, tanto nacionais quanto internacionais.",
+    "menus": [
+      {
+        "id": 0,
+        "link": "https://google.com",
+        "label": "Conhecer a Medicall Farma"
+      },
+      {
+        "id": 1,
+        "link": "https://google.com",
+        "label": "Politica de Qualidade"
+      },
+      {
+        "id": 2,
+        "link": "https://google.com",
+        "label": "Quero que um representante venha até minha clínica/hospital"
+      }
+    ],
+    "sac": {
+      "title": "SAC",
+      "number": "0800-111-0130",
+      "email": "sac@medicallfarma.com"
+    },
+    "address": [
+      {
+        "id": 0,
+        "title": "Nosso endereço SP",
+        "address": "R. João Abrantes de Carvalho, 263 Jardim Nilza Miranda, Mauá - SP, 09341-510"
+      },
+      {
+        "id": 1,
+        "title": "Nosso endereço MG",
+        "address": "R. João Abrantes de Carvalho, 263 Jardim Nilza Miranda, Mauá - SP, 09341-510"
+      }
+    ],
+    "social": {
+      "title": "Nos siga nas redes sociais",
+      "list": [
+        {
+          "id": 0,
+          "img": "https://i.postimg.cc/5NKnRzBj/Instagram-Icon-2.png",
+          "alt": "teste-alt",
+          "link": "https://google.com"
+        },
+        {
+          "id": 0,
+          "img": "https://i.postimg.cc/5tbY57Xz/2023-Facebook-icon-svg-2.png",
+          "alt": "teste-alt",
+          "link": "https://google.com"
+        },
+        {
+          "id": 0,
+          "img": "https://i.postimg.cc/fLFRPBRB/download-1-2.png",
+          "alt": "teste-alt",
+          "link": "https://google.com"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Fale conosco",
+      "number": "11 4577-0040"
+    }
+  }
+}

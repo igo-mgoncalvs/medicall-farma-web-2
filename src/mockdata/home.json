@@ -1,0 +1,286 @@
+{
+  "data": {
+    "banners": [
+      {
+        "id": 0,
+        "description": "teste",
+        "src": "https://i.postimg.cc/cLc6W2tK/Property-1-Frame-55.png"
+      },
+      {
+        "id": 1,
+        "description": "teste",
+        "src": "https://i.postimg.cc/qMV7348h/Property-1-Frame-56.png"
+      },
+      {
+        "id": 2,
+        "description": "teste",
+        "src": "https://i.postimg.cc/c18HCr8G/Property-1-Frame-57.png"
+      },
+      {
+        "id": 3,
+        "description": "teste",
+        "src": "https://i.postimg.cc/9FdQPKpx/Property-1-Frame-58.png"
+      }
+    ],
+    "emphasis_section": {
+      "title": "Produtos Destaques",
+      "description": "Catálogo amplo e variado: descubra os produtos perfeitos para o seu Hospital ou Clínica, com a excelência que você procura.",
+      "list": [
+        {
+          "id": 0,
+          "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+          "name": "ATRAUMAN AG",
+          "type": "Curativo",
+          "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+          "link": "https://google.com"
+        },
+        {
+          "id": 1,
+          "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+          "name": "ATRAUMAN AG",
+          "type": "Curativo",
+          "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+          "link": "https://google.com"
+        },
+        {
+          "id": 2,
+          "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+          "name": "ATRAUMAN AG",
+          "type": "Curativo",
+          "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+          "link": "https://google.com"
+        },
+        {
+          "id": 3,
+          "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+          "name": "ATRAUMAN AG",
+          "type": "Curativo",
+          "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+          "link": "https://google.com"
+        },
+        {
+          "id": 4,
+          "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+          "name": "ATRAUMAN AG",
+          "type": "Curativo",
+          "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+          "link": "https://google.com"
+        }
+      ]
+    },
+    "infosBanners": [
+      {
+        "id": 0,
+        "src": "https://i.postimg.cc/DfBRpsWb/Frame-3.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 1,
+        "src": "https://i.postimg.cc/44j42rHc/Frame-4.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 2,
+        "src": "https://i.postimg.cc/rmL3tNDK/Group-481590.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 3,
+        "src": "https://i.postimg.cc/hG4pFZQ8/Group-481591.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 4,
+        "src": "https://i.postimg.cc/4yv9xZrY/Frame-7.png",
+        "alt": "teste-alt"
+      }
+    ],
+    "topProducts": [
+      {
+        "id": 0,
+        "type": "Nutrição",
+        "list": [
+          {
+            "id": 0,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 1,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 2,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 3,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 4,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": "Endoscopia",
+        "list": [
+          {
+            "id": 0,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 1,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 2,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 3,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 4,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": "Saneantes",
+        "list": [
+          {
+            "id": 0,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 1,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 2,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 3,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          },
+          {
+            "id": 4,
+            "img": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+            "name": "ATRAUMAN AG",
+            "type": "Curativo",
+            "description": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+            "link": "https://google.com"
+          }
+        ]
+      }
+    ],
+    "clients": [
+      {
+        "id": 0,
+        "src": "https://i.postimg.cc/ZnkYCFws/Design-sem-nome-34-3.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 1,
+        "src": "https://i.postimg.cc/mDjVr8ZB/Design-sem-nome-23-3.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 2,
+        "src": "https://i.postimg.cc/3wSF5Wtx/Design-sem-nome-13-3.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 3,
+        "src": "https://i.postimg.cc/bNgGFWCz/Design-sem-nome-12-3.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 4,
+        "src": "https://i.postimg.cc/0NY1VRnn/Group-122.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 5,
+        "src": "https://i.postimg.cc/htpKnqTG/Sandoz-Logo-Sandoz-Blue-RGB-2.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 6,
+        "src": "https://i.postimg.cc/hG21WMSm/Design-sem-nome-26-3.png",
+        "alt": "teste-alt"
+      },
+      {
+        "id": 7,
+        "src": "https://i.postimg.cc/k5HwRwkm/logo-sol-millennium-2.png",
+        "alt": "teste-alt"
+      }
+    ],
+    "banner": {
+      "src": "https://i.postimg.cc/cLc6W2tK/Property-1-Frame-55.png",
+      "alt": "teste-alt"
+    }
+  }
+}
+

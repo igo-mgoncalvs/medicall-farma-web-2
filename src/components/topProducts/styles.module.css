@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 46px;
+  margin-top: 42px;
+}
+
+.top {
+  color: var(--blue-700);
+  font-weight: 900;
+}
+
+.title {
+  display: flex;
+  font-weight: 600;
+  font-size: 12px;
+  gap: 4px;
+}
+
+.type {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.line {
+  display: block;
+  background-image: linear-gradient(to right, #fff, #1A88FF);
+  height: 3px;
+  margin-top: 4px;
+}
+
+.products_container {
+  display: flex;
+  gap: 12px
+}

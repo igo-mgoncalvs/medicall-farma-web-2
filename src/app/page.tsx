@@ -1,95 +1,116 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+'use client';
+
 import styles from "./page.module.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import homeJson from '@/mockdata/home.json'
+
+import 'swiper/css';
+import Product from "@/components/product/product";
+import InfoBanners from "@/components/infosBanners/infosBanners";
+import TopProducts from "@/components/topProducts/topProducts";
+import MainClientsSuppliers from "@/components/mainClientsSuppliers/mainClientsSuppliers";
+import Catalog from "@/components/catalog/catalog";
+
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+      >
+        {homeJson.data.banners.map((item) => (
+          <SwiperSlide
+            key={item.id}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <img
+              src={item.src}
+              alt={item.description}
+              width={10}
+              height={10}
+              className={styles.banner}
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <div
+        className={styles.product_emphasis_main}
+      >
+        <div
+          className={styles.product_emphasis_text}
+        >
+          <p
+            className={styles.product_emphasis_title}
           >
-            Read our docs
-          </a>
+            {homeJson.data.emphasis_section.title}
+          </p>
+
+          <div className={styles.line} />
+          <p
+            className={styles.product_emphasis_description}
+          >
+            {homeJson.data.emphasis_section.description}
+          </p>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        <div
+          className={styles.product_emphasis_section}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+          {homeJson.data.emphasis_section.list.map(item => (
+            <Product
+              key={item.id}
+              product={item}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={styles.banners_container}
+      >
+        <InfoBanners banners={homeJson.data.infosBanners}/>
+      </div>
+
+      <div
+        className={styles.top_products_containers}
+      >
+        {homeJson.data.topProducts.map((item) => (
+          <TopProducts
+            key={item.id}
+            products={item.list}
+            type={item.type}
           />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        ))}
+      </div>
+
+      <MainClientsSuppliers
+        list={homeJson.data.clients}
+        type="clients"
+      />
+
+      <img
+        src={homeJson.data.banner.src}
+        alt={homeJson.data.banner.alt}
+        width={10}
+        height={10}
+        className={styles.banner}
+      />
+
+      <MainClientsSuppliers
+        list={homeJson.data.clients}
+        type='suppliers'
+      />
+
+      <Catalog />
     </div>
   );
 }

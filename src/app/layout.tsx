@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Mr_Dafoe } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/footer/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  display: 'swap',
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const mrDafoe = Mr_Dafoe({
+  variable: "--font-mrDafoe",
+  weight: "400",
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,8 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${montserrat.variable} ${mrDafoe.variable}`}>
         {children}
+
+        <Footer />
       </body>
     </html>
   );

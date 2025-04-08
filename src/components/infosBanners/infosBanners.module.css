@@ -1,0 +1,20 @@
+.container {
+  background-color: var(--gray-600);
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 44px;
+  border-radius: 54px;
+}
+
+.first_banners_container { 
+  display: flex;
+  gap: 16px
+}
+
+.second_banners_top {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
