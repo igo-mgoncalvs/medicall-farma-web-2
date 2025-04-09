@@ -1,0 +1,52 @@
+{
+  "data": {
+    "wellcome": {
+      "tilte": "Bem vindo a Medicall Farma",
+      "description": "Os melhores produtos e equipamentos hospitalares estão aqui! ",
+      "background": "https://i.postimg.cc/DZJnPh0f/Group-481593-1.png"
+    },
+    "aboutUs": {
+      "title": "Sobre nós",
+      "text": "Há mais de 16 anos, estamos envolvidos no cenário de vendas e distribuição de materiais médicos e medicamentos hospitalares em todo o estado de São Paulo. \n\n Asseguramos a melhor experiência desde o primeiro contato, oferecendo uma variedade de produtos de marcas renomadas, tanto nacionais quanto internacionais. \n\n Garantimos agilidade e pontualidade nas entregas por meio de um processo operacional de qualidade rigoroso.",
+      "button": "Entrar em contato",
+      "buttonLink": "https://google.com",
+      "image": "https://i.postimg.cc/K8hhwYrC/Group-481594.png",
+      "alt": "teste-alt"
+    },
+    "units": {
+      "mainTitle": "Unidades",
+      "title": "Medicall Farma",
+      "image": "https://i.postimg.cc/rmKbZdz6/Group-481595.png",
+      "alt": "teste-alt",
+      "list": [
+        {
+          "id": 0,
+          "title": "São Paulo",
+          "description": "Nossa unidade em São Paulo está localizada em um polo estratégico, o que nos permite atender com agilidade uma ampla rede de hospitais, clínicas e profissionais da área da saúde. Contamos com uma estrutura moderna e logística eficiente, além de uma equipe especializada pronta para oferecer suporte técnico e comercial."
+        },
+        {
+          "id": 1,
+          "title": "Minas Gerais",
+          "description": "Em Minas Gerais, atendemos à crescente demanda do mercado de saúde com excelência e proximidade. Nossa unidade conta com infraestrutura moderna, logística eficiente e uma equipe comprometida, garantindo soluções ágeis e produtos hospitalares de alta qualidade. Nosso foco é construir parcerias de confiança e contribuir para a melhoria da saúde na região."
+        }
+      ]
+    },
+    "team": {
+      "title": "Nossa Equipe",
+      "description": "Nosso time Medicall Farma de colaboradores continua crescendo, agora com mais de 50 pessoas dedicadas. \n\n Juntos, trabalhamos buscando constantemente a excelência para proporcionar a melhor experiência possível aos nossos clientes.",
+      "image": "https://i.postimg.cc/7hW9dXGw/Group-481596.png",
+      "alt": "teste-alt"
+    },
+    "space": {
+      "title": "Nosso Espaço",
+      "description": "Nossa sede está localizada em um edifício de três andares, onde contamos com um galpão para o armazenamento de produtos e uma equipe de logística qualificada. \n\n Os dois primeiros andares são reservados para as áreas administrativas, abrangendo setores como licitação, finanças, vendas, fiscal, compras e comércio exterior. \n\n Nosso espaço empresarial é o cenário onde ideias ganham vida, as conexões se fortalecem e o trabalho ganha significado.",
+      "list": [
+        {
+          "id": 0,
+          "alt": "teste-alt",
+          "src": "https://i.postimg.cc/prQhnJzR/Component-espa-o.png"
+        }
+      ]
+    }
+  }
+}

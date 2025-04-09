@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "menu": "CURATIVOS"
+    },
+    {
+      "id": 1,
+      "menu": "ENDOSCOPIA"
+    },
+    {
+      "id": 2,
+      "menu": "LIMPEZA E DESINFECÇÃO"
+    },
+    {
+      "id": 3,
+      "menu": "PRODUTOS PARA SAÚDE"
+    },
+    {
+      "id": 4,
+      "menu": "NUTRIÇÃO"
+    }
+  ]
+}

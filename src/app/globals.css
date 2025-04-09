@@ -11,11 +11,16 @@
 
   --dark-blue-700: #00254F;
 
+  --gray-550: #EFEFEF;
   --gray-600: #F3F3F3;
   --gray-700: #9A9A9A;
+  --gray-800: #686868;
   --gray-900: #838383;
 
   --green-600: #2DB40F;
+
+  --blue-linear-gradient: linear-gradient(181.11deg, #0077FF 6.16%, #005DC7 99.13%);
+
 }
 
 @media (prefers-color-scheme: white) {

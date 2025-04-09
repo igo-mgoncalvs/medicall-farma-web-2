@@ -1,0 +1,26 @@
+.searchBar_container {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 35px;
+  border: 1px solid #A6A6A6;
+  width: 35%;
+}
+
+.searchBar_container input {
+  font-size: 14px;
+  outline: none;
+  border-radius: 35px;
+  padding: 12px 38px;
+  border: none;
+  width: 100%;
+}
+
+.button {
+  background-color: var(--blue-600);
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}

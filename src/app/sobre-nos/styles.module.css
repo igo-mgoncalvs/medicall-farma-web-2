@@ -1,0 +1,153 @@
+.wellcome_container {
+  color: var(--white);
+  height: 510px;
+  padding-left: 180px;
+}
+
+.wellcome_title {
+  font-size: 60px;
+  font-weight: 600;
+  max-width: 40%;
+  padding-top: 100px;
+}
+
+.wellcome_description {
+  font-size: 22px;
+  font-weight: 400;
+  max-width: 35%;
+}
+
+.aboutUs_container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.aboutUs_info_container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.aboutUs_title_shadow {
+  font-family: var(--font-mrDafoe);
+  font-size: 63px;
+  color: var(--gray-550);
+}
+
+.aboutUs_title {
+  font-size: 42px;
+  font-weight: 600;
+  position: relative;
+  top: -25px
+}
+
+.aboutUs_text {
+  color: var(--gray-900);
+  font-size: 20px;
+}
+
+.aboutUs_button {
+  background-image: var(--blue-linear-gradient);
+  font-size: 18px;
+  color: var(--white);
+  padding: 20px 60px;
+  border-radius: 32px;
+  margin-right: auto;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.units_container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
+.units_infos_container {
+  width: 40%;
+}
+
+.units_mainTitle {
+  background-color: var(--blue-600);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 42px;
+  width: fit-content;
+}
+
+.units_title {
+  font-weight: 600;
+  font-size: 42px;
+  margin-bottom: 40px;
+}
+
+.units_list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.units_list_title {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--dark-blue-700)
+}
+
+.units_list_description {
+  color: var(--gray-900);
+  margin-top: 12px;
+}
+
+.team_container {
+  display: flex;
+}
+
+.team_infos_container {
+  width: 40%;
+  color: var(--gray-900);
+}
+
+.team_infos_title_shadow {
+  font-family: var(--font-mrDafoe);
+  font-size: 63px;
+  color: var(--gray-550);
+}
+
+.team_title_shadow {
+  font-family: var(--font-mrDafoe);
+  font-size: 63px;
+  color: var(--gray-550);
+}
+
+.team_title {
+  font-size: 42px;
+  font-weight: 600;
+  position: relative;
+  color: var(--blue-600);
+  top: -25px
+}
+
+.space_container {
+  display: flex;
+  justify-content: space-around;
+  color: var(--gray-900);
+}
+
+.space_infos_container {
+  width: 40%;
+}
+
+.space_title_shadow {
+  font-family: var(--font-mrDafoe);
+  font-size: 63px;
+  color: var(--gray-550);
+}
+
+.space_title {
+  font-size: 42px;
+  font-weight: 600;
+  position: relative;
+  color: var(--blue-600);
+  top: -25px
+}
