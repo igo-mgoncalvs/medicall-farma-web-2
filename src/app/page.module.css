@@ -46,10 +46,14 @@
 .banners_container {
   display: flex;
   justify-content: center;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .top_products_containers {
   display: flex;
   flex-direction: column;
-  gap: 50px
+  gap: 50px;
+  max-width: 1400px;
+  margin: auto;
 }

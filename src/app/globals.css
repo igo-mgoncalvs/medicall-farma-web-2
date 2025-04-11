@@ -60,3 +60,14 @@ a {
     color-scheme: white;
   }
 }
+
+.header {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  background-color: var(--white);
+}
+
+.children {
+  margin-top: 197px;
+}

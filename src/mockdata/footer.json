@@ -27,12 +27,12 @@
       {
         "id": 0,
         "title": "Nosso endereço SP",
-        "address": "R. João Abrantes de Carvalho, 263 Jardim Nilza Miranda, Mauá - SP, 09341-510"
+        "address": "R. João Abrantes de Carvalho, 263\n Jardim Nilza Miranda, Mauá - SP, 09341-510"
       },
       {
         "id": 1,
         "title": "Nosso endereço MG",
-        "address": "R. João Abrantes de Carvalho, 263 Jardim Nilza Miranda, Mauá - SP, 09341-510"
+        "address": "R. João Abrantes de Carvalho, 263\n Jardim Nilza Miranda, Mauá - SP, 09341-510"
       }
     ],
     "social": {

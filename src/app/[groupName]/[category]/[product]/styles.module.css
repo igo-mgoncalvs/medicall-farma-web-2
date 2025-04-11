@@ -2,16 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .container {
   background-color: var(--gray-600);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border-radius: 20px;
   padding: 20px;
-  width: min-content;
+  width: 100%;
   padding-right: 48px;
   margin-top: 66px;
   margin-bottom: 66px;

@@ -7,6 +7,7 @@ import arrow from '@/assets/arrow.svg'
 import styles from './style.module.css'
 
 import footerJson from '@/mockdata/footer.json'
+import BreakLine from "@/components/breakLine/breakLine";
 
 export default function MedicallInfos () {
   return (
@@ -64,7 +65,7 @@ export default function MedicallInfos () {
               key={item.id}
             >
               <p className={styles.address_title}>{item.title}</p>
-              <p>{item.address}</p>
+              <p>{BreakLine(item.address)}</p>
             </div>
           ))}
         </div>

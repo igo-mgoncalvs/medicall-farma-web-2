@@ -1,13 +1,15 @@
 .main {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-bottom: 60px;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .infos {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 50%;
   color: var(--gray-900);
   font-size: 18px;
   gap: 22px;

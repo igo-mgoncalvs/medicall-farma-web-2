@@ -12,37 +12,45 @@ export default function Header () {
   return (
     <div>
       <div
-        className={styles.main}
+        className={styles.main_container}
       >
-        <Image
-          src={logo}
-          alt='teste-alt'
-        />
-
-        <SearchBar />
-
         <div
-          className={styles.links}
+          className={styles.main}
         >
-          <a>
-            Institucional
-          </a>
-          <a>
-            Fale conosco
-          </a>
+          <Image
+            src={logo}
+            alt='teste-alt'
+          />
+
+          <SearchBar />
+
+          <div
+            className={styles.links}
+          >
+            <a>
+              Institucional
+            </a>
+            <a>
+              Fale conosco
+            </a>
+          </div>
         </div>
       </div>
 
       <div
-        className={styles.menus}
+        className={styles.menus_container}
       >
-        {productsJson.data.map((item) => (
-          <p
-            key={item.id}
-          >
-            {item.menu}
-          </p>
-        ))}
+        <div
+          className={styles.menus}
+        >
+          {productsJson.data.map((item) => (
+            <p
+              key={item.id}
+            >
+              {item.menu}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   )

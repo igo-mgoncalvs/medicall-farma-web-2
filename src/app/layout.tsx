@@ -28,11 +28,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} ${mrDafoe.variable}`}>
-        <Header />
+        <div
+          className="header"
+        >
+          <Header />
+        </div>
 
-        {children}
+        <div
+          className="children"
+        >
+          {children}
+        </div>
 
-        <Footer />
+        <div
+          className="footer"
+        >
+          <Footer />
+        </div>
       </body>
     </html>
   );
