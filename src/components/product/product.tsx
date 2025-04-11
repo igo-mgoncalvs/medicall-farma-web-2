@@ -5,23 +5,36 @@ import styles from "./product.module.css"
 
 export interface IProduct {
   id: number
-  img: string,
-  name: string,
-  type: string,
-  description: string,
+  name: string
+  description: string
   link: string
+  shortDescription: string
+  contactLink: string
+  groupName: string
+  images: {
+    id: number
+    src: string
+    alt: string
+    isMain: boolean
+  }[],
+  sizes: {
+    id: number
+    size: string
+  }[]
 }
 
 export default function Product ({
   product
 }: { product: IProduct }) {
-  return (
+  const findProduct = product.images?.find((p) => p.isMain)
+
+  return findProduct && (
     <div
       className={styles.container}
     >
       <img
-        src={product.img}
-        alt="teste-image"
+        src={findProduct.src}
+        alt={findProduct.alt}
       />
 
       <div>
@@ -33,7 +46,7 @@ export default function Product ({
         <p
           className={styles.product_type}
         >
-          {product.type}
+          {product.groupName}
         </p>
       </div>
 
@@ -43,7 +56,7 @@ export default function Product ({
         <p
           className={styles.product_description}
         >
-          {product.description}
+          {product.shortDescription}
         </p>
         <a
           className={styles.product_button}

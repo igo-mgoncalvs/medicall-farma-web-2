@@ -14,6 +14,7 @@
 
 .title {
   display: flex;
+  justify-content: center;
   font-weight: 600;
   font-size: 12px;
   gap: 4px;
