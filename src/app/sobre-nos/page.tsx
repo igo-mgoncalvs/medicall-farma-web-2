@@ -5,15 +5,18 @@ import aboutUsJson from '@/mockdata/aboutUs.json'
 
 import styles from './styles.module.css'
 import BreakLine from '@/components/breakLine/breakLine'
+import useWindowSize from '@/hooks/useWindowSize'
 
 export default function AboutUs () {
+  const size = useWindowSize()
+
   return (
     <div>
       <div
         style={{
-          backgroundImage: `url(${aboutUsJson.data.wellcome.background})`,
+          backgroundImage: `url(${size.width > 426 ? aboutUsJson.data.wellcome.background : aboutUsJson.data.wellcome.backgroundMobile})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover'
+          backgroundSize: 'contain'
         }}
         className={styles.wellcome_container}
       >
@@ -24,6 +27,13 @@ export default function AboutUs () {
       <div
         className={styles.aboutUs_container}
       >
+          <a
+            href={aboutUsJson.data.aboutUs.buttonLink}
+            className={styles.aboutUs_button_mobile}
+          >
+            {aboutUsJson.data.aboutUs.button}
+          </a>
+        
         <img
           src={aboutUsJson.data.aboutUs.image}
           alt={aboutUsJson.data.aboutUs.alt}
@@ -84,6 +94,7 @@ export default function AboutUs () {
         <img
           alt={aboutUsJson.data.units.alt}
           src={aboutUsJson.data.units.image}
+          className={styles.units_image}
         />
       </div>
 
@@ -118,7 +129,7 @@ export default function AboutUs () {
             <p className={styles.space_title}>{aboutUsJson.data.space.title}</p>
           </div>
           
-          <p>{BreakLine(aboutUsJson.data.space.description)}</p>
+          <p className={styles.space_description}>{BreakLine(aboutUsJson.data.space.description)}</p>
         </div>
 
         {aboutUsJson.data.space.list.map((item) => (

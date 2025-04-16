@@ -3,7 +3,8 @@
     "wellcome": {
       "tilte": "Bem vindo a Medicall Farma",
       "description": "Os melhores produtos e equipamentos hospitalares estão aqui! ",
-      "background": "https://i.postimg.cc/DZJnPh0f/Group-481593-1.png"
+      "background": "https://i.postimg.cc/DZJnPh0f/Group-481593-1.png",
+      "backgroundMobile": "https://i.postimg.cc/Bnw8y2WJ/Group-481591-1.png"
     },
     "aboutUs": {
       "title": "Sobre nós",
