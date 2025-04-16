@@ -1,0 +1,54 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+
+.social_title {
+  font-weight: bold;
+  font-size: 17px;
+  color: var(--white);
+  text-align: center;
+}
+
+.social_images {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social_image {
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+  padding: 8px;
+  border-radius: 100%;
+  width: 42px;
+  height: 42px;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  gap: 20px
+}
+
+.contact_container {
+  color: var(--white);
+  text-align: center;
+  font-weight: 500;
+}
+
+.contact_title {
+  font-weight: bold;
+}
+
+.sac_title {
+  font-weight: bold;
+}
+
+.sac_container {
+  color: var(--white);
+  text-align: center;
+  font-weight: 500;
+}

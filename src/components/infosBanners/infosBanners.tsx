@@ -19,10 +19,12 @@ export default function InfoBanners ({ banners }: { banners: IInfosBanners[] }) 
         <img
           src={banners[0].src}
           alt={banners[0].alt}
+          className={styles.banners}
         />
         <img
           src={banners[1].src}
           alt={banners[1].alt}
+          className={styles.banners}
         />
       </div>
 

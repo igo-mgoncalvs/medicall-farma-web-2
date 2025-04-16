@@ -35,13 +35,16 @@ export default function MedicallInfos () {
               <Image
                 src={arrow}
                 alt="teste-alt"
+                className={styles.arrow}
               />
               <p>{item.label}</p>
             </a>
           ))}
         </div>
 
-        <div>
+        <div
+          className={styles.sac_container}
+        >
           <p className={styles.sac_title}>
             {footerJson.data.sac.title}
           </p>
@@ -88,7 +91,9 @@ export default function MedicallInfos () {
           </div>
         </div>
 
-        <div>
+        <div
+          className={styles.contact_container}
+        >
           <p
             className={styles.contact_title}
           >

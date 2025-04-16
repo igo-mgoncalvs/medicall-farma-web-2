@@ -32,6 +32,8 @@ export default function Catalog () {
         className={styles.image}
       />
 
+      <a className={styles.buttonMobile}>Baixar</a>
+
     </div>
   )
 }

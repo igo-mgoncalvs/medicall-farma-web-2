@@ -42,6 +42,12 @@ export default function MainClientsSuppliers ({ list, type }: { list: IListImage
           spaceBetween={50}
           slidesPerView={4}
           modules={[Autoplay]}
+          breakpoints={{
+            1: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            }
+          }}
           autoplay={{
             delay: 2000,
             disableOnInteraction: false,

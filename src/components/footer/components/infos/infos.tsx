@@ -16,6 +16,7 @@ export default function Infos () {
       <Image
         src={map}
         alt='teste-alt'
+        className={styles.image}
       />
     </div>
   )

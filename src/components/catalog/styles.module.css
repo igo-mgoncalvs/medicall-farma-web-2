@@ -48,3 +48,49 @@
   width: 450px;
   height: auto;
 }
+
+@media (max-width: 426px) {
+  .main {
+    flex-direction: column;
+    padding: 43px;
+    gap: 20px;
+    background-image: url('https://i.postimg.cc/CxRxfsS3/Frame-8.png');
+    background-size: contain;
+  }
+
+  .infos {
+    margin: 0;
+    width: auto;
+  }
+
+  .title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .button {
+    display: none;
+  }
+
+  .decription {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .image {
+    width: 250px;
+    margin: auto;
+  }
+
+  .buttonMobile {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue-600);
+    background-color: var(--white);
+    padding: 14px 60px;
+    border-radius: 34px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
