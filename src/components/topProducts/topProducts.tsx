@@ -1,15 +1,32 @@
 'use client'
 
+import { useEffect, useState } from "react"
 import Product, { IProduct } from "../product/product"
 
 import styles from './styles.module.css'
 
-interface ITopProducts {
-  type: string,
+interface ICategories {
+  id: number
+  categoryName: string
+  categoryLink: string
   products: IProduct[]
 }
 
-export default function TopProducts ({ products, type }: ITopProducts) {
+
+export default function TopProducts ({categories, groupName}: {categories: ICategories[], groupName: string}) {
+  const [products, setProducts] = useState<IProduct[]>([])
+  
+  useEffect(() => {
+    const list: IProduct[] = []
+
+    categories.forEach((category) => {
+      list.push(...category.products)
+    })
+    
+    setProducts(list)
+  }, [categories])
+
+
   return (
     <div
       className={styles.main}
@@ -26,7 +43,7 @@ export default function TopProducts ({ products, type }: ITopProducts) {
         <p
           className={styles.type}
         >
-          {type}
+          {groupName}
         </p>
 
         <div className={styles.line} />

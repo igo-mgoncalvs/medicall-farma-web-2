@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import homeJson from '@/mockdata/home.json'
+import productsJson from '@/mockdata/products.json'
 
 import 'swiper/css';
 import Product from "@/components/product/product";
@@ -16,6 +17,8 @@ import Catalog from "@/components/catalog/catalog";
 
 
 export default function Home() {
+  const topGroups = productsJson.groups.filter((group) => group.isTop)
+
   return (
     <div className={styles.page}>
       <Swiper
@@ -83,12 +86,14 @@ export default function Home() {
       <div
         className={styles.top_products_containers}
       >
-        {homeJson.data.topProducts.map((item) => (
-          <TopProducts
-            key={item.id}
-            products={item.list}
-            type={item.type}
-          />
+        {topGroups.map((item) => (
+          <>
+            <TopProducts
+              key={item.id}
+              categories={item.categories.filter((category) => category.products.find((product) => product.isTop))}
+              groupName={item.groupName}
+            />
+          </>
         ))}
       </div>
 
