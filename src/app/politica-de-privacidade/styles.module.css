@@ -19,3 +19,21 @@
   margin-top: 52px;
   text-align: justify;
 }
+
+@media (max-width: 426px) {
+  .main {
+    flex-direction: column;
+    padding: 24px;
+    gap: 29px
+  }
+
+  .title {
+    font-size: 21px;
+  }
+
+  .text {
+    font-size: 12px;
+    margin-top: 21px;
+    font-weight: 500;
+  }
+}
