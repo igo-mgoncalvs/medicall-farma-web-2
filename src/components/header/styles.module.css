@@ -31,3 +31,29 @@
   max-width: 1400px;
   margin: auto;
 }
+
+@media (max-width: 426px) {
+  .main {
+    padding-bottom: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .logo {
+    width: 40vw;
+    padding-left: 23px;
+    margin-right: auto;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .menus_container {
+    display: none;
+  }
+
+  .main_container {
+    border-bottom: none;
+  }
+}

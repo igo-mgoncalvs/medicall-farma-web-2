@@ -24,3 +24,10 @@
   align-items: center;
   padding: 12px;
 }
+
+
+@media (max-width: 426px) {
+  .searchBar_container {
+    display: none
+  }
+}

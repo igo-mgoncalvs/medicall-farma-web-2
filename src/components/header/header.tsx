@@ -1,6 +1,9 @@
 'use client'
 
 import logo from '@/assets/logo.svg'
+import menuMobile from '@/assets/menuMobile.svg'
+import searchMobile from '@/assets/searchMobile.svg'
+
 import Image from 'next/image'
 
 import styles from './styles.module.css'
@@ -18,7 +21,18 @@ export default function Header () {
           className={styles.main}
         >
           <Image
+            src={menuMobile}
+            alt='teste-alt'
+          />
+
+          <Image
             src={logo}
+            alt='teste-alt'
+            className={styles.logo}
+          />
+
+          <Image
+            src={searchMobile}
             alt='teste-alt'
           />
 

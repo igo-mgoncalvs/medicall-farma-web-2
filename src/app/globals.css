@@ -71,3 +71,9 @@ a {
 .children {
   margin-top: 197px;
 }
+
+@media (max-width: 426px) {
+  .children {
+    margin-top: 100px;
+  }
+}
