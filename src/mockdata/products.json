@@ -100,6 +100,186 @@
                   "size": "10x20 cm"
                 }
               ]
+            },
+            {
+              "id": 2,
+              "name": "ATRAUMAN AG",
+              "isTop": false,
+              "link": "/curativos/tratamentos-de-feridas/atrauman-ag",
+              "shortDescription": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+              "description": "Atrauman Ag é uma cobertura não aderente revestida em prata metálica, que possui ação antimicrobiana e está impregnada com uma substância neutra à base de triglicerídeos de cadeira média. \n\nComposta por material fino, macio e maleável, que garante um bom contato com o leito da ferida e impede que a cobertura faça aderência à ferida e consequentemente sua remoção é atraumática.",
+              "contactLink": "https://google.com",
+              "groupName": "Curativos",
+              "images": [
+                {
+                  "id": 0,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": true
+                },
+                {
+                  "id": 1,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": false
+                },
+                {
+                  "id": 2,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": false
+                }
+              ],
+              
+              "sizes": [
+                {
+                  "id": 0,
+                  "size": "10x10 cm"
+                },
+                {
+                  "id": 1,
+                  "size": "5x5 cm"
+                },
+                {
+                  "id": 2,
+                  "size": "10x20 cm"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "ATRAUMAN AG",
+              "isTop": false,
+              "link": "/curativos/tratamentos-de-feridas/atrauman-ag",
+              "shortDescription": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+              "description": "Atrauman Ag é uma cobertura não aderente revestida em prata metálica, que possui ação antimicrobiana e está impregnada com uma substância neutra à base de triglicerídeos de cadeira média. \n\nComposta por material fino, macio e maleável, que garante um bom contato com o leito da ferida e impede que a cobertura faça aderência à ferida e consequentemente sua remoção é atraumática.",
+              "contactLink": "https://google.com",
+              "groupName": "Curativos",
+              "images": [
+                {
+                  "id": 0,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": true
+                },
+                {
+                  "id": 1,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": false
+                },
+                {
+                  "id": 2,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": false
+                }
+              ],
+              
+              "sizes": [
+                {
+                  "id": 0,
+                  "size": "10x10 cm"
+                },
+                {
+                  "id": 1,
+                  "size": "5x5 cm"
+                },
+                {
+                  "id": 2,
+                  "size": "10x20 cm"
+                }
+              ]
+            },
+            {
+              "id": 4,
+              "name": "ATRAUMAN AG",
+              "isTop": false,
+              "link": "/curativos/tratamentos-de-feridas/atrauman-ag",
+              "shortDescription": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+              "description": "Atrauman Ag é uma cobertura não aderente revestida em prata metálica, que possui ação antimicrobiana e está impregnada com uma substância neutra à base de triglicerídeos de cadeira média. \n\nComposta por material fino, macio e maleável, que garante um bom contato com o leito da ferida e impede que a cobertura faça aderência à ferida e consequentemente sua remoção é atraumática.",
+              "contactLink": "https://google.com",
+              "groupName": "Curativos",
+              "images": [
+                {
+                  "id": 0,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": true
+                },
+                {
+                  "id": 1,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": false
+                },
+                {
+                  "id": 2,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": false
+                }
+              ],
+              
+              "sizes": [
+                {
+                  "id": 0,
+                  "size": "10x10 cm"
+                },
+                {
+                  "id": 1,
+                  "size": "5x5 cm"
+                },
+                {
+                  "id": 2,
+                  "size": "10x20 cm"
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "name": "ATRAUMAN AG",
+              "isTop": false,
+              "link": "/curativos/tratamentos-de-feridas/atrauman-ag",
+              "shortDescription": "Usado para prevenção de feridas, em pacientes idosos e com baixa mobilidade.",
+              "description": "Atrauman Ag é uma cobertura não aderente revestida em prata metálica, que possui ação antimicrobiana e está impregnada com uma substância neutra à base de triglicerídeos de cadeira média. \n\nComposta por material fino, macio e maleável, que garante um bom contato com o leito da ferida e impede que a cobertura faça aderência à ferida e consequentemente sua remoção é atraumática.",
+              "contactLink": "https://google.com",
+              "groupName": "Curativos",
+              "images": [
+                {
+                  "id": 0,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": true
+                },
+                {
+                  "id": 1,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": false
+                },
+                {
+                  "id": 2,
+                  "src": "https://i.postimg.cc/8zQSKqMr/Mask-group.png",
+                  "alt": "teste-alt",
+                  "isMain": false
+                }
+              ],
+              
+              "sizes": [
+                {
+                  "id": 0,
+                  "size": "10x10 cm"
+                },
+                {
+                  "id": 1,
+                  "size": "5x5 cm"
+                },
+                {
+                  "id": 2,
+                  "size": "10x20 cm"
+                }
+              ]
             }
           ]
         },

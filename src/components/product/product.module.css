@@ -36,3 +36,37 @@
   padding: 6px 0;
   border-radius: 6px;
 }
+
+@media (max-width: 426px) {
+  .product_name {
+    font-size: 11px;
+  }
+  
+  .product_type {
+    font-size: 11px;
+  }
+
+  .container {
+    width: 180px;
+    
+  }
+  
+  .image {
+    width: 145px;
+    margin-bottom: 8px;
+  }
+
+  .product_infos_container {
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .product_description {
+    font-size: 8px;
+  }
+
+  .product_button {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+}

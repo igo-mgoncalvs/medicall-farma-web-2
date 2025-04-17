@@ -35,6 +35,7 @@ export default function Product ({
       <img
         src={findProduct.src}
         alt={findProduct.alt}
+        className={styles.image}
       />
 
       <div>
