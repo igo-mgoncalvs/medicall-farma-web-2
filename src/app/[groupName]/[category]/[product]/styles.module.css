@@ -104,3 +104,66 @@
   padding: 12px 57px;
   border-radius: 100px;
 }
+
+@media (max-width: 426px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 24px;
+  }
+  
+  .images_container {
+    display: flex;
+    gap: 50px
+  }
+
+  .main_image_container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .product_image_detail_container {
+    width: 70px;
+    height: 70px;
+  }
+
+  .product_image_detail {
+    width: 80%;
+  }
+
+  .product_infos_container {
+    width: 100%;
+  }
+
+  .product_infos_texts {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 16px
+  }
+
+  .product_name {
+    font-size: 16px;
+  }
+
+  .product_description {
+    font-size: 12px;
+  }
+
+  .sizes_title {
+    font-size: 16px;
+  }
+
+  .size {
+    font-size: 12px;
+  }
+
+  .contact {
+    font-size: 12px;
+    padding: 8px;
+    width: 100%;
+  }
+
+  .whatsapp_icon {
+    width: 15px;
+  }
+}

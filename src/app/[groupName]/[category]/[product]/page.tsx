@@ -25,52 +25,60 @@ export default function ProductPage ({
       <div
         className={styles.container}
       >
-        <div
-          className={styles.products_images}
-        >
-          {product.images.map((item) => (
-            <div
-              className={styles.product_image_detail_container}
-              key={item.id}
-              >
-              <img
-                className={styles.product_image_detail}
-                alt={item.alt}
-                src={item.src}
-              />
-            </div>
-          ))}
-        </div>
+        <div className={styles.images_container}>
+          <div
+            className={styles.products_images}
+          >
+            {product.images.map((item) => (
+              <div
+                className={styles.product_image_detail_container}
+                key={item.id}
+                >
+                <img
+                  className={styles.product_image_detail}
+                  alt={item.alt}
+                  src={item.src}
+                />
+              </div>
+            ))}
+          </div>
 
-          
-        <img
-          alt={product.images?.find((image) => image.isMain)?.alt}
-          src={product.images?.find((image) => image.isMain)?.src}
-          className={styles.main_image_container}
-        />
+            
+          <img
+            alt={product.images?.find((image) => image.isMain)?.alt}
+            src={product.images?.find((image) => image.isMain)?.src}
+            className={styles.main_image_container}
+          />
+        </div>
 
         <div
           className={styles.product_infos_container}
         >
-          <p className={styles.product_name}>{product.name}</p>
-          <p>{BreakLine(product.description)}</p>
-
-          {product.sizes.length > 0 && (
-            <div className={styles.sizes_container}>
-              <p className={styles.sizes_title}>Tamanho</p>
-
-              <div className={styles.sizes}>
-                {product.sizes.map((size) => (
-                  <p
-                    key={size.id}
-                    className={styles.size}
-                  >
-                    {size.size}
-                  </p>
-                ))}
-              </div>
+          <div
+            className={styles.product_infos_texts}
+          >
+            <div>
+              <p className={styles.product_name}>{product.name}</p>
+              <p className={styles.product_description}>{BreakLine(product.description)}</p>
             </div>
-          )}
+
+            {product.sizes.length > 0 && (
+              <div className={styles.sizes_container}>
+                <p className={styles.sizes_title}>Tamanho</p>
+
+                <div className={styles.sizes}>
+                  {product.sizes.map((size) => (
+                    <p
+                      key={size.id}
+                      className={styles.size}
+                    >
+                      {size.size}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
 
           <a
             className={styles.contact_container}
@@ -87,6 +95,7 @@ export default function ProductPage ({
               <Image
                 alt='teste-alt'
                 src={whatsappIcon}
+                className={styles.whatsapp_icon}
               />
 
               <p>Solicitar cotação</p>
