@@ -20,11 +20,12 @@
   text-align: justify;
 }
 
-@media (max-width: 426px) {
+@media (max-width: 4769px) {
   .main {
     flex-direction: column;
     padding: 24px;
-    gap: 29px
+    gap: 29px;
+    margin-top: 120px;
   }
 
   .title {
