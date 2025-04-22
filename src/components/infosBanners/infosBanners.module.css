@@ -20,11 +20,13 @@
 }
 
 @media (max-width: 427px) {
-  .second_banners_container {
-    display: none;
-  }
-
   .banners {
     width: 170px;
+  }
+}
+
+@media (max-width: 769px) {
+  .second_banners_container {
+    display: none;
   }
 }

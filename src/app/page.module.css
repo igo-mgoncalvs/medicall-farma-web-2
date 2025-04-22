@@ -58,7 +58,7 @@
   margin: auto;
 }
 
-@media (max-width: 426px) {
+@media (max-width: 769px) {
   .product_emphasis_text {
     display: flex;
     flex-direction: column;

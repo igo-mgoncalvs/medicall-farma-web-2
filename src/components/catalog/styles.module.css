@@ -49,6 +49,10 @@
   height: auto;
 }
 
+.buttonMobile {
+  display: none;
+}
+
 @media (max-width: 426px) {
   .main {
     flex-direction: column;
@@ -56,30 +60,6 @@
     gap: 20px;
     background-image: url('https://i.postimg.cc/CxRxfsS3/Frame-8.png');
     background-size: contain;
-  }
-
-  .infos {
-    margin: 0;
-    width: auto;
-  }
-
-  .title {
-    font-size: 36px;
-    text-align: center;
-  }
-
-  .button {
-    display: none;
-  }
-
-  .decription {
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .image {
-    width: 250px;
-    margin: auto;
   }
 
   .buttonMobile {
@@ -92,5 +72,42 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+
+  .button {
+    display: none;
+  }
+}
+
+@media (max-width: 769px) {
+  .main {
+    padding: 43px;
+    gap: 20px;
+    background-size: contain;
+  }
+
+  .infos {
+    margin: 0;
+    gap: 0;
+    width: auto;
+  }
+
+  .title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .decription {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .image {
+    width: 250px;
+    margin: auto;
+  }
+  .button{
+    margin: auto;
+    font-size: 16px;
   }
 }

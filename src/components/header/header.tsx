@@ -23,6 +23,7 @@ export default function Header () {
           <Image
             src={menuMobile}
             alt='teste-alt'
+            className={styles.mobile_menu}
           />
 
           <Image
@@ -34,6 +35,7 @@ export default function Header () {
           <Image
             src={searchMobile}
             alt='teste-alt'
+            className={styles.search_mobile}
           />
 
           <SearchBar />

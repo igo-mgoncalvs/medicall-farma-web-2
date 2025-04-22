@@ -32,6 +32,14 @@
   margin: auto;
 }
 
+.mobile_menu {
+  display: none;
+}
+
+.search_mobile {
+  display: none;
+}
+
 @media (max-width: 426px) {
   .main {
     padding-bottom: 0;
@@ -44,15 +52,25 @@
     padding-left: 23px;
     margin-right: auto;
   }
+}
+
+@media (max-width: 768px) {
+  .mobile_menu {
+    display: block;
+  }
+
+  .search_mobile {
+    display: block;
+  }
 
   .links {
     display: none;
   }
-
+  
   .menus_container {
     display: none;
   }
-
+  
   .main_container {
     border-bottom: none;
   }
