@@ -11,14 +11,12 @@ export interface IProduct {
   shortDescription: string
   contactLink: string
   groupName: string
-  images: {
+  isTop: boolean
+  sizes: {
     id: number
     src: string
     alt: string
     isMain: boolean
-  }[],
-  sizes: {
-    id: number
     size: string
   }[]
 }
@@ -26,7 +24,7 @@ export interface IProduct {
 export default function Product ({
   product
 }: { product: IProduct }) {
-  const findProduct = product.images?.find((p) => p.isMain)
+  const findProduct = product.sizes?.find((p) => p.isMain)
 
   return findProduct && (
     <div

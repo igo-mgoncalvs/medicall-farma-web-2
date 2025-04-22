@@ -105,6 +105,12 @@
   border-radius: 100px;
 }
 
+.images_container {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+}
+
 @media (max-width: 426px) {
   .container {
     display: flex;

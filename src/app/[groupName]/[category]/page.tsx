@@ -1,17 +1,52 @@
 'use client'
 
-import Product from '@/components/product/product'
-import productsJson from '@/mockdata/products.json'
+import Product, { IProduct } from '@/components/product/product'
 
 import styles from './styles.module.css'
+import api from '@/api/axios';
+import { useEffect, useState } from 'react';
+
+export interface ICategories {
+  id: string
+  categoryName: string
+  categoryLink: string
+  products: IProduct[]
+}
+
+export interface IGroup {
+  id: string
+  groupName: string
+  groupLink: string
+  isTop: boolean
+  categories: ICategories[]
+}
 
 export default function GroupName ({
   params,
 }: {
   params: { groupName: string, category: string }
 }) {
-  const dataGroup = productsJson.groups.find((group) => group.groupLink === params.groupName)
+  const [products, setProducts] = useState<IGroup[] | undefined>()
+
+  useEffect(() => {
+    const getProductsFunction = async () => {
+      const getProducts = localStorage.getItem('products')
+
+      if(getProducts) {
+        setProducts(JSON.parse(getProducts))
+      }
+      
+      const res = await api.get('/list-all-products')
+
+      localStorage.setItem('products', JSON.stringify(res.data))
+    }
+
+    getProductsFunction()
+  }, [])
+
+  const dataGroup = products?.find((group) => group.groupLink === params.groupName)
   const dataCategory = dataGroup?.categories.find((category) => category.categoryLink === params.category)
+
 
   return (dataGroup && dataCategory) && (
     <div

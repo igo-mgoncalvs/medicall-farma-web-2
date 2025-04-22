@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import homeJson from '@/mockdata/home.json'
-import productsJson from '@/mockdata/products.json'
 
 import 'swiper/css';
 import Product from "@/components/product/product";
@@ -14,10 +13,32 @@ import InfoBanners from "@/components/infosBanners/infosBanners";
 import TopProducts from "@/components/topProducts/topProducts";
 import MainClientsSuppliers from "@/components/mainClientsSuppliers/mainClientsSuppliers";
 import Catalog from "@/components/catalog/catalog";
+import { useEffect, useState } from "react";
+import { IGroup } from "./[groupName]/[category]/page";
+import api from "@/api/axios";
 
 
 export default function Home() {
-  const topGroups = productsJson.groups.filter((group) => group.isTop)
+  const [products, setProducts] = useState<IGroup[] | undefined>()
+
+  useEffect(() => {
+    const getProductsFunction = async () => {
+      const getProducts = localStorage.getItem('products')
+
+      if(getProducts) {
+        setProducts(JSON.parse(getProducts))
+      }
+      
+      const res = await api.get('/list-all-products')
+
+      localStorage.setItem('products', JSON.stringify(res.data))
+    }
+
+    getProductsFunction()
+  }, [])
+
+  const topGroups = products?.filter((group) => group.isTop)
+
 
   return (
     <div className={styles.page}>
@@ -86,7 +107,7 @@ export default function Home() {
       <div
         className={styles.top_products_containers}
       >
-        {topGroups.map((item) => (
+        {topGroups?.map((item) => (
           <>
             <TopProducts
               key={item.id}

@@ -4,14 +4,7 @@ import { useEffect, useState } from "react"
 import Product, { IProduct } from "../product/product"
 
 import styles from './styles.module.css'
-
-interface ICategories {
-  id: number
-  categoryName: string
-  categoryLink: string
-  products: IProduct[]
-}
-
+import { ICategories } from "@/app/[groupName]/[category]/page"
 
 export default function TopProducts ({categories, groupName}: {categories: ICategories[], groupName: string}) {
   const [products, setProducts] = useState<IProduct[]>([])
@@ -25,7 +18,6 @@ export default function TopProducts ({categories, groupName}: {categories: ICate
     
     setProducts(list)
   }, [categories])
-
 
   return (
     <div

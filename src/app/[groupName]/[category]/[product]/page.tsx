@@ -3,19 +3,39 @@
 
 import Image from 'next/image'
 
-import productsJson from '@/mockdata/products.json'
 import BreakLine from '@/components/breakLine/breakLine'
 
 import whatsappIcon from '@/assets/whatsapp.svg'
 
 import styles from "./styles.module.css"
+import { IGroup } from '../page'
+import { useEffect, useState } from 'react'
+import api from '@/api/axios'
 
 export default function ProductPage ({
   params,
 }: {
   params: { groupName: string, category: string, product: string }
 }) {
-  const group = productsJson.groups.find((group) => group.groupLink === params.groupName)
+  const [products, setProducts] = useState<IGroup[] | undefined>()
+
+  useEffect(() => {
+    const getProductsFunction = async () => {
+      const getProducts = localStorage.getItem('products')
+
+      if(getProducts) {
+        setProducts(JSON.parse(getProducts))
+      }
+      
+      const res = await api.get('/list-all-products')
+
+      localStorage.setItem('products', JSON.stringify(res.data))
+    }
+
+    getProductsFunction()
+  }, [])
+
+  const group = products?.find((group) => group.groupLink === params.groupName)
   const category = group?.categories.find((category) => category.categoryLink === params.category)
   const product = category?.products?.find((product) => product.link.includes(params.product))
 
@@ -29,7 +49,7 @@ export default function ProductPage ({
           <div
             className={styles.products_images}
           >
-            {product.images.map((item) => (
+            {product.sizes.map((item) => (
               <div
                 className={styles.product_image_detail_container}
                 key={item.id}
@@ -45,8 +65,8 @@ export default function ProductPage ({
 
             
           <img
-            alt={product.images?.find((image) => image.isMain)?.alt}
-            src={product.images?.find((image) => image.isMain)?.src}
+            alt={product.sizes?.find((image) => image.isMain)?.alt}
+            src={product.sizes?.find((image) => image.isMain)?.src}
             className={styles.main_image_container}
           />
         </div>
