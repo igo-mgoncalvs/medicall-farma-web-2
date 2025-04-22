@@ -67,18 +67,38 @@
   .title1 {
     font-size: 24px;
   }
-
+  
   .title2 {
     font-size: 33px;
     top: -15px;
   }
-
+  
   .form_container input {
     font-size: 17px;
   }
-
+  
   .button {
     font-size: 12px;
     margin-bottom: 23px;
+  }
+}
+
+@media (max-width: 769px) {
+  .title1 {
+    font-size: 40px;
+  }
+
+  .title2 {
+    font-size: 54px;
+    top: -25px;
+  }
+
+  .form_container input {
+    font-size: 20px;
+  }
+
+  .button {
+    font-size: 18px;
+    margin-bottom: 30px;
   }
 }

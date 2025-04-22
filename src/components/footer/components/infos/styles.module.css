@@ -1,15 +1,19 @@
 .infos_container {
   max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
   font-size: 26px;
-  color: var(--blue-600)
+  color: var(--blue-600);
 }
 
 .description {
   font-size: 48px;
   margin-bottom: 35px;
+  text-align: center;
 }
 
 @media (max-width: 426px) {
