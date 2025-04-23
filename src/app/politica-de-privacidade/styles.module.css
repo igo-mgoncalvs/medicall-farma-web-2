@@ -20,7 +20,7 @@
   text-align: justify;
 }
 
-@media (max-width: 4769px) {
+@media (max-width: 769px) {
   .main {
     flex-direction: column;
     padding: 24px;

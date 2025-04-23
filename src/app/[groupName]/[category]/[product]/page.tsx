@@ -18,6 +18,7 @@ export default function ProductPage ({
   params: { groupName: string, category: string, product: string }
 }) {
   const [products, setProducts] = useState<IGroup[] | undefined>()
+  const [selectSize, setSelectSize] = useState<string>('')
 
   useEffect(() => {
     const getProductsFunction = async () => {
@@ -36,9 +37,16 @@ export default function ProductPage ({
   }, [])
 
   const group = products?.find((group) => group.groupLink === params.groupName)
-  const category = group?.categories.find((category) => category.categoryLink === params.category)
+  const category = group?.categories.find((category) => category.categoryLink.includes(params.category))
   const product = category?.products?.find((product) => product.link.includes(params.product))
 
+  useEffect(() => {
+    const findMain = product?.sizes.find((item) => item.isMain)?.id
+
+    if(findMain) {
+      setSelectSize(findMain)
+    }
+  }, [product])
 
   return product && (
     <div className={styles.main}>
@@ -51,9 +59,9 @@ export default function ProductPage ({
           >
             {product.sizes.map((item) => (
               <div
-                className={styles.product_image_detail_container}
+                className={`${styles.product_image_detail_container} ${selectSize === item.id ? styles.selected_image : ''}`}
                 key={item.id}
-                >
+              >
                 <img
                   className={styles.product_image_detail}
                   alt={item.alt}
@@ -65,8 +73,8 @@ export default function ProductPage ({
 
             
           <img
-            alt={product.sizes?.find((image) => image.isMain)?.alt}
-            src={product.sizes?.find((image) => image.isMain)?.src}
+            alt={product.sizes?.find((image) => selectSize === image.id)?.alt}
+            src={product.sizes?.find((image) => selectSize === image.id)?.src}
             className={styles.main_image_container}
           />
         </div>
@@ -90,7 +98,8 @@ export default function ProductPage ({
                   {product.sizes.map((size) => (
                     <p
                       key={size.id}
-                      className={styles.size}
+                      className={`${styles.size} ${selectSize === size.id ? styles.selected_size: ''}`}
+                      onClick={() => setSelectSize(size.id)}
                     >
                       {size.size}
                     </p>
@@ -102,6 +111,8 @@ export default function ProductPage ({
 
           <a
             className={styles.contact_container}
+            href={product.contactLink}
+            target='_blank'
           >
             <img
               alt='teste-alt'

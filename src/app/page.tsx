@@ -8,7 +8,7 @@ import { Autoplay } from "swiper/modules";
 import homeJson from '@/mockdata/home.json'
 
 import 'swiper/css';
-import Product from "@/components/product/product";
+import Product, { IProduct } from "@/components/product/product";
 import InfoBanners from "@/components/infosBanners/infosBanners";
 import TopProducts from "@/components/topProducts/topProducts";
 import MainClientsSuppliers from "@/components/mainClientsSuppliers/mainClientsSuppliers";
@@ -19,14 +19,20 @@ import api from "@/api/axios";
 
 
 export default function Home() {
-  const [products, setProducts] = useState<IGroup[] | undefined>()
+  const [topProducts, setTopProducts] = useState<IGroup[] | undefined>()
+  const [featuredProducts, setFeaturedProducts] = useState<IProduct[] | undefined>()
 
   useEffect(() => {
     const getProductsFunction = async () => {
-      const getProducts = localStorage.getItem('products')
+      const getTopProducts = localStorage.getItem('top-products')
+      const getFeaturedProducts = localStorage.getItem('featured-products')
 
-      if(getProducts) {
-        setProducts(JSON.parse(getProducts))
+      if(getTopProducts) {
+        setTopProducts(JSON.parse(getTopProducts))
+      }
+      
+      if(getFeaturedProducts) {
+        setFeaturedProducts(JSON.parse(getFeaturedProducts))
       }
       
       const res = await api.get('/list-all-products')
@@ -37,13 +43,10 @@ export default function Home() {
     getProductsFunction()
   }, [])
 
-  const topGroups = products?.filter((group) => group.isTop)
-
 
   return (
     <div className={styles.page}>
       <Swiper
-        spaceBetween={50}
         slidesPerView={1}
         modules={[Autoplay]}
         autoplay={{
@@ -89,7 +92,7 @@ export default function Home() {
         <div
           className={styles.product_emphasis_section}
         >
-          {homeJson.data.emphasis_section.list.map(item => (
+          {featuredProducts?.map(item => (
             <Product
               key={item.id}
               product={item}
@@ -107,7 +110,7 @@ export default function Home() {
       <div
         className={styles.top_products_containers}
       >
-        {topGroups?.map((item) => (
+        {topProducts?.map((item) => (
           <>
             <TopProducts
               key={item.id}

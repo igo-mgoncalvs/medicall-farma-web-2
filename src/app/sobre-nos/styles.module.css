@@ -1,6 +1,6 @@
 .wellcome_container {
   color: var(--white);
-  height: 510px;
+  height: 580px;
   padding-left: 180px;
 }
 
@@ -23,6 +23,7 @@
   margin-top: 20px;
   max-width: 1400px;
   margin: auto;
+  margin-bottom: 80px;
 }
 
 .aboutUs_info_container {
@@ -60,12 +61,17 @@
   font-weight: 600;
 }
 
+.aboutUs_button_mobile {
+  display: none;
+}
+
 .units_container {
   display: flex;
   justify-content: space-between;
   margin-top: 60px;
   max-width: 1400px;
   margin: auto;
+  margin-bottom: 80px;
 }
 
 .units_infos_container {

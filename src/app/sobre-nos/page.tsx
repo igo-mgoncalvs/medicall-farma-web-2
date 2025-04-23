@@ -27,12 +27,12 @@ export default function AboutUs () {
       <div
         className={styles.aboutUs_container}
       >
-          <a
-            href={aboutUsJson.data.aboutUs.buttonLink}
-            className={styles.aboutUs_button_mobile}
-          >
-            {aboutUsJson.data.aboutUs.button}
-          </a>
+        <a
+          href={aboutUsJson.data.aboutUs.buttonLink}
+          className={styles.aboutUs_button_mobile}
+        >
+          {aboutUsJson.data.aboutUs.button}
+        </a>
         
         <img
           src={aboutUsJson.data.aboutUs.image}

@@ -17,6 +17,16 @@ export default function Footer () {
         .then(({data}) => {
           localStorage.setItem('list-groups', JSON.stringify(data))
         })
+
+      api.get('/get-top-products')
+        .then(({data}) => {
+          localStorage.setItem('top-products', JSON.stringify(data))
+        })
+
+      api.get('/get-featured-products')
+        .then(({data}) => {
+          localStorage.setItem('featured-products', JSON.stringify(data))
+        })
     }
 
     saveStorages()

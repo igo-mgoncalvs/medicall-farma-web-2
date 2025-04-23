@@ -77,7 +77,16 @@
   border: 1px solid var(--black);
   padding: 4px 10px;
   border-radius: 8px;
-  font-weight: 500;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+.size:hover {
+  cursor: pointer;
+}
+
+.selected_image {
+  border-width: 3px;
 }
 
 .contact_container {
@@ -109,6 +118,10 @@
   display: flex;
   justify-content: space-around;
   flex: 1;
+}
+
+.selected_size {
+  border-width: 3px;
 }
 
 @media (max-width: 426px) {

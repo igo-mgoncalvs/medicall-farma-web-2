@@ -10,6 +10,7 @@
 .groupName_title {
   font-size: 40px;
   font-weight: 800;
+  text-transform: capitalize;
 }
 
 .groupName_label {
@@ -24,6 +25,7 @@
   flex-direction: column;
   gap: 22px;
   max-width: 50%;
+  text-transform: capitalize;
 }
 
 .categorySelected {

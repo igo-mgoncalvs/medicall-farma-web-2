@@ -5,6 +5,7 @@ import Product, { IProduct } from '@/components/product/product'
 import styles from './styles.module.css'
 import api from '@/api/axios';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export interface ICategories {
   id: string
@@ -45,8 +46,7 @@ export default function GroupName ({
   }, [])
 
   const dataGroup = products?.find((group) => group.groupLink === params.groupName)
-  const dataCategory = dataGroup?.categories.find((category) => category.categoryLink === params.category)
-
+  const dataCategory = dataGroup?.categories.find((category) => category.categoryLink.includes(params.category))
 
   return (dataGroup && dataCategory) && (
     <div
@@ -60,12 +60,13 @@ export default function GroupName ({
           className={styles.categories_container}
         >
           {dataGroup.categories.map((item) => (
-            <p
+            <Link
               key={item.id}
-              className={`${params.category === item.categoryLink ? styles.categorySelected : styles.category}`}
+              className={`${item.categoryLink.includes(params.category) ? styles.categorySelected : styles.category}`}
+              href={item.categoryLink}
             >
               {item.categoryName}
-            </p>
+            </Link>
           ))}
         </div>
       </div>

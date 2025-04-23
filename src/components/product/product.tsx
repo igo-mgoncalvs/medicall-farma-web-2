@@ -13,7 +13,7 @@ export interface IProduct {
   groupName: string
   isTop: boolean
   sizes: {
-    id: number
+    id: string
     src: string
     alt: string
     isMain: boolean

@@ -46,6 +46,8 @@
   font-weight: 600;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 230px;
   gap: 16px;
   background-color: var(--white);
   padding: 20px 24px;

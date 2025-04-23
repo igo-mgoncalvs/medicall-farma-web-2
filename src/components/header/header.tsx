@@ -68,11 +68,11 @@ export default function Header () {
               <div
                 className={`${styles.dropMenu} ${openMenu === 'openInst' ? styles.openMenu : styles.closeMenu}`}
               >
-                <a
-                  href='sobre-nos'
+                <Link
+                  href='/sobre-nos'
                 >
                   Quem somos 
-                </a>
+                </Link>
                 <a
                   href='politica-de-privacidade'
                 >
