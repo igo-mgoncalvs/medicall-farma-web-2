@@ -9,9 +9,21 @@ import Image from 'next/image'
 import styles from './styles.module.css'
 import SearchBar from '../searchBar/searchBar'
 
-import productsJson from '@/mockdata/productsMenus.json'
+import { IGroup } from '@/app/[groupName]/[category]/page'
+import { useState } from 'react'
+import Link from 'next/link'
 
 export default function Header () {
+  const [openMenu, setOpenMenu] = useState("")
+
+  const getGroups = localStorage.getItem('list-groups')
+
+  if(!getGroups) {
+    return 
+  }
+
+  const parseGroups: IGroup[] = JSON.parse(getGroups)
+
   return (
     <div>
       <div
@@ -26,11 +38,15 @@ export default function Header () {
             className={styles.mobile_menu}
           />
 
-          <Image
-            src={logo}
-            alt='teste-alt'
-            className={styles.logo}
-          />
+          <Link
+            href='/'
+          >
+            <Image
+              src={logo}
+              alt='teste-alt'
+              className={styles.logo}
+            />
+          </Link>
 
           <Image
             src={searchMobile}
@@ -43,9 +59,27 @@ export default function Header () {
           <div
             className={styles.links}
           >
-            <a>
+            <div
+              onMouseEnter={() => setOpenMenu('openInst')}
+              onMouseLeave={() => setOpenMenu('')}
+            >
               Institucional
-            </a>
+
+              <div
+                className={`${styles.dropMenu} ${openMenu === 'openInst' ? styles.openMenu : styles.closeMenu}`}
+              >
+                <a
+                  href='sobre-nos'
+                >
+                  Quem somos 
+                </a>
+                <a
+                  href='politica-de-privacidade'
+                >
+                  Política da Qualidade
+                </a>
+              </div>
+            </div>
             <a>
               Fale conosco
             </a>
@@ -59,12 +93,30 @@ export default function Header () {
         <div
           className={styles.menus}
         >
-          {productsJson.data.map((item) => (
-            <p
+          {parseGroups.map((item) => (
+            <div
               key={item.id}
+              onMouseEnter={() => setOpenMenu(item.id)}
+              onMouseLeave={() => setOpenMenu('')}
+              className={styles.menu_container}
             >
-              {item.menu}
-            </p>
+              <p>
+                {item.groupName}
+              </p>
+
+              <div
+                className={`${styles.menu_categories} ${openMenu === item.id ? styles.openMenu : styles.closeMenu}`}
+              >
+                {item.categories.map((category) => (
+                  <Link
+                    key={category.id}
+                    href={category.categoryLink}
+                  >
+                    {category.categoryName}
+                  </Link>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

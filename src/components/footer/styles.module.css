@@ -14,6 +14,10 @@
   padding-top: 80px;
 }
 
+.background {
+  display: none;
+}
+
 @media (max-width: 769px) {
   .form {
     flex-direction: column;
