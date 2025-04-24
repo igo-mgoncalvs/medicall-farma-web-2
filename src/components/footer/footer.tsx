@@ -27,6 +27,12 @@ export default function Footer () {
         .then(({data}) => {
           localStorage.setItem('featured-products', JSON.stringify(data))
         })
+      
+      api.get('/list-all-products')
+        .then(({data}) => {
+          localStorage.setItem('products', JSON.stringify(data))
+        })
+      
     }
 
     saveStorages()

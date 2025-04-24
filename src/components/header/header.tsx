@@ -10,25 +10,33 @@ import styles from './styles.module.css'
 import SearchBar from '../searchBar/searchBar'
 
 import { IGroup } from '@/app/[groupName]/[category]/page'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import MobileMenu from '../mobileMenu'
 
 export default function Header () {
   const [openMenu, setOpenMenu] = useState('')
   const [openMenuMobile, setOpenMenuMobile] = useState(false)
+  const [parseGroups, setParseGroups] = useState<IGroup[]>([])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const getGroups = localStorage.getItem('list-groups')
+      
+      if (getGroups) {
+        setParseGroups(JSON.parse(getGroups))
+        clearInterval(interval)
+      }
+    }, 500)
+
+    return () => clearInterval(interval)
+  }, [])
 
   const handleOpenMenuMobile = useCallback(() => {
     setOpenMenuMobile(!openMenuMobile)
   }, [openMenuMobile])
 
-  const getGroups = localStorage.getItem('list-groups')
 
-  if(!getGroups) {
-    return 
-  }
-
-  const parseGroups: IGroup[] = JSON.parse(getGroups)
 
   return (
     <div>

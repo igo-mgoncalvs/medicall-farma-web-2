@@ -21,15 +21,8 @@ import MainClientsSuppliers from "@/components/mainClientsSuppliers/mainClientsS
 import Catalog from "@/components/catalog/catalog";
 import { useEffect, useState } from "react";
 import { IGroup } from "./[groupName]/[category]/page";
-import api from "@/api/axios";
 import Image from "next/image";
 import useWindowSize from "@/hooks/useWindowSize";
-
-import homeBackImage1 from '@/assets/homeBackImages/radial.svg'
-import homeBackImage2 from '@/assets/homeBackImages/1.png'
-import homeBackImage3 from '@/assets/homeBackImages/2.png'
-import homeBackImage4 from '@/assets/homeBackImages/3.png'
-import homeBackImage5 from '@/assets/homeBackImages/4.png'
 
 export default function Home() {
   const [topProducts, setTopProducts] = useState<IGroup[] | undefined>()
@@ -38,26 +31,33 @@ export default function Home() {
   const size = useWindowSize()
 
   useEffect(() => {
-    const getProductsFunction = async () => {
+    const interval = setInterval(() => {
       const getTopProducts = localStorage.getItem('top-products')
       const getFeaturedProducts = localStorage.getItem('featured-products')
-
-      if(getTopProducts) {
-        setTopProducts(JSON.parse(getTopProducts))
-      }
       
-      if(getFeaturedProducts) {
+      if (getTopProducts && getFeaturedProducts) {
         setFeaturedProducts(JSON.parse(getFeaturedProducts))
+        setTopProducts(JSON.parse(getTopProducts))
+        clearInterval(interval)
       }
-      
-      const res = await api.get('/list-all-products')
+    }, 500)
 
-      localStorage.setItem('products', JSON.stringify(res.data))
-    }
-
-    getProductsFunction()
+    return () => clearInterval(interval)
   }, [])
 
+  useEffect(() => {
+    const getFeaturedProducts = localStorage.getItem('featured-products')
+    const getTopProducts = localStorage.getItem('top-products')
+
+    if(!featuredProducts && getFeaturedProducts && getFeaturedProducts !== JSON.stringify(getFeaturedProducts)){
+      setFeaturedProducts(JSON.parse(getFeaturedProducts))
+    }
+
+    if(!topProducts && getTopProducts && getTopProducts !== JSON.stringify(topProducts)){
+      setTopProducts(JSON.parse(getTopProducts))
+    }
+
+  }, [featuredProducts, topProducts])
 
   return (
     <div className={styles.page}>

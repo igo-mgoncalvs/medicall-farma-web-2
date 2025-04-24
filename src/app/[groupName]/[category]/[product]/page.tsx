@@ -9,31 +9,36 @@ import whatsappIcon from '@/assets/whatsapp.svg'
 
 import styles from "./styles.module.css"
 import { IGroup } from '../page'
-import { useEffect, useState } from 'react'
-import api from '@/api/axios'
+import { useEffect, useMemo, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
-export default function ProductPage ({
-  params,
-}: {
-  params: { groupName: string, category: string, product: string }
-}) {
+export default function ProductPage () {
   const [products, setProducts] = useState<IGroup[] | undefined>()
   const [selectSize, setSelectSize] = useState<string>('')
 
+  const pathname = usePathname();
+
+  const params = useMemo(() => {
+    const segments = pathname.split('/').filter(Boolean);
+
+    return {
+      groupName: segments[0] || '',
+      category: segments[1] || '',
+      product: segments[2] || '',
+    };
+  }, [pathname]);
+
   useEffect(() => {
-    const getProductsFunction = async () => {
+    const interval = setInterval(() => {
       const getProducts = localStorage.getItem('products')
-
-      if(getProducts) {
-        setProducts(JSON.parse(getProducts))
-      }
       
-      const res = await api.get('/list-all-products')
+      if (getProducts) {
+        setProducts(JSON.parse(getProducts))
+        clearInterval(interval)
+      }
+    }, 500)
 
-      localStorage.setItem('products', JSON.stringify(res.data))
-    }
-
-    getProductsFunction()
+    return () => clearInterval(interval)
   }, [])
 
   const group = products?.find((group) => group.groupLink === params.groupName)

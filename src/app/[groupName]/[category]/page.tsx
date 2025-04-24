@@ -3,9 +3,9 @@
 import Product, { IProduct } from '@/components/product/product'
 
 import styles from './styles.module.css'
-import api from '@/api/axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export interface ICategories {
   id: string
@@ -22,27 +22,32 @@ export interface IGroup {
   categories: ICategories[]
 }
 
-export default function GroupName ({
-  params,
-}: {
-  params: { groupName: string, category: string }
-}) {
+export default function GroupName () {
   const [products, setProducts] = useState<IGroup[] | undefined>()
 
+    const pathname = usePathname();
+  
+    const params = useMemo(() => {
+      const segments = pathname.split('/').filter(Boolean);
+  
+      return {
+        groupName: segments[0] || '',
+        category: segments[1] || '',
+        product: segments[2] || '',
+      };
+    }, [pathname]);
+
   useEffect(() => {
-    const getProductsFunction = async () => {
+    const interval = setInterval(() => {
       const getProducts = localStorage.getItem('products')
-
-      if(getProducts) {
-        setProducts(JSON.parse(getProducts))
-      }
       
-      const res = await api.get('/list-all-products')
+      if (getProducts) {
+        setProducts(JSON.parse(getProducts))
+        clearInterval(interval)
+      }
+    }, 500)
 
-      localStorage.setItem('products', JSON.stringify(res.data))
-    }
-
-    getProductsFunction()
+    return () => clearInterval(interval)
   }, [])
 
   const dataGroup = products?.find((group) => group.groupLink === params.groupName)

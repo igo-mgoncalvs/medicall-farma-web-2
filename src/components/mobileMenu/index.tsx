@@ -8,18 +8,24 @@ import styles from './styles.module.css'
 import Image from 'next/image'
 import { IGroup } from '@/app/[groupName]/[category]/page'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpenMenuMobile: () => void, open: boolean }) {
   const [openMenu, setOpenMenu] = useState<string>('')
+  const [parseGroups, setParseGroups] =useState<IGroup[]>([])
 
-  const getGroups = localStorage.getItem('list-groups')
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const getGroups = localStorage.getItem('list-groups')
+      
+      if (getGroups) {
+        setParseGroups(JSON.parse(getGroups))
+        clearInterval(interval)
+      }
+    }, 500)
 
-  if(!getGroups) {
-    return 
-  }
-
-  const parseGroups: IGroup[] = JSON.parse(getGroups)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div

@@ -7,12 +7,14 @@ import Header from "@/components/header/header";
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   display: 'swap',
+  subsets: ['latin']
 })
 
 const mrDafoe = Mr_Dafoe({
   variable: "--font-mrDafoe",
   weight: "400",
   display: 'swap',
+  subsets: ['latin']
 })
 
 export const metadata: Metadata = {
