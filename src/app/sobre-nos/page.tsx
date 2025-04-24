@@ -16,7 +16,7 @@ export default function AboutUs () {
         style={{
           backgroundImage: `url(${size.width > 426 ? aboutUsJson.data.wellcome.background : aboutUsJson.data.wellcome.backgroundMobile})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'contain'
+          backgroundSize: size.width > 426 ? 'contain' : 'cover'
         }}
         className={styles.wellcome_container}
       >

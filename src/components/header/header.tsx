@@ -10,11 +10,17 @@ import styles from './styles.module.css'
 import SearchBar from '../searchBar/searchBar'
 
 import { IGroup } from '@/app/[groupName]/[category]/page'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Link from 'next/link'
+import MobileMenu from '../mobileMenu'
 
 export default function Header () {
-  const [openMenu, setOpenMenu] = useState("")
+  const [openMenu, setOpenMenu] = useState('')
+  const [openMenuMobile, setOpenMenuMobile] = useState(false)
+
+  const handleOpenMenuMobile = useCallback(() => {
+    setOpenMenuMobile(!openMenuMobile)
+  }, [openMenuMobile])
 
   const getGroups = localStorage.getItem('list-groups')
 
@@ -36,6 +42,12 @@ export default function Header () {
             src={menuMobile}
             alt='teste-alt'
             className={styles.mobile_menu}
+            onClick={handleOpenMenuMobile}
+          />
+
+          <MobileMenu
+            handleOpenMenuMobile={handleOpenMenuMobile}
+            open={openMenuMobile}
           />
 
           <Link

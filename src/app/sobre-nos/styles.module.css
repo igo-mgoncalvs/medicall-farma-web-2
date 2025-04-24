@@ -167,153 +167,7 @@
   top: -25px
 }
 
-@media (max-width: 426px) {
-  .wellcome_container {
-    display: flex;
-    flex-direction: column;
-    padding: 0 80px;
-  }
 
-  .wellcome_title {
-    font-size: 26px;
-    max-width: 100%;
-    text-align: center;
-    padding-top: 25px;
-  }
-
-  .wellcome_description {
-    font-size: 10px;
-    max-width: 100%;
-    padding: 0 20px;
-    text-align: center;
-  }
-
-  .aboutUs_container {
-    flex-direction: column-reverse;
-    padding: 0 24px;
-  }
-
-  .aboutUs_info_container {
-    width: 100%;
-  }
-
-  .aboutUs_title_shadow {
-    font-size: 30px;
-  }
-  
-  .aboutUs_title {
-    font-size: 20px;
-    top: -15px
-  }
-
-  .aboutUs_text {
-    font-size: 12px;
-    padding-bottom: 28px;
-  }
-
-  .aboutUs_button {
-    display: none;
-  }
-
-  .aboutUs_button_mobile {
-    background-image: var(--blue-linear-gradient);
-    font-size: 18px;
-    color: var(--white);
-    padding: 20px 60px;
-    border-radius: 32px;
-    margin-top: 20px;
-    font-weight: 600;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 28px;
-    margin-top: 32px;
-  }
-
-  .units_container {
-    flex-direction: column;
-    padding: 25px;
-  }
-
-  .units_infos_container {
-    width: 100%;
-    margin-bottom: 38px;
-  }
-
-  .units_mainTitle {
-    font-size: 24px;
-  }
-  
-  .units_title {
-    font-size: 24px;
-    margin-bottom: 18px;
-  }
-
-  .units_list {
-    gap: 22px;
-  }
-  
-  .units_list_title {
-    font-size: 18px;
-  }
-
-  .units_list_description {
-    font-size: 12px;
-  }
-
-  .units_image {
-    padding: 24px;
-  }
-
-  .team_container {
-    flex-direction: column;
-  }
-
-  .team_infos_container {
-    width: 70%;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 24px;
-  }
-
-  .team_title_shadow {
-    font-size: 38px;
-    text-align: center;
-  }
-  
-  .team_title {
-    text-align: center;
-    font-size: 25px;
-    top: -12px
-  }
-
-  .space_container {
-    flex-direction: column-reverse;
-    padding: 39px 51px;
-    background-color: var(--gray-600);
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-  }
-
-  .space_infos_container {
-    width: 100%;
-    text-align: center;
-  }
-
-  .space_title_shadow {
-    font-size: 38px;
-    padding-top: 21px;
-  }
-
-  .space_title {
-    font-size: 25px;
-    top: -15px;
-  }
-
-  .space_description {
-    font-size: 13px;
-    font-weight: 500;
-  }
-}
 
 @media (max-width: 769px) {
   .wellcome_container {
@@ -456,6 +310,155 @@
 
   .space_description {
     font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 426px) {
+  .wellcome_container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 80px;
+    height: 466px;
+  }
+
+  .wellcome_title {
+    font-size: 26px;
+    max-width: 100%;
+    text-align: center;
+    padding-top: 25px;
+  }
+
+  .wellcome_description {
+    font-size: 10px;
+    max-width: 100%;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .aboutUs_container {
+    flex-direction: column-reverse;
+    padding: 0 24px;
+  }
+
+  .aboutUs_info_container {
+    width: 100%;
+  }
+
+  .aboutUs_title_shadow {
+    font-size: 30px;
+  }
+  
+  .aboutUs_title {
+    font-size: 20px;
+    top: -15px
+  }
+
+  .aboutUs_text {
+    font-size: 12px;
+    padding-bottom: 28px;
+  }
+
+  .aboutUs_button {
+    display: none;
+  }
+
+  .aboutUs_button_mobile {
+    background-image: var(--blue-linear-gradient);
+    font-size: 18px;
+    color: var(--white);
+    padding: 20px 60px;
+    border-radius: 32px;
+    margin-top: 20px;
+    font-weight: 600;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 28px;
+    margin-top: 32px;
+  }
+
+  .units_container {
+    flex-direction: column;
+    padding: 25px;
+  }
+
+  .units_infos_container {
+    width: 100%;
+    margin-bottom: 38px;
+  }
+
+  .units_mainTitle {
+    font-size: 24px;
+  }
+  
+  .units_title {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .units_list {
+    gap: 22px;
+  }
+  
+  .units_list_title {
+    font-size: 18px;
+  }
+
+  .units_list_description {
+    font-size: 12px;
+  }
+
+  .units_image {
+    padding: 24px;
+  }
+
+  .team_container {
+    flex-direction: column;
+  }
+
+  .team_infos_container {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .team_title_shadow {
+    font-size: 38px;
+    text-align: center;
+  }
+  
+  .team_title {
+    text-align: center;
+    font-size: 25px;
+    top: -12px
+  }
+
+  .space_container {
+    flex-direction: column-reverse;
+    padding: 39px 51px;
+    background-color: var(--gray-600);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+
+  .space_infos_container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .space_title_shadow {
+    font-size: 38px;
+    padding-top: 21px;
+  }
+
+  .space_title {
+    font-size: 25px;
+    top: -15px;
+  }
+
+  .space_description {
+    font-size: 13px;
     font-weight: 500;
   }
 }
