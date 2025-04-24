@@ -3,10 +3,11 @@
 
 import styles from "./page.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import homeJson from '@/mockdata/home.json'
 
+import 'swiper/css/pagination';
 import 'swiper/css';
 import Product, { IProduct } from "@/components/product/product";
 import InfoBanners from "@/components/infosBanners/infosBanners";
@@ -16,7 +17,6 @@ import Catalog from "@/components/catalog/catalog";
 import { useEffect, useState } from "react";
 import { IGroup } from "./[groupName]/[category]/page";
 import api from "@/api/axios";
-
 
 export default function Home() {
   const [topProducts, setTopProducts] = useState<IGroup[] | undefined>()
@@ -92,12 +92,40 @@ export default function Home() {
         <div
           className={styles.product_emphasis_section}
         >
-          {featuredProducts?.map(item => (
-            <Product
-              key={item.id}
-              product={item}
-            />
-          ))}
+          <Swiper
+            breakpoints={{
+              425: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+              },
+              1440: {
+                slidesPerView: 5,
+                spaceBetween: 10,
+              }
+            }}
+            slidesPerView={2}
+            modules={[Autoplay, Pagination]}
+            pagination={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+          >
+            {featuredProducts?.map(item => (
+              <SwiperSlide
+                key={item.id}
+              >
+                <Product
+                  key={item.id}
+                  product={item}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
 
@@ -107,17 +135,13 @@ export default function Home() {
         <InfoBanners banners={homeJson.data.infosBanners}/>
       </div>
 
-      <div
-        className={styles.top_products_containers}
-      >
+      <div>
         {topProducts?.map((item) => (
-          <>
-            <TopProducts
-              key={item.id}
-              categories={item.categories.filter((category) => category.products.find((product) => product.isTop))}
-              groupName={item.groupName}
-            />
-          </>
+          <TopProducts
+            key={item.id}
+            categories={item.categories.filter((category) => category.products.find((product) => product.isTop))}
+            groupName={item.groupName}
+          />
         ))}
       </div>
 

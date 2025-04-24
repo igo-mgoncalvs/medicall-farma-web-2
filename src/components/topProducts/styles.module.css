@@ -5,6 +5,7 @@
   align-items: center;
   gap: 46px;
   margin-top: 42px;
+  width: 100vw;
 }
 
 .top {
@@ -35,5 +36,7 @@
 
 .products_container {
   display: flex;
-  gap: 12px
+  gap: 12px;
+  width: 90%;
+  height: 380px;
 }
