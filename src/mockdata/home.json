@@ -23,6 +23,29 @@
         "src": "https://i.postimg.cc/9FdQPKpx/Property-1-Frame-58.png"
       }
     ],
+    "bannersMobile": [
+      {
+        "id": 0,
+        "description": "teste",
+        "src": "https://i.postimg.cc/C1byt4Cg/Property-1-Frame-57-1.png",
+        "link": ""
+      },
+      {
+        "id": 1,
+        "description": "teste",
+        "src": "https://i.postimg.cc/288JFYtm/Property-1-Frame-58-1.png"
+      },
+      {
+        "id": 2,
+        "description": "teste",
+        "src": "https://i.postimg.cc/4d2cDzXW/Property-1-Frame-59.png"
+      },
+      {
+        "id": 3,
+        "description": "teste",
+        "src": "https://i.postimg.cc/jS8JwH7t/Property-1-Frame-60.png"
+      }
+    ],
     "emphasis_section": {
       "title": "Produtos Destaques",
       "description": "Catálogo amplo e variado: descubra os produtos perfeitos para o seu Hospital ou Clínica, com a excelência que você procura.",

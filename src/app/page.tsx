@@ -3,12 +3,17 @@
 
 import styles from "./page.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+
+import prevArrow from '@/assets/prevArrow.svg'
+import nextArrow from '@/assets/nextArrow.svg'
 
 import homeJson from '@/mockdata/home.json'
 
 import 'swiper/css/pagination';
 import 'swiper/css';
+import 'swiper/css/navigation';
+
 import Product, { IProduct } from "@/components/product/product";
 import InfoBanners from "@/components/infosBanners/infosBanners";
 import TopProducts from "@/components/topProducts/topProducts";
@@ -17,10 +22,14 @@ import Catalog from "@/components/catalog/catalog";
 import { useEffect, useState } from "react";
 import { IGroup } from "./[groupName]/[category]/page";
 import api from "@/api/axios";
+import Image from "next/image";
+import useWindowSize from "@/hooks/useWindowSize";
 
 export default function Home() {
   const [topProducts, setTopProducts] = useState<IGroup[] | undefined>()
   const [featuredProducts, setFeaturedProducts] = useState<IProduct[] | undefined>()
+
+  const size = useWindowSize()
 
   useEffect(() => {
     const getProductsFunction = async () => {
@@ -46,28 +55,53 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <Swiper
-        slidesPerView={1}
-        modules={[Autoplay]}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
-      >
-        {homeJson.data.banners.map((item) => (
-          <SwiperSlide
-            key={item.id}
-          >
-            <img
-              src={item.src}
-              alt={item.description}
-              width={10}
-              height={10}
-              className={styles.banner}
+      <div>
+        <Swiper
+          slidesPerView={1}
+          modules={[Autoplay, Navigation]}
+          navigation={{
+            nextEl: '#my-next-btn',
+
+          }}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
+        >
+          {homeJson.data[`${size.width > 426 ?'banners': 'bannersMobile'}`].map((item) => (
+            <SwiperSlide
+              key={item.id}
+            >
+              <img
+                src={item.src}
+                alt={item.description}
+                width={10}
+                height={10}
+                className={styles.banner}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <div
+          className={styles.buttons_swiper}
+        >
+          <button id="my-next-btn">
+            <Image
+              src={prevArrow}
+              alt="prev-arrow"
+              className={styles.next_image}
+              />
+          </button>
+          <button id="my-next-btn">
+            <Image
+              src={nextArrow}
+              alt="next-arrow"
+              className={styles.next_image}
             />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          </button>
+        </div>
+      </div>
 
       <div
         className={styles.product_emphasis_main}
@@ -135,6 +169,16 @@ export default function Home() {
         <InfoBanners banners={homeJson.data.infosBanners}/>
       </div>
 
+      <div
+        className={styles.clients_container_mobile}
+      >
+        <MainClientsSuppliers
+          list={homeJson.data.clients}
+          type="clients"
+          mobile
+        />
+      </div>
+
       <div>
         {topProducts?.map((item) => (
           <TopProducts
@@ -145,22 +189,28 @@ export default function Home() {
         ))}
       </div>
 
-      <MainClientsSuppliers
-        list={homeJson.data.clients}
-        type="clients"
-      />
+      <div
+        className={styles.clients_container}
+      >
+        <MainClientsSuppliers
+          list={homeJson.data.clients}
+          type="clients"
+          mobile={false}
+        />
+      </div>
 
       <img
         src={homeJson.data.banner.src}
         alt={homeJson.data.banner.alt}
         width={10}
         height={10}
-        className={styles.banner}
+        className={styles.banner_desck}
       />
 
       <MainClientsSuppliers
         list={homeJson.data.clients}
         type='suppliers'
+        mobile={false}
       />
 
       <Catalog />

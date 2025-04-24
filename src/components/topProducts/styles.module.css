@@ -38,5 +38,22 @@
   display: flex;
   gap: 12px;
   width: 90%;
-  height: 380px;
+}
+
+@media (max-width: 1025px) {
+  .products_container {
+    height: 480px;
+  }
+}
+
+@media (max-width: 769px) {
+  .products_container {
+    height: 620px;
+  }
+}
+
+@media (max-width: 426px) {
+  .products_container {
+    height: 380px;
+  }
 }

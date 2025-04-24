@@ -3,7 +3,9 @@
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import styles from './stryles.module.css'
-import { Autoplay } from "swiper/modules"
+import { Autoplay, Pagination } from "swiper/modules"
+import 'swiper/css/pagination';
+import 'swiper/css';
 
 interface IListImages {
   id: number
@@ -11,12 +13,12 @@ interface IListImages {
   alt: string
 }
 
-export default function MainClientsSuppliers ({ list, type }: { list: IListImages[], type: "suppliers" | "clients" }) {
+export default function MainClientsSuppliers ({ list, type, mobile }: { list: IListImages[], type: "suppliers" | "clients", mobile: boolean }) {
   return (
     <div
-      className={styles.main}
+      className={`${styles.main} ${mobile ? styles.mobile_background: ''}`}
       style={{
-        marginTop: type === 'clients' ? '50px' : '0'
+        marginTop: type === 'clients' ? '50px' : '0',
       }}
     >
       <div
@@ -41,7 +43,8 @@ export default function MainClientsSuppliers ({ list, type }: { list: IListImage
         <Swiper
           spaceBetween={50}
           slidesPerView={4}
-          modules={[Autoplay]}
+          modules={[Autoplay, Pagination]}
+          pagination
           breakpoints={{
             1: {
               slidesPerView: 3,
@@ -52,6 +55,7 @@ export default function MainClientsSuppliers ({ list, type }: { list: IListImage
             delay: 2000,
             disableOnInteraction: false,
           }}
+          className={styles.swiper}
         >
           {list.map((item) => (
             <SwiperSlide
