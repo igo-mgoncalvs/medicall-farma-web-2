@@ -90,6 +90,31 @@
   height: auto;
 }
 
+.homeBackImage1 {
+  position: absolute;
+  top: 500vh;
+}
+
+.homeBackImage2 {
+  position: absolute;
+  top: 5vh;
+}
+
+.homeBackImage3 {
+  position: absolute;
+  top: 5vh;
+}
+
+.homeBackImage4 {
+  position: absolute;
+  top: 5vh;
+}
+
+.homeBackImage5 {
+  position: absolute;
+  top: 5vh;
+}
+
 @media (max-width: 1025px) {
   .product_emphasis_section {
     height: 480px;

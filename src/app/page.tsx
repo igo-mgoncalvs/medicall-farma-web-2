@@ -25,6 +25,12 @@ import api from "@/api/axios";
 import Image from "next/image";
 import useWindowSize from "@/hooks/useWindowSize";
 
+import homeBackImage1 from '@/assets/homeBackImages/radial.svg'
+import homeBackImage2 from '@/assets/homeBackImages/1.png'
+import homeBackImage3 from '@/assets/homeBackImages/2.png'
+import homeBackImage4 from '@/assets/homeBackImages/3.png'
+import homeBackImage5 from '@/assets/homeBackImages/4.png'
+
 export default function Home() {
   const [topProducts, setTopProducts] = useState<IGroup[] | undefined>()
   const [featuredProducts, setFeaturedProducts] = useState<IProduct[] | undefined>()
@@ -82,6 +88,34 @@ export default function Home() {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* <div>
+          <Image
+            src={homeBackImage1}
+            alt="teste-alt"
+            className={styles.homeBackImage1}
+          />
+          <Image
+            src={homeBackImage2}
+            alt="teste-alt"
+            className={styles.homeBackImage2}
+          />
+          <Image
+            src={homeBackImage3}
+            alt="teste-alt"
+            className={styles.homeBackImage3}
+          />
+          <Image
+            src={homeBackImage4}
+            alt="teste-alt"
+            className={styles.homeBackImage4}
+          />
+          <Image
+            src={homeBackImage5}
+            alt="teste-alt"
+            className={styles.homeBackImage5}
+          />
+        </div> */}
 
         <div
           className={styles.buttons_swiper}
