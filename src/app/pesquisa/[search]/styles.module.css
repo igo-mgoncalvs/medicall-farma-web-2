@@ -1,0 +1,23 @@
+.main {
+  max-width: 1400px;
+  margin: auto;
+  padding: 64px;
+}
+
+.title_container {
+  display: flex;
+  gap: 10px;
+  font-size: 24px;
+}
+
+.search {
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 43px;
+}
+
+.products_container {
+  display: grid;
+  grid: auto-flow / repeat(4, 1fr);
+  gap: 30px
+}

@@ -25,7 +25,7 @@ import Image from "next/image";
 import useWindowSize from "@/hooks/useWindowSize";
 
 export default function Home() {
-  const [topProducts, setTopProducts] = useState<IGroup[] | undefined>()
+  const [topProducts, setTopProducts] = useState<IGroup[]>([])
   const [featuredProducts, setFeaturedProducts] = useState<IProduct[] | undefined>()
 
   const size = useWindowSize()
