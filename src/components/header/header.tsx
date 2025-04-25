@@ -68,11 +68,16 @@ export default function Header () {
             />
           </Link>
 
-          <Image
-            src={searchMobile}
-            alt='teste-alt'
-            className={styles.search_mobile}
-          />
+          <Link
+            href='/pesquisa-mobile'
+          >
+            <Image
+              src={searchMobile}
+              alt='teste-alt'
+              className={styles.search_mobile}
+            />
+          </Link>
+
 
           <SearchBar />
 

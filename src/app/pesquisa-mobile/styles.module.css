@@ -1,0 +1,112 @@
+.background {
+  position: absolute;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--white);
+  z-index: 102;
+}
+
+.searchBar_background {
+  background-color: var(--blue-700);
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+  padding-top: 65px;
+  padding-bottom: 24px;
+  color: var(--white);
+}
+
+.searchBar_container {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex: 1;
+  max-width: 550px;
+}
+
+.searchBar {
+  display: flex;
+  background-color: var(--white);
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 50;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 10px
+}
+
+.search button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.search input {
+  flex: 1;
+  font-size: 12px;
+  border: none;
+  outline: none;
+}
+
+.searchIcon {
+  width: 17px;
+  height: 17px;
+  color: #8F8F8F
+}
+
+.search_history_container {
+  display: flex;
+  justify-content: center;
+}
+
+.search_history_content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px 0;
+  gap: 20px;
+  max-width: 550px;
+}
+
+.search_history {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 0 24px;
+  align-items: center;
+}
+
+.search_itens {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .searchBar_container {
+    font-size: 18px;
+  }
+
+  .searchBar {
+    padding: 12px 16px;
+  }
+
+  .search input {
+    flex: 1;
+    font-size: 18px;
+  }
+
+  .products_list_container {
+    padding-bottom: 160px;
+  }
+}
