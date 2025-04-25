@@ -49,6 +49,10 @@ export default function MainClientsSuppliers ({ list, type, mobile }: { list: IL
             1: {
               slidesPerView: 3,
               spaceBetween: 20,
+            },
+            1440: {
+              slidesPerView: 4,
+              spaceBetween: 20,
             }
           }}
           autoplay={{
