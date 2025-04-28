@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
+import { IHomeData } from '@/app/page'
 import styles from './styles.module.css'
 
-export default function Catalog () {
-  return (
+export default function Catalog ({ data }: { data: IHomeData | undefined }) {
+  return data && (
     <div
       className={styles.main}
     >
@@ -14,16 +15,22 @@ export default function Catalog () {
         <div
           className={styles.title}
         >
-          Baixe nosso <p className={styles.catalog}>catálogo</p>
+          {data.homeCatalog.title} <p className={styles.catalog}>{data.homeCatalog.titleColor}</p>
         </div>
 
         <p
           className={styles.decription}
         >
-          Catálogo completo e diversificado: encontre aqui os produtos ideais para o seu Hospital ou Clínica, com a qualidade que você merece.
+          {data.homeCatalog.description}
         </p>
 
-        <a className={styles.button}>Baixar</a>
+        <a
+          className={styles.button}
+          href={data.homeCatalog.catalogLink}
+          target='_black'
+        >
+          {data.homeCatalog.buttonText}
+        </a>
       </div>
 
       <img
@@ -32,7 +39,13 @@ export default function Catalog () {
         className={styles.image}
       />
 
-      <a className={styles.buttonMobile}>Baixar</a>
+      <a
+        className={styles.buttonMobile}
+        href={data.homeCatalog.catalogLink}
+        target='_blank'
+      >
+        {data.homeCatalog.buttonText}
+      </a>
 
     </div>
   )

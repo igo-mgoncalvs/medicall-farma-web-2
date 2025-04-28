@@ -8,11 +8,15 @@ import SocialContactMobile from "./components/socialContacMobile/socialContactMo
 
 import styles from './styles.module.css'
 import api from "@/api/axios"
+import { IHomeData } from "@/app/page"
+import dbPromise from '@/utils/dbPromise';
 
 export default function Footer () {
 
   useEffect(() => {
     const saveStorages = async () => {
+      const db = await dbPromise;
+
       api.get('/list-groups')
         .then(({data}) => {
           localStorage.setItem('list-groups', JSON.stringify(data))
@@ -31,6 +35,11 @@ export default function Footer () {
       api.get('/list-all-products')
         .then(({data}) => {
           localStorage.setItem('products', JSON.stringify(data))
+        })
+
+      api.get<IHomeData>('/get-home')
+        .then(async ({data}) => {
+          await db.put('home', data, 'home');
         })
       
     }

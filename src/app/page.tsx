@@ -23,21 +23,76 @@ import { useEffect, useState } from "react";
 import { IGroup } from "./[groupName]/[category]/page";
 import Image from "next/image";
 import useWindowSize from "@/hooks/useWindowSize";
+import dbPromise from "@/utils/dbPromise";
+
+interface IHomeBanners {
+  id: string
+  src: string
+  srcMobile: string
+  alt: string
+  order: number
+  href: string
+  external: boolean
+}
+
+interface IHomeGridBanners {
+  id: string
+  src: string
+  alt: string
+  href: string
+  fixed: boolean
+}
+
+export interface IHomeData {
+  banners: IHomeBanners[]
+  homeFeaturedProducts: {
+    id: string
+    title: string
+    description: string
+  }
+  homeClients: {
+    id: string
+    title: string
+    description: string
+  }
+  homeSuppliers: {
+    id: string
+    title: string
+    description: string
+  }
+  homeCatalog: {
+    id: string
+    title: string
+    titleColor: string
+    description: string
+    buttonText: string
+    catalogLink: string
+  }
+  homeGridBanners: IHomeGridBanners[]
+}
 
 export default function Home() {
   const [topProducts, setTopProducts] = useState<IGroup[]>([])
   const [featuredProducts, setFeaturedProducts] = useState<IProduct[] | undefined>()
+  const [homeData, setHomeData] = useState<IHomeData | undefined>()
+  const [banners, setBanners] = useState<IHomeBanners[]>([])
 
   const size = useWindowSize()
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval = setInterval(async () => {
+      const db = await dbPromise      
+
       const getTopProducts = localStorage.getItem('top-products')
       const getFeaturedProducts = localStorage.getItem('featured-products')
-      
-      if (getTopProducts && getFeaturedProducts) {
+      const homeData: IHomeData = await db.get('home', 'home');
+
+
+      if (getTopProducts && getFeaturedProducts && homeData) {
         setFeaturedProducts(JSON.parse(getFeaturedProducts))
         setTopProducts(JSON.parse(getTopProducts))
+        setHomeData(homeData)
+        setBanners(homeData.banners.sort((a, b) => a.order > b.order ? 1 :-1))
         clearInterval(interval)
       }
     }, 500)
@@ -57,7 +112,7 @@ export default function Home() {
       setTopProducts(JSON.parse(getTopProducts))
     }
 
-  }, [featuredProducts, topProducts])
+  }, [featuredProducts, topProducts, homeData])
 
   return (
     <div className={styles.page}>
@@ -74,17 +129,22 @@ export default function Home() {
             disableOnInteraction: false,
           }}
         >
-          {homeJson.data[`${size.width > 426 ?'banners': 'bannersMobile'}`].map((item) => (
+          {banners?.map((item) => (
             <SwiperSlide
               key={item.id}
             >
-              <img
-                src={item.src}
-                alt={item.description}
-                width={10}
-                height={10}
-                className={styles.banner}
-              />
+              <a
+                href={item.href}
+                target="_blank"
+              >
+                <img
+                  src={size.width > 426 ? item.src: item.srcMobile}
+                  alt={item.alt}
+                  width={10}
+                  height={10}
+                  className={styles.banner}
+                />
+              </a>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -146,14 +206,14 @@ export default function Home() {
           <p
             className={styles.product_emphasis_title}
           >
-            {homeJson.data.emphasis_section.title}
+            {homeData?.homeFeaturedProducts?.title}
           </p>
 
           <div className={styles.line} />
           <p
             className={styles.product_emphasis_description}
           >
-            {homeJson.data.emphasis_section.description}
+            {homeData?.homeFeaturedProducts?.description}
           </p>
         </div>
 
@@ -200,7 +260,7 @@ export default function Home() {
       <div
         className={styles.banners_container}
       >
-        <InfoBanners banners={homeJson.data.infosBanners}/>
+        <InfoBanners banners={homeData?.homeGridBanners || []}/>
       </div>
 
       <div
@@ -208,6 +268,8 @@ export default function Home() {
       >
         <MainClientsSuppliers
           list={homeJson.data.clients}
+          title={homeData?.homeClients?.title}
+          description={homeData?.homeClients?.description}
           type="clients"
           mobile
         />
@@ -228,26 +290,36 @@ export default function Home() {
       >
         <MainClientsSuppliers
           list={homeJson.data.clients}
+          title={homeData?.homeClients?.title}
+          description={homeData?.homeClients?.description}
           type="clients"
           mobile={false}
         />
       </div>
 
-      <img
-        src={homeJson.data.banner.src}
-        alt={homeJson.data.banner.alt}
-        width={10}
-        height={10}
-        className={styles.banner_desck}
-      />
+      <a
+        href={homeData?.banners[0]?.href}
+      >
+        <img
+          src={homeData?.banners[0]?.src}
+          alt={homeData?.banners[0]?.alt}
+          width={10}
+          height={10}
+          className={styles.banner_desck}
+        />
+      </a>
 
       <MainClientsSuppliers
         list={homeJson.data.clients}
         type='suppliers'
+        title={homeData?.homeSuppliers?.title}
+        description={homeData?.homeSuppliers?.description}
         mobile={false}
       />
 
-      <Catalog />
+      <Catalog
+        data={homeData}
+      />
     </div>
   );
 }

@@ -10,17 +10,20 @@
       {
         "id": 1,
         "description": "teste",
-        "src": "https://i.postimg.cc/qMV7348h/Property-1-Frame-56.png"
+        "src": "https://i.postimg.cc/qMV7348h/Property-1-Frame-56.png",
+        "link": ""
       },
       {
         "id": 2,
         "description": "teste",
-        "src": "https://i.postimg.cc/c18HCr8G/Property-1-Frame-57.png"
+        "src": "https://i.postimg.cc/c18HCr8G/Property-1-Frame-57.png",
+        "link": ""
       },
       {
         "id": 3,
         "description": "teste",
-        "src": "https://i.postimg.cc/9FdQPKpx/Property-1-Frame-58.png"
+        "src": "https://i.postimg.cc/9FdQPKpx/Property-1-Frame-58.png",
+        "link": ""
       }
     ],
     "bannersMobile": [

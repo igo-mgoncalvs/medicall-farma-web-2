@@ -13,7 +13,13 @@ interface IListImages {
   alt: string
 }
 
-export default function MainClientsSuppliers ({ list, type, mobile }: { list: IListImages[], type: "suppliers" | "clients", mobile: boolean }) {
+export default function MainClientsSuppliers ({ list, type, mobile, title, description }: {
+  list: IListImages[],
+  type: "suppliers" | "clients",
+  mobile: boolean,
+  title: string | undefined,
+  description: string | undefined
+}) {
   return (
     <div
       className={`${styles.main} ${mobile ? styles.mobile_background: ''}`}
@@ -25,13 +31,11 @@ export default function MainClientsSuppliers ({ list, type, mobile }: { list: IL
         className={styles.top_description}
       >
         <p className={styles.sub_description}>
-        {type === 'clients' 
-          ? "Clientes que são verdadeiros parceiros na busca pela excelência e qualidade." 
-          : "Parceiros comprometidos com a excelência em produtos de qualidade"}
+        {description}
           
         </p>
         <p className={styles.title}>
-          {`Principais ${type === 'clients' ? "Clientes" : "Fornecedores"}`}
+          {title}
         </p>
         
         <div className={styles.line}/>
