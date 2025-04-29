@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Form from "./components/form/form"
 import Infos from "./components/infos/infos"
 import MedicallInfos from "./components/medicallInfos/medicallInfos"
@@ -11,7 +11,40 @@ import api from "@/api/axios"
 import { IHomeData } from "@/app/page"
 import dbPromise from '@/utils/dbPromise';
 
+export interface IFooter {
+  description: string
+  phoneNumber: string
+  sacEmail: string
+  sacPhone: string
+}
+
+export interface IFooterSocial {
+  footerId: string
+  href: string
+  icon: string
+  id: string
+  order: number
+}
+
+export interface IFooterLinks {
+  href: string
+  id: string
+  name: string
+  order: number
+}
+export interface IAddresses {
+  id: string,
+  uf: string
+  address: string
+  state: string
+  description: string
+}
+
 export default function Footer () {
+  const [footerData, setFooterData] = useState<IFooter>()
+  const [footerSocial, setFooterSocial] = useState<IFooterSocial[]>([])
+  const [footerLinks, setFooterLinks] = useState<IFooterLinks[]>([])
+  const [addresses, setAddresses] = useState<IAddresses[]>([])
 
   useEffect(() => {
     const saveStorages = async () => {
@@ -41,13 +74,52 @@ export default function Footer () {
         .then(async ({data}) => {
           await db.put('home', data, 'home');
         })
+
+      api.get('/get-footer')
+        .then(async ({data}) => {
+          await db.put('footer', data, 'footer');
+        })
+
+      api.get('/get-footer-social')
+        .then(async ({data}) => {
+          await db.put('footerSocial', data, 'footerSocial');
+        })
+
+      api.get('/get-footer-links')
+        .then(async ({data}) => {
+          await db.put('footerLinks', data, 'footerLinks');
+        })
+
+      api.get('/get-addresses')
+        .then(async ({data}) => {
+          await db.put('addresses', data, 'addresses');
+        })
       
     }
 
     saveStorages()
+
+    const interval = setInterval(async () => {
+      const db = await dbPromise      
+
+      const footer: IFooter = await db.get('footer', 'footer');
+      const footerSocial: IFooterSocial[] = await db.get('footerSocial', 'footerSocial');
+      const footerLinks: IFooterLinks[] = await db.get('footerLinks', 'footerLinks');
+      const addresses: IAddresses[] = await db.get('addresses', 'addresses');
+
+      if (footer && footerSocial && footerLinks && addresses) {
+        setFooterData(footer) 
+        setFooterSocial(footerSocial.sort((a, b) => a.order < b.order ? -1: 1)) 
+        setFooterLinks(footerLinks.sort((a, b) => a.order < b.order ? -1: 1)) 
+        setAddresses(addresses) 
+        clearInterval(interval)
+      }
+    }, 500)
+
+    return () => clearInterval(interval)
   }, [])
 
-  return (
+  return footerData && (
     <div
       className={styles.footer}
 
@@ -62,7 +134,7 @@ export default function Footer () {
       <div
         className={styles.medicallInfos}
       >
-        <MedicallInfos />
+        <MedicallInfos data={footerData} social={footerSocial} links={footerLinks} addresses={addresses}/>
       </div>
 
       <div
@@ -72,7 +144,9 @@ export default function Footer () {
         <div
           className={styles.social_contact_container}
         >
-          <SocialContactMobile />
+          <SocialContactMobile
+            data={footerSocial}
+          />
         </div>
       </div>
     </div>

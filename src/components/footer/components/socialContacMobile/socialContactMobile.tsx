@@ -3,8 +3,9 @@ import footerJson from '@/mockdata/footer.json'
 
 import styles from './styles.module.css'
 import BreakLine from '@/components/breakLine/breakLine'
+import { IFooterSocial } from '../../footer'
 
-export default function SocialContactMobile () {
+export default function SocialContactMobile ({data}: {data: IFooterSocial[]}) {
   return (
     <div
       className={styles.main}
@@ -14,16 +15,18 @@ export default function SocialContactMobile () {
       <div
         className={styles.social_images}
       >
-        {footerJson.data.social.list.map((item) => (
-          <div
+        {data.map((item) => (
+          <a
             key={item.id}
             className={styles.social_image}
+            href={item.href}
+            target='_blank'
           >
             <img
-              src={item.img}
-              alt={item.alt}
+              src={item.icon}
+              alt='icone'
             />
-          </div>
+          </a>
         ))}
       </div>
 

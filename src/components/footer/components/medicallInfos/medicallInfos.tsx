@@ -6,10 +6,10 @@ import arrow from '@/assets/arrow.svg'
 
 import styles from './style.module.css'
 
-import footerJson from '@/mockdata/footer.json'
 import BreakLine from "@/components/breakLine/breakLine";
+import { IAddresses, IFooter, IFooterLinks, IFooterSocial } from "../../footer";
 
-export default function MedicallInfos () {
+export default function MedicallInfos ({data, social, links, addresses}: {data: IFooter, social: IFooterSocial[], links: IFooterLinks[], addresses: IAddresses[]}) {
   return (
     <div
       className={styles.main}
@@ -22,22 +22,23 @@ export default function MedicallInfos () {
           alt="teste-alt"
         />
 
-        <p>{footerJson.data.description}</p>
+        <p>{data.description}</p>
 
         <div
           className={styles.menus_container}
         >
-          {footerJson.data.menus.map((item) => (
+          {links.map((item) => (
             <a
               key={item.id}
               className={styles.links}
+              href={item.href}
             >
               <Image
                 src={arrow}
                 alt="teste-alt"
                 className={styles.arrow}
               />
-              <p>{item.label}</p>
+              <p>{item.name}</p>
             </a>
           ))}
         </div>
@@ -46,13 +47,13 @@ export default function MedicallInfos () {
           className={styles.sac_container}
         >
           <p className={styles.sac_title}>
-            {footerJson.data.sac.title}
+            SAC
           </p>
           <p>
-            {footerJson.data.sac.number}
+            {data.sacPhone}
           </p>
           <p>
-            {footerJson.data.sac.email}
+            {data.sacEmail}
           </p>
         </div>
       </div>
@@ -63,11 +64,11 @@ export default function MedicallInfos () {
         <div
           className={styles.address_container}
         >
-          {footerJson.data.address.map((item) => (
+          {addresses.map((item) => (
             <div
               key={item.id}
             >
-              <p className={styles.address_title}>{item.title}</p>
+              <p className={styles.address_title}>Nosso endereço {item.uf}</p>
               <p>{BreakLine(item.address)}</p>
             </div>
           ))}
@@ -76,17 +77,22 @@ export default function MedicallInfos () {
         <div
           className={styles.social_container}
         >
-          <p>{footerJson.data.social.title}</p>
+          <p>Nos siga nas redes sociais</p>
 
           <div
             className={styles.social_images}
           >
-            {footerJson.data.social.list.map((item) => (
-              <img
+            {social.map((item) => (
+              <a
                 key={item.id}
-                src={item.img}
-                alt={item.alt}
-              />
+                href={item.href}
+                target="_blank"
+              >
+                <img
+                  src={item.icon}
+                  alt={'icon'}
+                />
+              </a>
             ))}
           </div>
         </div>
@@ -97,10 +103,10 @@ export default function MedicallInfos () {
           <p
             className={styles.contact_title}
           >
-            {footerJson.data.contact.title}
+            Fale conosco
           </p>
           <p>
-            {footerJson.data.contact.number}
+            {data.phoneNumber}
           </p>
         </div>
       </div>
