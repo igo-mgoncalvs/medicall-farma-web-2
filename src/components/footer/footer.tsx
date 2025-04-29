@@ -94,6 +94,16 @@ export default function Footer () {
         .then(async ({data}) => {
           await db.put('addresses', data, 'addresses');
         })
+
+      api.get('/get-about-us-layout')
+        .then(async ({data}) => {
+          await db.put('aboutUsLayout', data, 'aboutUsLayout');
+        })
+
+      api.get('/get-privacy-policy')
+        .then(async ({data}) => {
+          await db.put('privacyPolicy', data, 'privacyPolicy');
+        })
       
     }
 

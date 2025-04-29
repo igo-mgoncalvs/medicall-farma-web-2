@@ -19,6 +19,12 @@ const dbPromise = openDB('my-database', 1, {
     if (!db.objectStoreNames.contains('addresses')) {
       db.createObjectStore('addresses');
     }
+    if (!db.objectStoreNames.contains('aboutUsLayout')) {
+      db.createObjectStore('aboutUsLayout');
+    }
+    if (!db.objectStoreNames.contains('privacyPolicy')) {
+      db.createObjectStore('privacyPolicy');
+    }
   },
 });
 
