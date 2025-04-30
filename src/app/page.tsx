@@ -233,6 +233,7 @@ export default function Home() {
               1440: {
                 slidesPerView: 5,
                 spaceBetween: 10,
+                pagination: false
               }
             }}
             slidesPerView={2}
@@ -248,7 +249,6 @@ export default function Home() {
                 key={item.id}
               >
                 <Product
-                  key={item.id}
                   product={item}
                 />
               </SwiperSlide>

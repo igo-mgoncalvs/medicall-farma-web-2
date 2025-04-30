@@ -104,7 +104,6 @@ export default function Footer () {
         .then(async ({data}) => {
           await db.put('privacyPolicy', data, 'privacyPolicy');
         })
-      
     }
 
     saveStorages()

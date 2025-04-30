@@ -50,6 +50,22 @@
   gap: 16px
 }
 
+/* @media (max-width: 1440px) {
+  .products_container {
+    display: grid;
+    grid: auto-flow / repeat(3, 0.6fr);
+    gap: 16px
+  }
+} */
+
+@media (max-width: 1025px) {
+  .products_container {
+    display: grid;
+    grid: auto-flow / repeat(3, 0.6fr);
+    gap: 16px
+  }
+}
+
 @media (max-width: 426px) {
   .main {
     flex-direction: column;

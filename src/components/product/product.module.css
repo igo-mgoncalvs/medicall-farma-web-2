@@ -19,12 +19,14 @@
 .product_infos_container {
   margin-top: 8px;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  gap: 16px;
+  justify-content: space-between;
 }
 
 .product_description {
   font-size: 11px;  
+  margin-bottom: 10px;
 }
 
 .product_button {
@@ -35,6 +37,12 @@
   font-weight: 600;
   padding: 6px 0;
   border-radius: 6px;
+}
+
+.image {
+  width: 100%;
+  min-height: 150px;
+  margin-bottom: 8px;
 }
 
 @media (max-width: 426px) {
