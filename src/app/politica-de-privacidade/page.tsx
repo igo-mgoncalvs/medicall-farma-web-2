@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
+import { dbPromise } from '@/utils/dbPromise'
 import styles from './styles.module.css'
 import { useEffect, useState } from 'react'
-import dbPromise from '@/utils/dbPromise'
 
 export interface IPrivacyPolicy {
   title: string
@@ -15,17 +15,19 @@ export default function PolicyPrivacy () {
   const [layout, setLayout] = useState<IPrivacyPolicy>()
 
   useEffect(() => {
-    const getData = async () => {
-      const db = await dbPromise  
-
+    const loadData = async () => {
+      const db = await dbPromise();
+      if (!db) return;
+  
       const layoutData = await db.get('privacyPolicy', 'privacyPolicy');
-
+  
       if(layoutData) {
         setLayout(layoutData)
       }
-    }
-
-    getData()
+    };
+  
+    loadData();
+  
   }, [])
 
   return layout && (

@@ -2,8 +2,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // baseURL: 'https://medicall.igormgoncalvs.com', // fallback se não tiver env
-  baseURL: 'http://localhost:3333', // fallback se não tiver env
+  baseURL: 'https://medicall.igormgoncalvs.com',
+  // baseURL: 'http://localhost:3333',
   headers: {
     'Content-Type': 'application/json',
   },

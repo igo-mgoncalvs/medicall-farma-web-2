@@ -8,8 +8,6 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import prevArrow from '@/assets/prevArrow.svg'
 import nextArrow from '@/assets/nextArrow.svg'
 
-import homeJson from '@/mockdata/home.json'
-
 import 'swiper/css/pagination';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -17,13 +15,13 @@ import 'swiper/css/navigation';
 import Product, { IProduct } from "@/components/product/product";
 import InfoBanners from "@/components/infosBanners/infosBanners";
 import TopProducts from "@/components/topProducts/topProducts";
-import MainClientsSuppliers from "@/components/mainClientsSuppliers/mainClientsSuppliers";
+import MainClientsSuppliers, { IListImages } from "@/components/mainClientsSuppliers/mainClientsSuppliers";
 import Catalog from "@/components/catalog/catalog";
 import { useEffect, useState } from "react";
 import { IGroup } from "./[groupName]/[category]/page";
 import Image from "next/image";
 import useWindowSize from "@/hooks/useWindowSize";
-import dbPromise from "@/utils/dbPromise";
+import { dbPromise } from "@/utils/dbPromise";
 
 interface IHomeBanners {
   id: string
@@ -71,48 +69,50 @@ export interface IHomeData {
   homeGridBanners: IHomeGridBanners[]
 }
 
+export interface IClients {
+  id: string
+  image: string
+  name: string
+}
+
 export default function Home() {
   const [topProducts, setTopProducts] = useState<IGroup[]>([])
   const [featuredProducts, setFeaturedProducts] = useState<IProduct[] | undefined>()
   const [homeData, setHomeData] = useState<IHomeData | undefined>()
   const [banners, setBanners] = useState<IHomeBanners[]>([])
+  const [clients, setClients] = useState<IListImages[]>([])
+  const [suppliers, setSuppliers] = useState<IListImages[]>([])
 
   const size = useWindowSize()
 
   useEffect(() => {
-    const interval = setInterval(async () => {
-      const db = await dbPromise      
-
-      const getTopProducts = localStorage.getItem('top-products')
-      const getFeaturedProducts = localStorage.getItem('featured-products')
-      const homeData: IHomeData = await db.get('home', 'home');
-
-
-      if (getTopProducts && getFeaturedProducts && homeData) {
-        setFeaturedProducts(JSON.parse(getFeaturedProducts))
-        setTopProducts(JSON.parse(getTopProducts))
-        setHomeData(homeData)
-        setBanners(homeData.banners.sort((a, b) => a.order > b.order ? 1 :-1))
-        clearInterval(interval)
-      }
-    }, 500)
-
-    return () => clearInterval(interval)
+    const loadData = async () => {
+      const db = await dbPromise();
+      if (!db) return;
+  
+      const interval = setInterval(async () => {
+        const topProducts = await db.get('topProducts', 'topProducts');
+        const featuredProducts = await db.get('featuredProducts', 'featuredProducts');
+        const homeData: IHomeData = await db.get('home', 'home');
+        const getSuppliers = await db.get('clients', 'clients');
+        const getClients = await db.get('suppliers', 'suppliers');
+  
+        if (topProducts && featuredProducts && homeData && getSuppliers && getClients) {
+          setFeaturedProducts(featuredProducts)
+          setTopProducts(topProducts)
+          setHomeData(homeData)
+          setBanners(homeData.banners.sort((a, b) => a.order > b.order ? 1 :-1))
+          setClients(getClients)
+          setSuppliers(getSuppliers)
+          clearInterval(interval)
+        }
+      }, 500)
+  
+      return () => clearInterval(interval)
+    };
+  
+    loadData();
   }, [])
-
-  useEffect(() => {
-    const getFeaturedProducts = localStorage.getItem('featured-products')
-    const getTopProducts = localStorage.getItem('top-products')
-
-    if(!featuredProducts && getFeaturedProducts && getFeaturedProducts !== JSON.stringify(getFeaturedProducts)){
-      setFeaturedProducts(JSON.parse(getFeaturedProducts))
-    }
-
-    if(!topProducts && getTopProducts && getTopProducts !== JSON.stringify(topProducts)){
-      setTopProducts(JSON.parse(getTopProducts))
-    }
-
-  }, [featuredProducts, topProducts, homeData])
 
   return (
     <div className={styles.page}>
@@ -267,7 +267,7 @@ export default function Home() {
         className={styles.clients_container_mobile}
       >
         <MainClientsSuppliers
-          list={homeJson.data.clients}
+          list={clients}
           title={homeData?.homeClients?.title}
           description={homeData?.homeClients?.description}
           type="clients"
@@ -289,7 +289,7 @@ export default function Home() {
         className={styles.clients_container}
       >
         <MainClientsSuppliers
-          list={homeJson.data.clients}
+          list={clients}
           title={homeData?.homeClients?.title}
           description={homeData?.homeClients?.description}
           type="clients"
@@ -310,7 +310,7 @@ export default function Home() {
       </a>
 
       <MainClientsSuppliers
-        list={homeJson.data.clients}
+        list={suppliers}
         type='suppliers'
         title={homeData?.homeSuppliers?.title}
         description={homeData?.homeSuppliers?.description}

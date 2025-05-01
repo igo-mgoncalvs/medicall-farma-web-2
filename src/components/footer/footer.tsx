@@ -9,7 +9,7 @@ import SocialContactMobile from "./components/socialContacMobile/socialContactMo
 import styles from './styles.module.css'
 import api from "@/api/axios"
 import { IHomeData } from "@/app/page"
-import dbPromise from '@/utils/dbPromise';
+import { dbPromise } from "@/utils/dbPromise"
 
 export interface IFooter {
   description: string
@@ -47,85 +47,77 @@ export default function Footer () {
   const [addresses, setAddresses] = useState<IAddresses[]>([])
 
   useEffect(() => {
-    const saveStorages = async () => {
-      const db = await dbPromise;
-
-      api.get('/list-groups')
-        .then(({data}) => {
-          localStorage.setItem('list-groups', JSON.stringify(data))
+    const loadData = async () => {
+      const db = await dbPromise();
+      if (!db) return;
+  
+      Promise.all([
+        api.get('/list-groups'),
+        api.get('/get-top-products'),
+        api.get('/get-featured-products'),
+        api.get('/list-all-products'),
+        api.get<IHomeData>('/get-home'),
+        api.get('/get-footer'),
+        api.get('/get-footer-social'),
+        api.get('/get-footer-links'),
+        api.get('/get-addresses'),
+        api.get('/get-about-us-layout'),
+        api.get('/get-privacy-policy'),
+        api.get('/get-clients'),
+        api.get('/get-suppliers'),
+      ])
+        .then(async ([
+          listGroups,
+          topProducts,
+          featuredProducts,
+          products,
+          home,
+          footer,
+          footerSocial,
+          footerLinks,
+          addresses,
+          aboutUsLayout,
+          privacyPolicy,
+          clients,
+          suppliers
+        ]) => {
+          Promise.all([
+            db.put('listGroups', listGroups.data, 'listGroups'),
+            db.put('topProducts', topProducts.data, 'topProducts'),
+            db.put('featuredProducts', featuredProducts.data, 'featuredProducts'),
+            db.put('products', products.data, 'products'),
+            db.put('home', home.data, 'home'),
+            db.put('footer', footer.data, 'footer'),
+            db.put('footerSocial', footerSocial.data, 'footerSocial'),
+            db.put('footerLinks', footerLinks.data, 'footerLinks'),
+            db.put('addresses', addresses.data, 'addresses'),
+            db.put('aboutUsLayout', aboutUsLayout.data, 'aboutUsLayout'),
+            db.put('privacyPolicy', privacyPolicy.data, 'privacyPolicy'),
+            db.put('clients', clients.data, 'clients'),
+            db.put('suppliers', suppliers.data, 'suppliers'),
+          ])
         })
 
-      api.get('/get-top-products')
-        .then(({data}) => {
-          localStorage.setItem('top-products', JSON.stringify(data))
-        })
-
-      api.get('/get-featured-products')
-        .then(({data}) => {
-          localStorage.setItem('featured-products', JSON.stringify(data))
-        })
-      
-      api.get('/list-all-products')
-        .then(({data}) => {
-          localStorage.setItem('products', JSON.stringify(data))
-        })
-
-      api.get<IHomeData>('/get-home')
-        .then(async ({data}) => {
-          await db.put('home', data, 'home');
-        })
-
-      api.get('/get-footer')
-        .then(async ({data}) => {
-          await db.put('footer', data, 'footer');
-        })
-
-      api.get('/get-footer-social')
-        .then(async ({data}) => {
-          await db.put('footerSocial', data, 'footerSocial');
-        })
-
-      api.get('/get-footer-links')
-        .then(async ({data}) => {
-          await db.put('footerLinks', data, 'footerLinks');
-        })
-
-      api.get('/get-addresses')
-        .then(async ({data}) => {
-          await db.put('addresses', data, 'addresses');
-        })
-
-      api.get('/get-about-us-layout')
-        .then(async ({data}) => {
-          await db.put('aboutUsLayout', data, 'aboutUsLayout');
-        })
-
-      api.get('/get-privacy-policy')
-        .then(async ({data}) => {
-          await db.put('privacyPolicy', data, 'privacyPolicy');
-        })
-    }
-
-    saveStorages()
-
-    const interval = setInterval(async () => {
-      const db = await dbPromise      
-
-      const footer: IFooter = await db.get('footer', 'footer');
-      const footerSocial: IFooterSocial[] = await db.get('footerSocial', 'footerSocial');
-      const footerLinks: IFooterLinks[] = await db.get('footerLinks', 'footerLinks');
-      const addresses: IAddresses[] = await db.get('addresses', 'addresses');
-
-      if (footer && footerSocial && footerLinks && addresses) {
-        setFooterData(footer) 
-        setFooterSocial(footerSocial.sort((a, b) => a.order < b.order ? -1: 1)) 
-        setFooterLinks(footerLinks.sort((a, b) => a.order < b.order ? -1: 1)) 
-        setAddresses(addresses) 
-        clearInterval(interval)
-      }
-    }, 500)
-
-    return () => clearInterval(interval)
+        const interval = setInterval(async () => {
+          if (!db) return;
+          const footer: IFooter = await db.get('footer', 'footer');
+          const footerSocial: IFooterSocial[] = await db.get('footerSocial', 'footerSocial');
+          const footerLinks: IFooterLinks[] = await db.get('footerLinks', 'footerLinks');
+          const addresses: IAddresses[] = await db.get('addresses', 'addresses');
+    
+          if (footer && footerSocial && footerLinks && addresses) {
+            setFooterData(footer) 
+            setFooterSocial(footerSocial.sort((a, b) => a.order < b.order ? -1: 1)) 
+            setFooterLinks(footerLinks.sort((a, b) => a.order < b.order ? -1: 1)) 
+            setAddresses(addresses) 
+            clearInterval(interval)
+          }
+        }, 500)
+    
+        return () => clearInterval(interval)
+    };
+  
+    loadData();
   }, [])
 
   return footerData && (

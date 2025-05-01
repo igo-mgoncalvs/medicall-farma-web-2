@@ -10,7 +10,6 @@ import styles from './styles.module.css'
 import BreakLine from '@/components/breakLine/breakLine'
 import useWindowSize from '@/hooks/useWindowSize'
 import { useEffect, useState } from 'react'
-import dbPromise from '@/utils/dbPromise'
 import { IAddresses } from '@/components/footer/footer'
 
 import 'swiper/css/pagination';
@@ -18,6 +17,7 @@ import 'swiper/css';
 import Image from "next/image";
 
 import './styles.css';
+import { dbPromise } from "@/utils/dbPromise";
 
 interface IAbouUsLayout {
   aboutUsSection: {
@@ -72,20 +72,20 @@ export default function AboutUs () {
   const size = useWindowSize()
 
   useEffect(() => {
-    const getData = async () => {
-      const db = await dbPromise    
-
+    const loadData = async () => {
+      const db = await dbPromise();
+      if (!db) return;
+  
       const layoutData = await db.get('aboutUsLayout', 'aboutUsLayout');
       const addressesData = await db.get('addresses', 'addresses');
-
+  
       if(layoutData && addressesData) {
         setLayout(layoutData)
         setAddresses(addressesData)
       }
-      
-    }
-
-    getData()
+    };
+  
+    loadData();
   }, [])
 
   return layout && (

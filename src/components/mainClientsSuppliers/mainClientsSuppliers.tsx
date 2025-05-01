@@ -7,10 +7,10 @@ import { Autoplay, Pagination } from "swiper/modules"
 import 'swiper/css/pagination';
 import 'swiper/css';
 
-interface IListImages {
+export interface IListImages {
   id: number
-  src: string
-  alt: string
+  image: string
+  name: string
 }
 
 export default function MainClientsSuppliers ({ list, type, mobile, title, description }: {
@@ -70,8 +70,8 @@ export default function MainClientsSuppliers ({ list, type, mobile, title, descr
               key={item.id}
             >
               <img
-                src={item.src}
-                alt={item.alt}
+                src={item.image}
+                alt={item.name}
                 className={styles.banner}
               />
             </SwiperSlide>

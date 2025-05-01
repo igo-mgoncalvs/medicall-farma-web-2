@@ -6,6 +6,7 @@ import styles from './styles.module.css'
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { dbPromise } from '@/utils/dbPromise';
 
 export interface ICategories {
   id: string
@@ -38,16 +39,23 @@ export default function GroupName () {
     }, [pathname]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const getProducts = localStorage.getItem('products')
-      
-      if (getProducts) {
-        setProducts(JSON.parse(getProducts))
-        clearInterval(interval)
-      }
-    }, 500)
+    const loadData = async () => {
+      const db = await dbPromise();
+      if (!db) return;
 
-    return () => clearInterval(interval)
+      const interval = setInterval(async () => {
+        const products = await db.get('products', 'products');
+        
+        if (products) {
+          setProducts(JSON.parse(products))
+          clearInterval(interval)
+        }
+      }, 500)
+  
+      return () => clearInterval(interval)
+    }
+    
+    loadData()
   }, [])
 
   const dataGroup = products?.find((group) => group.groupLink === params.groupName)
