@@ -72,16 +72,16 @@
   margin-bottom: 10px;
 }
 
-@media (max-width: 426px) {
+@media (max-width: 769px) {
   .main {
     flex-direction: column;
-    max-width: 344px;
     margin: auto;
     padding-bottom: 26px;
+    align-items: center;
   }
-  
+
   .infos {
-    width: 100%;
+    width: 80%;
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;
@@ -109,16 +109,16 @@
   }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 426px) {
   .main {
     flex-direction: column;
-    margin: auto;
+    margin: 20px;
+    margin-bottom: 0;
     padding-bottom: 26px;
-    align-items: center;
   }
-
+  
   .infos {
-    width: 80%;
+    width: 100%;
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;
@@ -133,7 +133,7 @@
   }
   
   .main_right {
-    width: 80%;
+    width: 100%;
     margin-top: 30px;
   }
   

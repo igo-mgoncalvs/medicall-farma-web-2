@@ -172,4 +172,13 @@
   .product_emphasis_section {
     height: 380px;
   }
+
+  .line_suppliers {
+    display: block;
+    width: 90%;
+    height: 3px;
+    background: linear-gradient(90deg, #FFFFFF 2.53%, #1887FF 100%);
+    margin: 30px 0;
+    border-radius: 40px;
+  }
 }

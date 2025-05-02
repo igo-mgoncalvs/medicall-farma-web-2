@@ -309,6 +309,8 @@ export default function Home() {
         />
       </a>
 
+      <span className={styles.line_suppliers}></span>
+
       <MainClientsSuppliers
         list={suppliers}
         type='suppliers'

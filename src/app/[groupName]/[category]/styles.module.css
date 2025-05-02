@@ -75,9 +75,13 @@
 
   .categories_container {
     flex-direction: row;
+    align-items: flex-end;
     margin-bottom: 20px;
+    max-width: none;
+    padding-bottom: 10px;
+    overflow: scroll;
   }
-  
+
   .groupName_title {
     font-size: 21px;
   }
@@ -102,5 +106,14 @@
     grid: auto-flow / repeat(2, 0.6fr);
     gap: 10px;
     margin-bottom: 21px;
+  }
+
+  .divisorLine {
+    display: block;
+    height: 3px;
+    width: 95%;
+    margin-bottom: 22px;
+    border-radius: 40px;
+    background: linear-gradient(90deg, #FFFFFF 2.53%, #1887FF 100%);
   }
 }

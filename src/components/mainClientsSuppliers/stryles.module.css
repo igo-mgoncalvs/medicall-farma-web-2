@@ -81,5 +81,10 @@
 
   .main {
     padding-bottom: 70px;
+    background-color: transparent;
+  }
+
+  .swiper {
+    height: 100px;
   }
 }

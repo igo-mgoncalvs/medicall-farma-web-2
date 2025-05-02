@@ -47,7 +47,7 @@ export default function GroupName () {
         const products = await db.get('products', 'products');
         
         if (products) {
-          setProducts(JSON.parse(products))
+          setProducts(products)
           clearInterval(interval)
         }
       }, 500)
@@ -98,6 +98,8 @@ export default function GroupName () {
           ))}
         </div>
       </div>
+
+      <span className={styles.divisorLine}></span>
     </div>
   )
 }

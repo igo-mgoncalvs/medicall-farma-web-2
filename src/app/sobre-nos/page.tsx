@@ -18,6 +18,11 @@ import Image from "next/image";
 
 import './styles.css';
 import { dbPromise } from "@/utils/dbPromise";
+import downArrow from '@/assets/downArrow.svg'
+import unitsDivisorMobile from '@/assets/unitsDivisorMobile.svg'
+import circlePoints from '@/assets/circlePoints.svg'
+import mapBackgroundSp from '@/assets/mapBackgroundSp.svg'
+import mapBackgroundMg from '@/assets/mapBackgroundMg.svg'
 
 interface IAbouUsLayout {
   aboutUsSection: {
@@ -144,7 +149,15 @@ export default function AboutUs () {
             {layout.aboutUsSection.buttonText}
           </a>
         </div>
+
+        <Image
+          src={circlePoints}
+          alt="circle points"
+          className={styles.circle_points_background}
+        />
       </div>
+      
+      <span className={styles.divisorAboutUs}></span>
 
       <div
         className={styles.units_container}
@@ -174,7 +187,29 @@ export default function AboutUs () {
           src={layout.aboutUsUnits.image}
           className={styles.units_image}
         />
+
+        <Image
+          alt="background mapa SP"
+          src={mapBackgroundSp}
+          width={100}
+          height={100}
+          className={styles.map_background_sp}
+        />
+
+        <Image
+          alt="background mapa MG"
+          src={mapBackgroundMg}
+          width={100}
+          height={100}
+          className={styles.map_background_mg}
+        />
       </div>
+
+      <Image
+        alt="divisor mobile"
+        src={unitsDivisorMobile}
+        className={styles.unitsDivisorMobile}
+      />
 
       <div
         className={styles.team_container}
@@ -311,6 +346,19 @@ export default function AboutUs () {
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+
+        <div
+          className={styles.downArrow}
+        >
+          <div
+            className={styles.downArrowIcon}
+          >
+            <Image
+              alt="down arrow"
+              src={downArrow}
+            />
+          </div>
         </div>
       </div>
     </div>

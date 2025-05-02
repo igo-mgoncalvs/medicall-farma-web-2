@@ -11,6 +11,7 @@ import styles from "./styles.module.css"
 import { IGroup } from '../page'
 import { useEffect, useMemo, useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { dbPromise } from '@/utils/dbPromise'
 
 export default function ProductPage () {
   const [products, setProducts] = useState<IGroup[] | undefined>()
@@ -29,16 +30,23 @@ export default function ProductPage () {
   }, [pathname]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const getProducts = localStorage.getItem('products')
-      
-      if (getProducts) {
-        setProducts(JSON.parse(getProducts))
-        clearInterval(interval)
-      }
-    }, 500)
+    const loadData = async () => {
+      const db = await dbPromise();
+      if (!db) return;
 
-    return () => clearInterval(interval)
+      const interval = setInterval(async () => {
+        const products = await db.get('products', 'products');
+        
+        if (products) {
+          setProducts(products)
+          clearInterval(interval)
+        }
+      }, 500)
+  
+      return () => clearInterval(interval)
+    }
+    
+    loadData()
   }, [])
 
   const group = products?.find((group) => group.groupLink === params.groupName)
@@ -62,7 +70,7 @@ export default function ProductPage () {
           <div
             className={styles.products_images}
           >
-            {product.sizes.map((item) => (
+            {product.sizes.find((item) => !!item.size) && product.sizes.map((item) => (
               <div
                 className={`${styles.product_image_detail_container} ${selectSize === item.id ? styles.selected_image : ''}`}
                 key={item.id}
@@ -95,7 +103,7 @@ export default function ProductPage () {
               <p className={styles.product_description}>{BreakLine(product.description)}</p>
             </div>
 
-            {product.sizes.length > 0 && (
+            {product.sizes.find((item) => !!item.size) && (
               <div className={styles.sizes_container}>
                 <p className={styles.sizes_title}>Tamanho</p>
 

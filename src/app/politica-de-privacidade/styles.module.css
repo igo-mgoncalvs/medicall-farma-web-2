@@ -37,4 +37,13 @@
     margin-top: 21px;
     font-weight: 500;
   }
+
+  .divisorLine {
+    display: block;
+    width: 98%;
+    height: 4px;
+    background: linear-gradient(90deg, #FFFFFF 2.53%, #1887FF 100%);
+    border-radius: 40px;
+    margin-bottom: 40px;
+  }
 }

@@ -184,7 +184,9 @@
 
 .values_container {
   display: flex;
+  flex-direction: column;
   background-color: var(--blue-600);
+  margin-bottom: 130px;
 }
 
 .values_width {
@@ -192,7 +194,7 @@
   justify-content: space-between;
   max-width: 1440px;
   margin: auto;
-  height: 680px;
+  height: 620px;
   width: 100%;
 }
 
@@ -239,7 +241,26 @@
   font-weight: 600;
 }
 
+.downArrow {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 50px;
+}
 
+.downArrowIcon {
+  display: flex;
+  background-color: var(--blue-400);
+  padding: 12px;
+  border-radius: 100%;
+  border: 20px solid #fff
+}
+
+/* Backgrounds */
+
+.circle_points_background {
+  display: none;
+}
 
 @media (max-width: 769px) {
   .wellcome_container {
@@ -432,6 +453,7 @@
   .aboutUs_container {
     flex-direction: column-reverse;
     padding: 0 24px;
+    margin-bottom: 10px;
   }
 
   .aboutUs_info_container {
@@ -457,6 +479,7 @@
   }
 
   .aboutUs_button_mobile {
+    display: block;
     background-image: var(--blue-linear-gradient);
     font-size: 18px;
     color: var(--white);
@@ -470,9 +493,18 @@
     margin-top: 32px;
   }
 
+  .divisorAboutUs {
+    display: block;
+    height: 3px;
+    width: 90%;
+    background: linear-gradient(90deg, #FFFFFF 2.53%, #1887FF 100%);
+    border-radius: 4px;
+  }
+
   .units_container {
     flex-direction: column;
     padding: 25px;
+    margin-bottom: 10px;
   }
 
   .units_infos_container {
@@ -503,6 +535,27 @@
 
   .units_image {
     padding: 24px;
+  }
+
+  .map_background_sp {
+    position: absolute;
+    z-index: -1;
+    left: -50px;
+    transform: translateY(680);
+  }
+
+  .map_background_mg {
+    position: absolute;
+    z-index: -1;
+    transform: translateY(400);
+    right: 0px;
+  }
+  
+  .unitsDivisorMobile {
+    position: absolute;
+    width: 100%;
+    transform: translateY(-50px);
+    height: 50px;
   }
 
   .team_container {

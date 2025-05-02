@@ -41,6 +41,13 @@
   }
 
   .background {
+    display: block;
     background: rgba(24, 135, 255, 0.08);
+  }
+}
+
+@media (max-width: 426px) {
+  .medicallInfos {
+    padding-top: 30px;
   }
 }
