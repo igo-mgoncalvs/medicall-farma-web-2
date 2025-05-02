@@ -18,7 +18,11 @@ export function dbPromise() {
         'featuredProducts',
         'listGroups',
         'suppliers',
-        'clients'
+        'clients',
+        'floatButtons',
+        'contactPhone',
+        'contactEmail',
+        'catalogLink',
       ];
 
       for (const store of stores) {

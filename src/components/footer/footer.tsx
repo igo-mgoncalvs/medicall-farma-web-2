@@ -65,6 +65,10 @@ export default function Footer () {
         api.get('/get-privacy-policy'),
         api.get('/get-clients'),
         api.get('/get-suppliers'),
+        api.get('/get-float-buttons'),
+        api.get('/get-contact-phone'),
+        api.get('/get-contact-email'),
+        api.get('/catalog'),
       ])
         .then(async ([
           listGroups,
@@ -79,7 +83,11 @@ export default function Footer () {
           aboutUsLayout,
           privacyPolicy,
           clients,
-          suppliers
+          suppliers,
+          floatButtons,
+          contactPhone,
+          contactEmail,
+          catalogLink
         ]) => {
           Promise.all([
             db.put('listGroups', listGroups.data, 'listGroups'),
@@ -95,6 +103,10 @@ export default function Footer () {
             db.put('privacyPolicy', privacyPolicy.data, 'privacyPolicy'),
             db.put('clients', clients.data, 'clients'),
             db.put('suppliers', suppliers.data, 'suppliers'),
+            db.put('floatButtons', floatButtons.data, 'floatButtons'),
+            db.put('contactPhone', contactPhone.data, 'contactPhone'),
+            db.put('contactEmail', contactEmail.data, 'contactEmail'),
+            db.put('catalogLink', catalogLink.data, 'catalogLink'),
           ])
         })
 

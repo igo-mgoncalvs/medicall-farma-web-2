@@ -3,6 +3,7 @@ import { Montserrat, Mr_Dafoe } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
+import FloatButtons from "@/components/floatButtons/floatButtons";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -41,6 +42,8 @@ export default function RootLayout({
         >
           {children}
         </div>
+
+        <FloatButtons />
 
         <div
           className="footer"
