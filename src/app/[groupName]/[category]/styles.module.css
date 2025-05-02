@@ -1,10 +1,15 @@
 .main {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   margin-bottom: 120px;
   max-width: 1400px;
   margin: auto;
   padding-top: 50px;
+}
+
+.main_container {
+  display: flex;
 }
 
 .groupName_title {
@@ -15,7 +20,7 @@
 
 .groupName_label {
   font-size: 20px;
-  font-style: 400;
+  font-weight: 400;
   margin-top: 22px;
   margin-bottom: 22px;
 }
@@ -50,19 +55,30 @@
   gap: 16px
 }
 
-/* @media (max-width: 1440px) {
+@media (max-width: 1025px) {
+  .main {
+    margin: 0 20px;
+    margin-bottom: 20px;
+  }  
+
+  .product_main {
+    flex: 1
+  }
+
   .products_container {
     display: grid;
     grid: auto-flow / repeat(3, 0.6fr);
     gap: 16px
   }
-} */
 
-@media (max-width: 1025px) {
-  .products_container {
-    display: grid;
-    grid: auto-flow / repeat(3, 0.6fr);
-    gap: 16px
+  .divisorLine {
+    display: block;
+    height: 3px;
+    width: 95%;
+    margin-bottom: 22px;
+    border-radius: 40px;
+    background: linear-gradient(90deg, #FFFFFF 2.53%, #1887FF 100%);
+    margin: 50px 0;
   }
 }
 

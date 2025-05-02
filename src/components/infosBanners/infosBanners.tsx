@@ -38,6 +38,7 @@ export default function InfoBanners ({ banners }: { banners: IInfosBanners[] }) 
         >
           <a
             href={banners[2]?.href}
+            className={styles.baners_right}
           >
             <img
               src={banners[2]?.src}
@@ -46,6 +47,7 @@ export default function InfoBanners ({ banners }: { banners: IInfosBanners[] }) 
           </a>
           <a
             href={banners[3]?.href}
+            className={styles.baners_right}
           >
             <img
               src={banners[3]?.src}
@@ -56,7 +58,8 @@ export default function InfoBanners ({ banners }: { banners: IInfosBanners[] }) 
         <div>
           <a
             href={banners[4]?.href}
-          >
+            className={styles.banner_horizontal}
+            >
             <img
               src={banners[4]?.src}
               alt={banners[4]?.alt}

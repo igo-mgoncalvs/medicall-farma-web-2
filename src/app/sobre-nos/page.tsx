@@ -119,6 +119,7 @@ export default function AboutUs () {
         
         <img
           src={layout.aboutUsSection.image}
+          className={styles.aboutUs_image}
           alt={'ilustração sobre nós'}
         />
 
@@ -217,6 +218,7 @@ export default function AboutUs () {
         <img
           src={layout.aboutUsTeam.image}
           alt={'imagem da equipe'}
+          className={styles.abooutUsTeam_image}
         />
 
         <div
@@ -303,8 +305,15 @@ export default function AboutUs () {
               425: {
                 slidesPerView: 1.8
               },
+              768: {
+                slidesPerView: 1.8,
+                slidesOffsetBefore: 100,
+                slidesOffsetAfter: 100
+              },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 2,
+                slidesOffsetBefore: 80,
+                slidesOffsetAfter: 80
               },
               1440: {
                 slidesPerView: 3,

@@ -122,7 +122,6 @@ export default function Home() {
           modules={[Autoplay, Navigation]}
           navigation={{
             nextEl: '#my-next-btn',
-
           }}
           autoplay={{
             delay: 2000,
@@ -148,6 +147,25 @@ export default function Home() {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        <div
+          className={styles.buttons_swiper}
+        >
+          <button id="my-next-btn">
+            <Image
+              src={prevArrow}
+              alt="prev-arrow"
+              className={styles.next_image}
+              />
+          </button>
+          <button id="my-next-btn">
+            <Image
+              src={nextArrow}
+              alt="next-arrow"
+              className={styles.next_image}
+            />
+          </button>
+        </div>
 
         {/* <div>
           <Image
@@ -176,25 +194,6 @@ export default function Home() {
             className={styles.homeBackImage5}
           />
         </div> */}
-
-        <div
-          className={styles.buttons_swiper}
-        >
-          <button id="my-next-btn">
-            <Image
-              src={prevArrow}
-              alt="prev-arrow"
-              className={styles.next_image}
-              />
-          </button>
-          <button id="my-next-btn">
-            <Image
-              src={nextArrow}
-              alt="next-arrow"
-              className={styles.next_image}
-            />
-          </button>
-        </div>
       </div>
 
       <div

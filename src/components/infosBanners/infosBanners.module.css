@@ -19,9 +19,32 @@
   margin-bottom: 8px;
 }
 
-@media (max-width: 427px) {
+@media (max-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+
+  .second_banners_top {
+    margin-bottom: 0;
+  }
+
   .banners {
-    width: 170px;
+    width: 220px;
+  }
+
+  .baners_right {
+    width: 260px;
+  }
+  .baners_right img {
+    width: 100%;
+  }
+
+  .banner_horizontal {
+    width: 40px;
+  }
+
+  .banner_horizontal img {
+    width: 524px;
   }
 }
 
@@ -30,3 +53,10 @@
     display: none;
   }
 }
+
+@media (max-width: 427px) {
+  .banners {
+    width: 170px;
+  }
+}
+

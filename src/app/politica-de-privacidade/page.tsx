@@ -42,6 +42,7 @@ export default function PolicyPrivacy () {
       <img
         src={layout.image}
         alt={'ilustração politica de qualidade'}
+        className={styles.image}
       />
 
       <span className={styles.divisorLine}></span>

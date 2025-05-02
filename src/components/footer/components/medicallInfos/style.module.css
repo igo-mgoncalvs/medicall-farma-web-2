@@ -72,6 +72,12 @@
   margin-bottom: 10px;
 }
 
+@media (max-width: 1024px) {
+  .main {
+    justify-content: space-around;
+  }
+}
+
 @media (max-width: 769px) {
   .main {
     flex-direction: column;

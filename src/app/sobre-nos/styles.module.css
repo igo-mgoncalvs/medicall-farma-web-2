@@ -262,6 +262,84 @@
   display: none;
 }
 
+@media (max-width: 1024px) {
+  .wellcome_container {
+    height: 400px;
+  }
+
+  .wellcome_title {
+    font-size: 40px;
+  }
+
+  .wellcome_description  {
+    font-size: 22px;
+  }
+
+  .aboutUs_container {
+    justify-content: space-around;
+    margin-bottom: 40px;
+  }
+
+  .aboutUs_image {
+    width: 500px;
+    height: 500px;
+  }
+
+  .divisorAboutUs {
+    display: block;
+    height: 3px;
+    width: 90%;
+    background: linear-gradient(90deg, #FFFFFF 2.53%, #1887FF 100%);
+    border-radius: 4px;
+    margin-bottom: 80px;
+  }
+
+  .units_container {
+    justify-content: center;
+    gap: 80px
+  }
+
+  .units_image {
+    width: 400px;
+    height: 400px;
+  }
+
+  .map_background_sp {
+    position: absolute;
+    z-index: -1;
+    left: -90px;
+    width: 150px;
+    transform: translateY(380);
+  }
+
+  .map_background_mg {
+    position: absolute;
+    z-index: -1;
+    transform: translateY(50);
+    right: 0px;
+  }
+
+  .unitsDivisorMobile {
+    position: absolute;
+    width: 100%;
+    transform: translateY(-70px);
+    height: 50px;
+  }
+
+  .abooutUsTeam_image {
+    width: 550px;
+  }
+
+  .space_container {
+    justify-content: space-around;
+    margin-bottom: 50px;
+  }
+
+  .values_width {
+    height: 700px;
+  }
+}
+
 @media (max-width: 769px) {
   .wellcome_container {
     display: flex;
@@ -283,6 +361,7 @@
   .aboutUs_container {
     flex-direction: column-reverse;
     padding: 0 24px;
+    margin-bottom: 40px;
   }
 
   .aboutUs_info_container {
@@ -308,6 +387,7 @@
   }
 
   .aboutUs_button_mobile {
+    display: block;
     background-image: var(--blue-linear-gradient);
     font-size: 18px;
     color: var(--white);
@@ -317,8 +397,16 @@
     font-weight: 600;
     margin: auto;
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 0px;
     margin-top: 32px;
+  }
+
+  .divisorAboutUs {
+    display: block;
+    height: 3px;
+    width: 90%;
+    background: linear-gradient(90deg, #FFFFFF 2.53%, #1887FF 100%);
+    border-radius: 4px;
   }
 
   .units_container {
@@ -354,6 +442,28 @@
 
   .units_image {
     padding: 24px 80px;
+  }
+
+  .map_background_sp {
+    position: absolute;
+    z-index: -1;
+    left: -80px;
+    width: 150px;
+    transform: translateY(980);
+  }
+
+  .map_background_mg {
+    position: absolute;
+    z-index: -1;
+    transform: translateY(500);
+    right: 0px;
+  }
+
+  .unitsDivisorMobile {
+    position: absolute;
+    width: 100%;
+    transform: translateY(-70px);
+    height: 50px;
   }
 
   .team_container {

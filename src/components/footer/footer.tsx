@@ -135,7 +135,6 @@ export default function Footer () {
   return footerData && (
     <div
       className={styles.footer}
-
     >
       <div
         className={styles.form}

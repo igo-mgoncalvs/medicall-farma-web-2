@@ -98,11 +98,11 @@ export default function Header () {
                 >
                   Quem somos 
                 </Link>
-                <a
-                  href='politica-de-privacidade'
+                <Link
+                  href='/politica-de-privacidade'
                 >
                   Política da Qualidade
-                </a>
+                </Link>
               </div>
             </div>
             <a>

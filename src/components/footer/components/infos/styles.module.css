@@ -8,12 +8,33 @@
 .title {
   font-size: 26px;
   color: var(--blue-600);
+  text-align: left;
+  width: 100%;
 }
 
 .description {
   font-size: 48px;
   margin-bottom: 35px;
   text-align: center;
+  text-align: left;
+  font-weight: 500;
+  margin-right: 30%;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .infos_container {
+    display: none;
+  }
 }
 
 @media (max-width: 426px) {
@@ -27,7 +48,6 @@
   
   .title {
     font-size: 12px;
-    text-align: left;
   }
   
   .description {

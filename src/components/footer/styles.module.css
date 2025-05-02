@@ -18,6 +18,13 @@
   display: none;
 }
 
+@media (max-width: 1024px) {
+  .form {
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+}
+
 @media (max-width: 769px) {
   .form {
     flex-direction: column;

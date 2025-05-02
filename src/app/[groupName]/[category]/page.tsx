@@ -65,37 +65,39 @@ export default function GroupName () {
     <div
       className={styles.main}
     >
-      <div>
-        <p className={styles.groupName_title}>{dataGroup.groupName}</p>
-        <p className={styles.groupName_label}>Filtrar por categorias</p>
+      <div className={styles.main_container}>
+        <div>
+          <p className={styles.groupName_title}>{dataGroup.groupName}</p>
+          <p className={styles.groupName_label}>Filtrar por categorias</p>
 
-        <div
-          className={styles.categories_container}
-        >
-          {dataGroup.categories.map((item) => (
-            <Link
-              key={item.id}
-              className={`${item.categoryLink.includes(params.category) ? styles.categorySelected : styles.category}`}
-              href={item.categoryLink}
-            >
-              {item.categoryName}
-            </Link>
-          ))}
+          <div
+            className={styles.categories_container}
+          >
+            {dataGroup.categories.map((item) => (
+              <Link
+                key={item.id}
+                className={`${item.categoryLink.includes(params.category) ? styles.categorySelected : styles.category}`}
+                href={item.categoryLink}
+              >
+                {item.categoryName}
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div>
-        <p className={styles.products_title}>Exibindo resultados</p>
+        <div className={styles.product_main}>
+          <p className={styles.products_title}>Exibindo resultados</p>
 
-        <div
-          className={styles.products_container}
-        >
-          {dataCategory.products.map((item) => (
-            <Product
-              key={item.id}
-              product={item}
-            />
-          ))}
+          <div
+            className={styles.products_container}
+          >
+            {dataCategory.products.map((item) => (
+              <Product
+                key={item.id}
+                product={item}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
