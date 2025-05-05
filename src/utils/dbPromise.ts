@@ -3,7 +3,7 @@ import { openDB } from 'idb';
 export function dbPromise() {
   if (typeof window === 'undefined') return Promise.resolve(undefined);
 
-  return openDB('my-database', 1, {
+  return openDB('my-database', 2, {
     upgrade(db) {
       const stores = [
         'home',

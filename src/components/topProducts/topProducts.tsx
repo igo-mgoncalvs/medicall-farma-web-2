@@ -50,9 +50,23 @@ export default function TopProducts ({categories, groupName}: {categories: ICate
       >
         <Swiper
           breakpoints={{
-            425: {
+            320: {
+              slidesPerView: 1.7,
+              spaceBetween: 10,
+              slidesOffsetBefore: 10,
+              slidesOffsetAfter: 10,
+            },
+            375: {
+              slidesOffsetBefore: 10,
+              slidesOffsetAfter: 10,
               slidesPerView: 2,
               spaceBetween: 10,
+            },
+            425: {
+              slidesOffsetBefore: 20,
+              slidesOffsetAfter: 20,
+              slidesPerView: 2.3,
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 4,

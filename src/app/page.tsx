@@ -117,54 +117,58 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <div>
-        <Swiper
-          slidesPerView={1}
-          modules={[Autoplay, Navigation]}
-          navigation={{
-            nextEl: '#my-next-btn',
-          }}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-          }}
-        >
-          {banners?.map((item) => (
-            <SwiperSlide
-              key={item.id}
-            >
-              <a
-                href={item.href}
-                target="_blank"
-              >
-                <img
-                  src={size.width > 426 ? item.src: item.srcMobile}
-                  alt={item.alt}
-                  width={10}
-                  height={10}
-                  className={styles.banner}
-                />
-              </a>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
         <div
-          className={styles.buttons_swiper}
+          className={styles.main_banners}
         >
-          <button id="my-next-btn">
-            <Image
-              src={prevArrow}
-              alt="prev-arrow"
-              className={styles.next_image}
+          <div
+            className={styles.buttons_swiper}
+          >
+            <button id="my-next-btn">
+              <Image
+                src={prevArrow}
+                alt="prev-arrow"
+                className={styles.next_image}
+                />
+            </button>
+            <button id="my-next-btn">
+              <Image
+                src={nextArrow}
+                alt="next-arrow"
+                className={styles.next_image}
               />
-          </button>
-          <button id="my-next-btn">
-            <Image
-              src={nextArrow}
-              alt="next-arrow"
-              className={styles.next_image}
-            />
-          </button>
+            </button>
+          </div>
+
+          <Swiper
+            slidesPerView={1}
+            modules={[Autoplay, Navigation]}
+            navigation={{
+              nextEl: '#my-next-btn',
+            }}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+          >
+            {banners?.map((item) => (
+              <SwiperSlide
+                key={item.id}
+              >
+                <a
+                  href={item.href}
+                  target="_blank"
+                >
+                  <img
+                    src={size.width >= 768 ? item.src: item.srcMobile}
+                    alt={item.alt}
+                    width={10}
+                    height={10}
+                    className={styles.banner}
+                  />
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         {/* <div>
@@ -221,8 +225,22 @@ export default function Home() {
         >
           <Swiper
             breakpoints={{
-              425: {
+              320: {
+                slidesPerView: 1.7,
+                spaceBetween: 10,
+                slidesOffsetBefore: 10,
+                slidesOffsetAfter: 10,
+              },
+              375: {
+                slidesOffsetBefore: 10,
+                slidesOffsetAfter: 10,
                 slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              425: {
+                slidesOffsetBefore: 10,
+                slidesOffsetAfter: 10,
+                slidesPerView: 2.3,
                 spaceBetween: 10,
               },
               1024: {
@@ -235,7 +253,6 @@ export default function Home() {
                 pagination: false
               }
             }}
-            slidesPerView={2}
             modules={[Autoplay, Pagination]}
             pagination={true}
             autoplay={{

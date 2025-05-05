@@ -17,6 +17,7 @@
 
 .product_emphasis_title {
   font-size: 40px;
+  text-align: center;
   font-weight: 600;
 }
 
@@ -33,7 +34,10 @@
   display: block;
   background-image: linear-gradient(to right, #fff, #1A88FF);
   height: 3px;
+  width: 80%;
   margin-top: 4px;
+  margin: auto;
+  border-radius: 8px;
 } 
 
 .product_emphasis_section {
@@ -41,7 +45,7 @@
   justify-content: center;
   gap: 12px;
   max-width: 1400px;
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -64,6 +68,10 @@
   display: none;
 }
 
+.main_banners {
+  position: relative;
+}
+
 .buttons_swiper {
   position: absolute;
   display: flex;
@@ -71,6 +79,7 @@
   z-index: 100;
   padding: 0 25px;
   width: 100vw;
+  top: 45%
 }
 
 .buttons_swiper button {
@@ -89,38 +98,60 @@
   height: auto;
 }
 
-.homeBackImage1 {
-  position: absolute;
-  top: 500vh;
+.banner_desck {
+  display: none;
 }
 
-.homeBackImage2 {
-  position: absolute;
-  top: 5vh;
+.clients_container {
+  display: none;
 }
 
-.homeBackImage3 {
-  position: absolute;
-  top: 5vh;
+.clients_container_mobile {
+  display: block;
 }
 
-.homeBackImage4 {
-  position: absolute;
-  top: 5vh;
+.product_emphasis_section {
+  height: 380px;
 }
 
-.homeBackImage5 {
-  position: absolute;
-  top: 5vh;
+.line_suppliers {
+  display: block;
+  width: 90%;
+  height: 3px;
+  background: linear-gradient(90deg, #FFFFFF 2.53%, #1887FF 100%);
+  margin: 30px 0;
+  margin-bottom: 10px;
+  border-radius: 40px;
 }
 
-@media (max-width: 1025px) {
-  .product_emphasis_section {
-    height: 480px;
+@media (min-width: 425px) {
+  .product_emphasis_text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
   }
 
-  .buttons_swiper {
-    transform: translateY(-200px);
+  .product_emphasis_title {
+    font-size: 30px;
+    margin: auto;
+    width: 55%;
+  }
+  
+  .line {
+    width: 45%;
+  }
+  
+  .product_emphasis_description {
+    font-size: 13px;
+    width: 70%;
+    margin: auto;
+  }
+}
+
+/* @media (max-width: 1025px) {
+  .product_emphasis_section {
+    height: 480px;
   }
 }
 
@@ -153,35 +184,4 @@
   .product_emphasis_section {
     height: 620px;
   }
-}
-
-@media (max-width: 426px) {
-  .buttons_swiper {
-    top: 50%
-  }
-
-  .banner_desck {
-    display: none;
-  }
-
-  .clients_container {
-    display: none;
-  }
-
-  .clients_container_mobile {
-    display: block;
-  }
-
-  .product_emphasis_section {
-    height: 380px;
-  }
-
-  .line_suppliers {
-    display: block;
-    width: 90%;
-    height: 3px;
-    background: linear-gradient(90deg, #FFFFFF 2.53%, #1887FF 100%);
-    margin: 30px 0;
-    border-radius: 40px;
-  }
-}
+} */

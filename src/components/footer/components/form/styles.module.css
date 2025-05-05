@@ -6,32 +6,32 @@
 .title1 {
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 48px;
   color: var(--blue-600);
   text-align: center;
+  font-size: 18px;
 }
 
 .title2 {
   font-family: var(--font-mrDafoe);
-  font-size: 64px;
   color: var(--gray-700);
   position: relative;
   text-align: center;
-  top: -30px;
+  font-size: 25px;
+  top: -10px;
 }
 
 .form_container {
   display: flex;
   flex-direction: column;
-  gap: 36px
+  gap: 36px;
 }
 
 .form_container input {
-  font-size: 24px;
   border: none;
   outline: none;
   padding-bottom: 8px;
   border-bottom: solid 2px #000;
+  font-size: 17px;
 }
 
 .checkbox_container {
@@ -58,12 +58,28 @@
   border: none;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   width: 100%;
   margin-top: 34px;
+  font-size: 12px;
+  margin-bottom: 23px;
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 425px) {
+  .title1 {
+    font-size: 25px;
+  }
+  
+  .title2 {
+    font-size: 32px;
+    top: -12px;
+  }
+
+  .form_container {
+    width: 80vw;
+  }
+}
+
+/* @media (max-width: 1024px) {
   .title1 {
     font-size: 34px;
   }
@@ -80,29 +96,9 @@
   .button {
     font-size: 18px;
   }
-}
+} */
 
-@media (max-width: 426px) {
-  .title1 {
-    font-size: 24px;
-  }
-  
-  .title2 {
-    font-size: 33px;
-    top: -15px;
-  }
-  
-  .form_container input {
-    font-size: 17px;
-  }
-  
-  .button {
-    font-size: 12px;
-    margin-bottom: 23px;
-  }
-}
-
-@media (max-width: 769px) {
+/* @media (max-width: 769px) {
   .title1 {
     font-size: 40px;
   }
@@ -120,4 +116,4 @@
     font-size: 18px;
     margin-bottom: 30px;
   }
-}
+} */

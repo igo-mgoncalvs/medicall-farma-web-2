@@ -22,6 +22,7 @@
 }
 
 .type {
+  text-align: center;
   font-size: 40px;
   font-weight: 600;
   text-transform: capitalize;
@@ -37,7 +38,7 @@
 .products_container {
   display: flex;
   gap: 12px;
-  width: 90%;
+  width: 100%;
   max-width: 1400px;
 }
 
