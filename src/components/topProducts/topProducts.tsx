@@ -68,6 +68,12 @@ export default function TopProducts ({categories, groupName}: {categories: ICate
               slidesPerView: 2.3,
               spaceBetween: 20,
             },
+            768: {
+              slidesOffsetBefore: 10,
+              slidesOffsetAfter: 10,
+              slidesPerView: 4,
+              spaceBetween: 10,
+            },
             1024: {
               slidesPerView: 4,
               spaceBetween: 10,

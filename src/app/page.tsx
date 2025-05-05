@@ -243,6 +243,12 @@ export default function Home() {
                 slidesPerView: 2.3,
                 spaceBetween: 10,
               },
+              768: {
+                slidesOffsetBefore: 10,
+                slidesOffsetAfter: 10,
+                slidesPerView: 4,
+                spaceBetween: 10,
+              },
               1024: {
                 slidesPerView: 4,
                 spaceBetween: 10,

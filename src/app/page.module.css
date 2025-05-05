@@ -149,6 +149,20 @@
   }
 }
 
+@media (min-width: 768px) {
+  .product_emphasis_title {
+    width: auto;
+  }
+
+  .line {
+    width: 75%;
+  }
+
+  .product_emphasis_description {
+    width: auto;
+    font-size: 16px;
+  }
+}
 /* @media (max-width: 1025px) {
   .product_emphasis_section {
     height: 480px;
