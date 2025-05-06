@@ -46,7 +46,8 @@
   justify-content: center;
 }
 
-.image {
-  width: 70%;
-  height: 70%;
+.image_container {
+  display: flex;
+  width: 200px;
+  height: 200px;
 }

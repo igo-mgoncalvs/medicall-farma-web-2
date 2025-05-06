@@ -30,11 +30,14 @@ export default function ProductSearchMobile ({
     <div
       className={styles.container}
     >
-      <img
-        src={findProduct.src}
-        alt={findProduct.alt}
-        className={styles.image}
-      />
+      <div
+        className={styles.image_container}
+      >
+        <img
+          src={findProduct.src}
+          alt={findProduct.alt}
+        />
+      </div>
 
       <div
         className={styles.general_infos_container}

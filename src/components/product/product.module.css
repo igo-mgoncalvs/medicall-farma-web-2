@@ -45,7 +45,7 @@
 
 .image {
   min-height: 150px;
-  max-height: 180px;
+  max-height: 170px;
   margin-bottom: 8px;
   margin-bottom: 8px;
   align-self: center;
@@ -53,8 +53,8 @@
 
 @media (min-width: 1024px) {
   .container {
-    width: auto;
-    max-height: 380px;
+    width: 100%;
+    max-width: 380px;
   }
 
   .image {
