@@ -2,7 +2,7 @@ import styles from './styles.module.css'
 
 export default function Form () {
   return (
-    <div>
+    <div className={styles.main}>
       <div
         className={styles.title_container}
       >

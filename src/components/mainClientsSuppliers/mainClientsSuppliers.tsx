@@ -24,7 +24,7 @@ export default function MainClientsSuppliers ({ list, type, mobile, title, descr
     <div
       className={`${styles.main} ${mobile ? styles.mobile_background: ''}`}
       style={{
-        marginTop: type === 'clients' ? '50px' : '0',
+        marginTop: type === 'clients' ? '30px' : '0',
       }}
     >
       <div
@@ -54,7 +54,7 @@ export default function MainClientsSuppliers ({ list, type, mobile, title, descr
               slidesPerView: 3,
               spaceBetween: 20,
             },
-            1440: {
+            1300: {
               slidesPerView: 4,
               spaceBetween: 20,
             }

@@ -146,7 +146,9 @@ export default function Footer () {
       <div
         className={styles.medicallInfos}
       >
-        <MedicallInfos data={footerData} social={footerSocial} links={footerLinks} addresses={addresses}/>
+        <div className={styles.background_infos}>
+          <MedicallInfos data={footerData} social={footerSocial} links={footerLinks} addresses={addresses}/>
+        </div>
       </div>
 
       <div

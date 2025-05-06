@@ -48,3 +48,21 @@
     height: 620px;
   }
 }
+
+@media (min-width: 1024px) {
+  .products_container {
+    height: 435px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .products_container {
+    width: 95%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .products_container {
+    height: auto;
+  }
+}

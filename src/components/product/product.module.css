@@ -29,6 +29,7 @@
 .product_description {
   font-size: 8px;
   margin-bottom: 10px;
+  text-overflow: ellipsis;
 }
 
 .product_button {
@@ -47,4 +48,36 @@
   max-height: 180px;
   margin-bottom: 8px;
   margin-bottom: 8px;
+  align-self: center;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: auto;
+    max-height: 380px;
+  }
+
+  .image {
+    min-height: 150px;
+    max-height: 200px;
+    margin-bottom: 8px;
+    margin-bottom: 8px;
+    max-width: 200px;
+  }
+
+  .product_name {
+    font-size: 18px;
+  }
+  
+  .product_type {
+    font-size: 18px;
+  }
+
+  .product_description {
+    font-size: 12px;
+  }
+
+  .product_button {
+    font-size: 16px;
+  }
 }

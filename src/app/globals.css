@@ -79,3 +79,9 @@ a {
     margin-top: 142px;
   }
 }
+
+@media (min-width: 1024px) {
+  .children {
+    margin-top: 202px;
+  }
+}

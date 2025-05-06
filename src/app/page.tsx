@@ -128,7 +128,7 @@ export default function Home() {
                 src={prevArrow}
                 alt="prev-arrow"
                 className={styles.next_image}
-                />
+              />
             </button>
             <button id="my-next-btn">
               <Image
@@ -250,10 +250,12 @@ export default function Home() {
                 spaceBetween: 10,
               },
               1024: {
-                slidesPerView: 4,
+                slidesOffsetBefore: 10,
+                slidesOffsetAfter: 10,
+                slidesPerView: 4.5,
                 spaceBetween: 10,
               },
-              1440: {
+              1300: {
                 slidesPerView: 5,
                 spaceBetween: 10,
                 pagination: false
