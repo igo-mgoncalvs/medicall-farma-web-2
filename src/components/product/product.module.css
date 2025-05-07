@@ -27,9 +27,15 @@
 }
 
 .product_description {
+  display: -webkit-box;
+  display: box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 8px;
-  margin-bottom: 10px;
-  text-overflow: ellipsis;
+  height: 30px;
+  line-clamp: 3;
+  box-orient: vertical;
 }
 
 .product_button {

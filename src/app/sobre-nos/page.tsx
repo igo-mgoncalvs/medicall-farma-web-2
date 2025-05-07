@@ -99,7 +99,7 @@ export default function AboutUs () {
         style={{
           backgroundImage: `url(${size.width > 426 ? layout.aboutUsWellcome.image : layout.aboutUsWellcome.imageMobile})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: size.width > 426 ? size.width > 1440 ? 'cover' : 'contain' : 'cover'
+          backgroundSize: 'cover'
         }}
         className={styles.wellcome_container}
       >
@@ -267,7 +267,10 @@ export default function AboutUs () {
               {layout.ourSpaceImages.map((item) => (
                 <SwiperSlide
                   key={item.id}
-                  >
+                  style={{
+                    height: 'auto'
+                  }}
+                >
                   <img
                     src={item.image}
                     className={styles.image}
@@ -288,7 +291,6 @@ export default function AboutUs () {
           id="meu-swiper"
         >
           <Swiper
-            spaceBetween={100}
             modules={[Autoplay, Pagination]}
             pagination={{
               clickable: true,
@@ -298,34 +300,44 @@ export default function AboutUs () {
             }}
             breakpoints={{
               320: {
-                slidesPerView: 1,
+                spaceBetween: 10,
+                slidesPerView: 1.2,
                 slidesOffsetBefore: 24,
-                slidesOffsetAfter: 100
+                slidesOffsetAfter: 24
+              },
+              375: {
+                slidesPerView: 1.4,
+                spaceBetween: 10,
+                slidesOffsetBefore: 24,
+                slidesOffsetAfter: 24
               },
               425: {
-                slidesPerView: 1.8
+                slidesPerView: 1.8,
+                slidesOffsetBefore: 24,
+                slidesOffsetAfter: 24
               },
               768: {
-                slidesPerView: 1.8,
-                slidesOffsetBefore: 100,
-                slidesOffsetAfter: 100
+                slidesPerView: 2.4,
+                spaceBetween: 10,
+                slidesOffsetBefore: 24,
+                slidesOffsetAfter: 24
               },
               1024: {
-                slidesPerView: 2,
-                slidesOffsetBefore: 80,
-                slidesOffsetAfter: 80
+                slidesPerView: 3,
+                spaceBetween: 30,
               },
               1440: {
                 slidesPerView: 3,
+                spaceBetween: 160,
               }
             }}
             autoplay={{
               delay: 2000,
               disableOnInteraction: false,
             }}
+            className={styles.values_swiper}
             style={{
-              paddingTop: 80,
-              marginBottom: 80
+              paddingTop: 50
             }}
           >
             {layout.values.map((item) => (
