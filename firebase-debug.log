@@ -1,0 +1,67 @@
+[debug] [2025-05-07T02:10:09.593Z] ----------------------------------------------------------------------
+[debug] [2025-05-07T02:10:09.596Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\igor2\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-05-07T02:10:09.596Z] CLI Version:   14.2.1
+[debug] [2025-05-07T02:10:09.596Z] Platform:      win32
+[debug] [2025-05-07T02:10:09.596Z] Node Version:  v22.12.0
+[debug] [2025-05-07T02:10:09.597Z] Time:          Tue May 06 2025 23:10:09 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2025-05-07T02:10:09.597Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-05-07T02:10:09.808Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-05-07T02:10:09.809Z] > authorizing via signed-in user (igor2013mgoncalves@gmail.com)
+[debug] [2025-05-07T02:10:09.809Z] [iam] checking project medicall-farma for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-05-07T02:10:09.810Z] Checked if tokens are valid: false, expires at: 1746558350319
+[debug] [2025-05-07T02:10:09.810Z] Checked if tokens are valid: false, expires at: 1746558350319
+[debug] [2025-05-07T02:10:09.810Z] > refreshing access token with scopes: []
+[debug] [2025-05-07T02:10:09.812Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-05-07T02:10:09.812Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-05-07T02:10:10.109Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-05-07T02:10:10.109Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-05-07T02:10:10.118Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/medicall-farma:testIamPermissions [none]
+[debug] [2025-05-07T02:10:10.118Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/medicall-farma:testIamPermissions x-goog-quota-user=projects/medicall-farma
+[debug] [2025-05-07T02:10:10.118Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/medicall-farma:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-05-07T02:10:11.061Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/medicall-farma:testIamPermissions 200
+[debug] [2025-05-07T02:10:11.061Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/medicall-farma:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-05-07T02:10:11.061Z] Checked if tokens are valid: true, expires at: 1746587409109
+[debug] [2025-05-07T02:10:11.062Z] Checked if tokens are valid: true, expires at: 1746587409109
+[debug] [2025-05-07T02:10:11.062Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/medicall-farma [none]
+[debug] [2025-05-07T02:10:11.523Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/medicall-farma 200
+[debug] [2025-05-07T02:10:11.523Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/medicall-farma {"projectId":"medicall-farma","projectNumber":"560615912268","displayName":"Medicall Farma","name":"projects/medicall-farma","resources":{"hostingSite":"medicall-farma","realtimeDatabaseInstance":"medicall-farma-default-rtdb","locationId":"us-central"},"state":"ACTIVE","etag":"1_ec4f8ba2-5fbe-4014-95ac-02180d15815f"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2025-05-07T02:10:20.635Z] Checked if tokens are valid: true, expires at: 1746587409109
+[debug] [2025-05-07T02:10:20.636Z] Checked if tokens are valid: true, expires at: 1746587409109
+[debug] [2025-05-07T02:10:20.636Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/medicall-farma/sites/medicall-farma [none]
+[debug] [2025-05-07T02:10:21.778Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/medicall-farma/sites/medicall-farma 200
+[debug] [2025-05-07T02:10:21.778Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/medicall-farma/sites/medicall-farma {"name":"projects/medicall-farma/sites/medicall-farma","defaultUrl":"https://medicall-farma.web.app","appId":"1:560615912268:web:1cf85af05418c3e91895e9","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.2.4
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[info] <w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|javascript/auto|C:\Users\igor2\Projetos\medicall-farma-web-2\node_modules\next\dist\build\webpack\loaders\next-flight-css-loader.js??ruleSet[1].rules[13].oneOf[5].use[0]!C:\Users\igor2\Projetos\medicall-farma-web-2\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[13].oneOf[5].use[1]!C:\Users\igor2\Projetos\medicall-farma-web-2\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[13].oneOf[5].use[2]!C:\Users\igor2\Projetos\medicall-farma-web-2\src\components\product\product.module.css|ssr': No serializer registered for Warning
+<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> Array { 1 items } -> webpack/lib/ModuleWarning -> Warning
+
+[info]  ⚠ Compiled with warnings
+
+
+[info] ./src/components/product/product.module.css
+Warning
+
+(31:3) autoprefixer: You should write display: flex by final spec instead of display: box
+
+Import trace for requested module:
+./src/components/product/product.module.css
+./src/components/product/product.tsx
+./src/app/page.tsx
+
+

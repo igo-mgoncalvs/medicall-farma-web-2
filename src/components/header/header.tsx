@@ -13,6 +13,7 @@ import { IGroup } from '@/app/[groupName]/[category]/page'
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import MobileMenu from '../mobileMenu'
+import { dbPromise } from '@/utils/dbPromise'
 
 export default function Header () {
   const [openMenu, setOpenMenu] = useState('')
@@ -20,23 +21,28 @@ export default function Header () {
   const [parseGroups, setParseGroups] = useState<IGroup[]>([])
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const getGroups = localStorage.getItem('list-groups')
-      
-      if (getGroups) {
-        setParseGroups(JSON.parse(getGroups))
-        clearInterval(interval)
-      }
-    }, 500)
+    const loadData = async () => {
+      const db = await dbPromise();
+      if (!db) return;
+  
+      const interval = setInterval(async () => {
+        const getListGroups = await db.get('listGroups', 'listGroups');   
 
-    return () => clearInterval(interval)
+        if (getListGroups) {
+          setParseGroups(getListGroups)
+          clearInterval(interval)
+        }
+      }, 500)
+
+      return () => clearInterval(interval)
+    }
+
+    loadData()
   }, [])
 
   const handleOpenMenuMobile = useCallback(() => {
     setOpenMenuMobile(!openMenuMobile)
   }, [openMenuMobile])
-
-
 
   return (
     <div>

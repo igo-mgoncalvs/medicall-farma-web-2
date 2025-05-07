@@ -9,22 +9,30 @@ import Image from 'next/image'
 import { IGroup } from '@/app/[groupName]/[category]/page'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { dbPromise } from '@/utils/dbPromise'
 
 export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpenMenuMobile: () => void, open: boolean }) {
   const [openMenu, setOpenMenu] = useState<string>('')
   const [parseGroups, setParseGroups] =useState<IGroup[]>([])
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const getGroups = localStorage.getItem('list-groups')
-      
-      if (getGroups) {
-        setParseGroups(JSON.parse(getGroups))
-        clearInterval(interval)
-      }
-    }, 500)
+    const loadData = async () => {
+      const db = await dbPromise();
+      if (!db) return;
+  
+      const interval = setInterval(async () => {
+        const getListGroups = await db.get('listGroups', 'listGroups');   
 
-    return () => clearInterval(interval)
+        if (getListGroups) {
+          setParseGroups(getListGroups)
+          clearInterval(interval)
+        }
+      }, 500)
+
+      return () => clearInterval(interval)
+    }
+
+    loadData()
   }, [])
 
   return (
