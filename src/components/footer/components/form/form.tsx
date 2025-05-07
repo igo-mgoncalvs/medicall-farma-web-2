@@ -1,6 +1,38 @@
+'use client'
+
+import { Controller, useForm } from 'react-hook-form'
 import styles from './styles.module.css'
+import { useCallback, useState } from 'react';
+import checkIcon from '@/assets/check.svg'
+import Image from 'next/image';
+import api from '@/api/axios';
+
+interface IEmailForm {
+  name: string
+  email: string
+  phone: string
+  cnpj: string
+  description: string
+}
 
 export default function Form () {
+  const [check, setCheck] = useState<boolean>(false)
+
+  const { control, handleSubmit, setValue, reset } = useForm<IEmailForm>()
+
+  const onSubmit = useCallback(async (data: IEmailForm) => {
+    api.post('/send-email', data)
+      .then(() => {
+        reset()
+        setValue('cnpj', '')
+        setValue('description', '')
+        setValue('email', '')
+        setValue('name', '')
+        setValue('phone', '')
+        setCheck(false)
+      })
+  }, [reset, setValue, setCheck])
+
   return (
     <div className={styles.main}>
       <div
@@ -19,34 +51,152 @@ export default function Form () {
       </div>
 
       <form
+        id='email'
         className={styles.form_container}
+        onSubmit={handleSubmit(onSubmit)}
       >
-        <input
-          placeholder='Nome'
+        <Controller
+          name='name'
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: 'Esse campo é obrigatório'
+            }
+          }}
+          render={({field: { onChange, value }, fieldState: { error }}) => (
+            <div className={styles.input_container}>
+              <input
+                placeholder='Nome'
+                value={value}
+                className={error?.message ? styles.error_input : styles.input}
+                onChange={onChange}
+              />
+              {error?.message && (
+                <p className={styles.error_message}>{error?.message}</p>
+              )}
+            </div>
+          )}
         />
-        <input
-          placeholder='E-mail'
+        <Controller
+          name='email'
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: 'Esse campo é obrigatório'
+            }
+          }}
+          render={({field: { onChange, value}, fieldState: { error }}) => (
+            <div className={styles.input_container}>
+              <input
+                placeholder='E-mail'
+                value={value}
+                className={error?.message ? styles.error_input : styles.input}
+                onChange={onChange}
+              />
+              {error?.message && (
+                <p className={styles.error_message}>{error?.message}</p>
+              )}
+            </div>
+          )}
         />
-        <input
-          placeholder='Celular'
+        <Controller
+          name='phone'
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: 'Esse campo é obrigatório'
+            }
+          }}
+          render={({field: { onChange, value }, fieldState: { error }}) => (
+            <div className={styles.input_container}>
+              <input
+                value={value}
+                placeholder='Celular'
+                className={error?.message ? styles.error_input : styles.input}
+                onChange={onChange}
+              />
+              {error?.message && (
+                <p className={styles.error_message}>{error?.message}</p>
+              )}
+            </div>
+          )}
         />
-        <input
-          placeholder='CNPJ da Empresa'
+        <Controller
+          name='cnpj'
+          control={control}
+          rules={{
+            required: {
+              value: !check,
+              message: 'Esse campo é obrigatório'
+            }
+          }}
+          render={({field: { onChange, value }, fieldState: { error }}) => (
+            <div className={styles.input_container}>
+              <input
+                value={value}
+                placeholder='CNPJ da Empresa'
+                className={error?.message ? styles.error_input : styles.input}
+                onChange={onChange}
+              />
+              {error?.message && (
+                <p className={styles.error_message}>{error?.message}</p>
+              )}
+            </div>
+          )}
         />
-        <input
-          placeholder='Qual produto você deseja cotar?'
+        <Controller
+          name='description'
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: 'Esse campo é obrigatório'
+            }
+          }}
+          render={({field: { onChange, value }, fieldState: { error }}) => (
+            <div className={styles.input_container}>
+              <input
+                value={value}
+                placeholder='Qual produto você deseja cotar?'
+                className={error?.message ? styles.error_input : styles.input}
+                onChange={onChange}
+              />
+              {error?.message && (
+                <p className={styles.error_message}>{error?.message}</p>
+              )}
+            </div>
+          )}
         />
 
         <div
           className={styles.checkbox_container}
+          onClick={() => {
+            setCheck(!check)
+          }}
         >
-          <div className={styles.checkbox} />
+          {check ? (
+            <div className={styles.checkbox_checked}>
+              <Image
+                src={checkIcon}
+                alt='check'
+                width={10}
+                height={10}
+              />
+            </div>
+          ): (
+            <div className={styles.checkbox} />
+          )}
           <p>Não possuo CNPJ</p>
         </div>
       </form>
 
       <button
+        form='email'
         className={styles.button}
+        type='submit'
       >
         Solicitar Cotação
       </button>
