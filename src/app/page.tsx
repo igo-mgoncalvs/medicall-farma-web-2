@@ -65,6 +65,7 @@ export interface IHomeData {
     description: string
     buttonText: string
     catalogLink: string
+    image: string
   }
   homeGridBanners: IHomeGridBanners[]
 }

@@ -57,6 +57,10 @@ export default function MainClientsSuppliers ({ list, type, mobile, title, descr
             1300: {
               slidesPerView: 4,
               spaceBetween: 20,
+            },
+            2200: {
+              slidesPerView: 5,
+              spaceBetween: 20,
             }
           }}
           autoplay={{
@@ -68,6 +72,7 @@ export default function MainClientsSuppliers ({ list, type, mobile, title, descr
           {list.map((item) => (
             <SwiperSlide
               key={item.id}
+              className={styles.swiper_slide}
             >
               <img
                 src={item.image}

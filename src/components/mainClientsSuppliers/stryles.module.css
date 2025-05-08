@@ -102,14 +102,23 @@
   }
 
   .swiper {
-    height: 300px;
+    height: 200px;
+  }
+
+  .swiper_slide {
+    display: flex;
+  }
+
+  .banner {
+    margin: auto;
+    max-width: 150px;
   }
 }
 
 @media (min-width: 1300px) {
   .banner {
     height: auto;
-    width: 20vw;
+    max-width: 150px;
   }
 }
 
@@ -119,6 +128,6 @@
   }
 
   .banner {
-    width: 100%;
+    width: 60%;
   }
 }

@@ -535,13 +535,13 @@
 
   .wellcome_title {
     font-size: 60px;
-    padding-left: 180px;
+    padding-left: 12%;
     padding-top: 80px;
   }
 
   .wellcome_description {
     font-size: 24px;
-    padding-left: 180px;
+    padding-left: 12%;
   }
 
   .aboutUs_container {
@@ -652,7 +652,19 @@
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1900px) {
+  .wellcome_title {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+
+  .wellcome_description {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+}
+
+@media (min-width: 2500px) {
   .wellcome_container {
     height: 680px;
   }

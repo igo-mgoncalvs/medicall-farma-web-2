@@ -5,7 +5,7 @@
   padding-top: 35px;
   gap: 20px;
   background-repeat: no-repeat;
-  background-image: url('https://i.postimg.cc/CxRxfsS3/Frame-8.png');
+  background-image: url('../../assets/catalogBackgroundMobile.png');
   background-size: cover;
   background-position: center;
   border-top-left-radius: 50px;
@@ -46,6 +46,16 @@
   font-size: 36px;
 }
 
+.divisorLine {
+  display: block;
+  width: 170px;
+  margin: auto;
+  height: 3px;
+  margin-top: 4px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #2690FE 0%, #FFFFFF 100%);
+}
+
 .catalog {
   color: var(--dark-blue-700);
 }
@@ -70,8 +80,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 100px;
-    background-image: url('https://i.postimg.cc/HsWvrSxr/Group-481593.png');
+    gap: 50px;
+    background-image: url('../../assets/catalogBackground.png');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 0;
@@ -81,16 +91,29 @@
 
   .infos {
     align-items: flex-start;
-    width: 30%;
+    padding-top: 80px;
+    width: 50%;
     margin: 0;
   }
-
+  
   .title {
+    display: flex;
+    gap: 10px;
     text-align: left;
+  }
+
+  .divisorLine {
+    width: 100%;
   }
   
   .decription {
+    font-weight: 400;
     text-align: left;
+  }
+
+  .catalog {
+    font-style: italic;
+    font-weight: 500;
   }
 
   .buttonMobile {
@@ -123,6 +146,10 @@
     padding-bottom: 115px;
   }
 
+  .infos {
+    max-width: 700px;
+  }
+
   .title {
     font-size: 60px;
   }
@@ -137,5 +164,11 @@
 
   .image {
     width: 380px;
+  }
+}
+
+@media (min-width: 2250px) {
+  .main {
+    gap: 100px;
   }
 }

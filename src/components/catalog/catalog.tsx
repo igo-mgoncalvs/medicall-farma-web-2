@@ -12,10 +12,14 @@ export default function Catalog ({ data }: { data: IHomeData | undefined }) {
       <div
         className={styles.infos}
       >
-        <div
-          className={styles.title}
-        >
-          {data.homeCatalog.title} <p className={styles.catalog}>{data.homeCatalog.titleColor}</p>
+        <div>
+          <div
+            className={styles.title}
+          >
+            {data.homeCatalog.title} <p className={styles.catalog}>{data.homeCatalog.titleColor}</p>
+          </div>
+
+          <span className={styles.divisorLine}></span>
         </div>
 
         <p
@@ -34,7 +38,7 @@ export default function Catalog ({ data }: { data: IHomeData | undefined }) {
       </div>
 
       <img
-        src="https://i.postimg.cc/PNsyxxvn/Group-481592.png"
+        src={data.homeCatalog.image}
         alt="teste-alt"
         className={styles.image}
       />

@@ -58,6 +58,7 @@ export default function GroupName () {
     loadData()
   }, [])
 
+  
   const dataGroup = products?.find((group) => group.groupLink === params.groupName)
   const dataCategory = dataGroup?.categories.find((category) => category.categoryLink.includes(params.category))
 

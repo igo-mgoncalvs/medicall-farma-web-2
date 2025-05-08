@@ -15,6 +15,7 @@ import { dbPromise } from '@/utils/dbPromise'
 
 export default function ProductPage () {
   const [products, setProducts] = useState<IGroup[] | undefined>()
+  const [contactPhone, setContactPhone] = useState<string>('')
   const [selectSize, setSelectSize] = useState<string>('')
 
   const pathname = usePathname();
@@ -36,9 +37,11 @@ export default function ProductPage () {
 
       const interval = setInterval(async () => {
         const products = await db.get('products', 'products');
+        const getContactPhone = await db.get('contactPhone', 'contactPhone');
         
-        if (products) {
+        if (products && getContactPhone) {
           setProducts(products)
+          setContactPhone(getContactPhone.image)
           clearInterval(interval)
         }
       }, 500)
@@ -51,7 +54,7 @@ export default function ProductPage () {
 
   const group = products?.find((group) => group.groupLink === params.groupName)
   const category = group?.categories.find((category) => category.categoryLink.includes(params.category))
-  const product = category?.products?.find((product) => product.link.includes(params.product))
+  const product = category?.products?.find((product) => product.link.includes(decodeURI(params.product)))
 
   useEffect(() => {
     const findMain = product?.sizes.find((item) => item.isMain)?.id
@@ -129,7 +132,7 @@ export default function ProductPage () {
           >
             <img
               alt='teste-alt'
-              src='https://i.postimg.cc/L6cfXDpX/Group-481588.png'
+              src={contactPhone}
               className={styles.contact_img}
             />
 
