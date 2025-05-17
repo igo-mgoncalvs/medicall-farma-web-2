@@ -31,7 +31,7 @@ export default function Product ({
       className={styles.container}
     >
       <img
-        src={findProduct.src}
+        src={`${process.env.NEXT_PUBLIC_API_URL}/product-image/${findProduct.id}`}
         alt={findProduct.alt}
         className={styles.image}
       />
@@ -59,7 +59,7 @@ export default function Product ({
         </p>
         <a
           className={styles.product_button}
-          href={product.link}
+          href={encodeURI(product.link)}
         >
           Saber mais
         </a>

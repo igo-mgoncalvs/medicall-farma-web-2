@@ -34,7 +34,7 @@ export default function ProductSearchMobile ({
         className={styles.image_container}
       >
         <img
-          src={findProduct.src}
+          src={`${process.env.NEXT_PUBLIC_API_URL}/product-image/${findProduct.id}`}
           alt={findProduct.alt}
         />
       </div>

@@ -77,20 +77,20 @@ export default function ProductPage () {
               <div
                 className={`${styles.product_image_detail_container} ${selectSize === item.id ? styles.selected_image : ''}`}
                 key={item.id}
+                 onClick={() => setSelectSize(item.id)}
               >
                 <img
                   className={styles.product_image_detail}
                   alt={item.alt}
-                  src={item.src}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}/product-image/${item.id}`}
                 />
               </div>
             ))}
           </div>
-
             
           <img
             alt={product.sizes?.find((image) => selectSize === image.id)?.alt}
-            src={product.sizes?.find((image) => selectSize === image.id)?.src}
+            src={`${process.env.NEXT_PUBLIC_API_URL}/product-image/${product.sizes?.find((image) => selectSize === image.id)?.id}`}
             className={styles.main_image_container}
           />
         </div>

@@ -85,6 +85,9 @@ export default function AboutUs () {
       const addressesData = await db.get('addresses', 'addresses');
   
       if(layoutData && addressesData) {
+        window.scrollTo({
+          top: 0
+        })
         setLayout(layoutData)
         setAddresses(addressesData)
       }

@@ -111,7 +111,11 @@
 }
 
 .product_emphasis_section {
-  height: 380px;
+  height: 450px;
+}
+
+.product_emphasis_section_swiper_slide {
+  height: 375px !important;
 }
 
 .line_suppliers {

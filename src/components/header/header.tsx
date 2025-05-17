@@ -52,27 +52,30 @@ export default function Header () {
         <div
           className={styles.main}
         >
-          <Image
-            src={menuMobile}
-            alt='teste-alt'
-            className={styles.mobile_menu}
-            onClick={handleOpenMenuMobile}
-          />
+
+          <div className={styles.menu_container}>
+            <Image
+              src={menuMobile}
+              alt='teste-alt'
+              className={styles.mobile_menu}
+              onClick={handleOpenMenuMobile}
+            />
+
+            <Link
+              href='/'
+            >
+              <Image
+                src={logo}
+                alt='teste-alt'
+                className={styles.logo}
+              />
+            </Link>
+          </div>
 
           <MobileMenu
             handleOpenMenuMobile={handleOpenMenuMobile}
             open={openMenuMobile}
           />
-
-          <Link
-            href='/'
-          >
-            <Image
-              src={logo}
-              alt='teste-alt'
-              className={styles.logo}
-            />
-          </Link>
 
           <Link
             href='/pesquisa-mobile'

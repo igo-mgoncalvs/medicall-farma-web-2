@@ -22,6 +22,9 @@ export default function PolicyPrivacy () {
       const layoutData = await db.get('privacyPolicy', 'privacyPolicy');
   
       if(layoutData) {
+        window.scrollTo({
+          top: 0
+        })
         setLayout(layoutData)
       }
     };

@@ -104,6 +104,7 @@ export default function TopProducts ({categories, groupName}: {categories: ICate
           {products.map((item) => (
             <SwiperSlide
               key={item.id}
+              className={styles.swiper_slide}
             >
               <Product
                 product={item}

@@ -95,8 +95,8 @@ export default function Home() {
         const topProducts = await db.get('topProducts', 'topProducts');
         const featuredProducts = await db.get('featuredProducts', 'featuredProducts');
         const homeData: IHomeData = await db.get('home', 'home');
-        const getSuppliers = await db.get('clients', 'clients');
-        const getClients = await db.get('suppliers', 'suppliers');
+        const getClients= await db.get('clients', 'clients');
+        const getSuppliers = await db.get('suppliers', 'suppliers');
   
         if (topProducts && featuredProducts && homeData && getSuppliers && getClients) {
           setFeaturedProducts(featuredProducts)
@@ -105,6 +105,10 @@ export default function Home() {
           setBanners(homeData.banners.sort((a, b) => a.order > b.order ? 1 :-1))
           setClients(getClients)
           setSuppliers(getSuppliers)
+
+          window.scrollTo({
+            top: 0
+          })
           clearInterval(interval)
         }
       }, 500)
@@ -171,34 +175,6 @@ export default function Home() {
             ))}
           </Swiper>
         </div>
-
-        {/* <div>
-          <Image
-            src={homeBackImage1}
-            alt="teste-alt"
-            className={styles.homeBackImage1}
-          />
-          <Image
-            src={homeBackImage2}
-            alt="teste-alt"
-            className={styles.homeBackImage2}
-          />
-          <Image
-            src={homeBackImage3}
-            alt="teste-alt"
-            className={styles.homeBackImage3}
-          />
-          <Image
-            src={homeBackImage4}
-            alt="teste-alt"
-            className={styles.homeBackImage4}
-          />
-          <Image
-            src={homeBackImage5}
-            alt="teste-alt"
-            className={styles.homeBackImage5}
-          />
-        </div> */}
       </div>
 
       <div
@@ -235,7 +211,7 @@ export default function Home() {
               375: {
                 slidesOffsetBefore: 10,
                 slidesOffsetAfter: 10,
-                slidesPerView: 2,
+                slidesPerView: 2.1,
                 spaceBetween: 10,
               },
               425: {
@@ -272,6 +248,7 @@ export default function Home() {
             {featuredProducts?.map(item => (
               <SwiperSlide
                 key={item.id}
+                className={styles.product_emphasis_section_swiper_slide}
               >
                 <Product
                   product={item}

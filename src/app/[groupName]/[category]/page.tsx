@@ -26,17 +26,17 @@ export interface IGroup {
 export default function GroupName () {
   const [products, setProducts] = useState<IGroup[] | undefined>()
 
-    const pathname = usePathname();
-  
-    const params = useMemo(() => {
-      const segments = pathname.split('/').filter(Boolean);
-  
-      return {
-        groupName: segments[0] || '',
-        category: segments[1] || '',
-        product: segments[2] || '',
-      };
-    }, [pathname]);
+  const pathname = usePathname();
+
+  const params = useMemo(() => {
+    const segments = pathname.split('/').filter(Boolean);
+
+    return {
+      groupName: segments[0] || '',
+      category: segments[1] || '',
+      product: segments[2] || '',
+    };
+  }, [pathname]);
 
   useEffect(() => {
     const loadData = async () => {
@@ -48,6 +48,9 @@ export default function GroupName () {
         
         if (products) {
           setProducts(products)
+          window.scrollTo({
+            top: 0
+          })
           clearInterval(interval)
         }
       }, 500)

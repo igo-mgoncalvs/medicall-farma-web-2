@@ -39,8 +39,12 @@
   display: flex;
   gap: 12px;
   width: 100%;
-  height: 380px;
+  height: 430px;
   max-width: 1400px;
+}
+
+.swiper_slide {
+  height: 375px !important;
 }
 
 @media (min-width: 769px) {
@@ -51,7 +55,7 @@
 
 @media (min-width: 1024px) {
   .products_container {
-    height: 435px;
+    height: 480px;
   }
 }
 
@@ -63,6 +67,6 @@
 
 @media (min-width: 1440px) {
   .products_container {
-    height: auto;
+    height: 450px;
   }
 }
