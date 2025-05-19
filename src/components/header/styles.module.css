@@ -31,7 +31,6 @@
 .menus {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
   color: var(--gray-800);
   z-index: 100;
   max-width: 1400px;
@@ -61,10 +60,15 @@
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   box-shadow: 4.48781px 4.48781px 4.48781px rgba(0, 0, 0, 0.25);
+  margin-top: 64px;
 }
 
 .menu_container:hover {
   cursor: pointer;
+}
+
+.group_name {
+  padding: 24px 0;
 }
 
 .openMenu {
@@ -91,6 +95,22 @@
 
 .links:hover {
   cursor: pointer;
+}
+
+.last_menu {
+  right: 0;
+}
+
+@media (min-width: 1024px) {
+  .menu_container {
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 1750px) {
+  .last_menu {
+    right: auto;
+  }
 }
 
 @media (max-width: 426px) {

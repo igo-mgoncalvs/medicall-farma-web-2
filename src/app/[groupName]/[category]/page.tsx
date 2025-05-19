@@ -71,7 +71,10 @@ export default function GroupName () {
     >
       <div className={styles.main_container}>
         <div>
-          <p className={styles.groupName_title}>{dataGroup.groupName}</p>
+          <div>
+            <p className={styles.groupName_title}>{dataGroup.groupName}</p>
+            <span className={styles.line} />
+          </div>
           <p className={styles.groupName_label}>Filtrar por categorias</p>
 
           <div
@@ -96,10 +99,14 @@ export default function GroupName () {
             className={styles.products_container}
           >
             {dataCategory.products.map((item) => (
-              <Product
+              <div
                 key={item.id}
-                product={item}
-              />
+                className={styles.product}
+              >
+                <Product
+                  product={item}
+                />
+              </div>
             ))}
           </div>
         </div>

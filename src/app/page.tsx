@@ -128,7 +128,7 @@ export default function Home() {
           <div
             className={styles.buttons_swiper}
           >
-            <button id="my-next-btn">
+            <button id="my-prev-btn">
               <Image
                 src={prevArrow}
                 alt="prev-arrow"
@@ -144,36 +144,41 @@ export default function Home() {
             </button>
           </div>
 
-          <Swiper
-            slidesPerView={1}
-            modules={[Autoplay, Navigation]}
-            navigation={{
-              nextEl: '#my-next-btn',
-            }}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
-          >
-            {banners?.map((item) => (
-              <SwiperSlide
-                key={item.id}
-              >
-                <a
-                  href={item.href}
-                  target="_blank"
+          {banners.length > 0 && (
+            <Swiper
+              slidesPerView={1}
+              modules={[Autoplay, Navigation]}
+              navigation={{
+                nextEl: '#my-next-btn',
+                prevEl: '#my-prev-btn',
+              }}
+              autoplay={{
+                delay: 2000,
+                disableOnInteraction: false,
+              }}
+              loop
+            >
+              {banners?.map((item) => (
+                <SwiperSlide
+                  key={item.id}
                 >
-                  <img
-                    src={size.width >= 768 ? item.src: item.srcMobile}
-                    alt={item.alt}
-                    width={10}
-                    height={10}
-                    className={styles.banner}
-                  />
-                </a>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                  >
+                    <img
+                      src={size.width >= 768 ? item.src: item.srcMobile}
+                      alt={item.alt}
+                      width={10}
+                      height={10}
+                      className={styles.banner}
+                    />
+                  </a>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+
         </div>
       </div>
 

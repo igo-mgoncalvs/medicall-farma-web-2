@@ -69,7 +69,7 @@ export default function MedicallInfos ({data, social, links, addresses}: {data: 
               key={item.id}
             >
               <p className={styles.address_title}>Nosso endereço {item.uf}</p>
-              <p>{BreakLine(item.address)}</p>
+              <p className={styles.address_text}>{BreakLine(item.address)}</p>
             </div>
           ))}
         </div>

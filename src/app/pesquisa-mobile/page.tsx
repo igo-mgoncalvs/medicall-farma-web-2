@@ -47,7 +47,7 @@ export default function SearchMobile () {
     <div
       className={styles.background}
     >
-<div className={styles.searchBar_background}>
+      <div className={styles.searchBar_background}>
         <div
           className={styles.searchBar_container}
         >

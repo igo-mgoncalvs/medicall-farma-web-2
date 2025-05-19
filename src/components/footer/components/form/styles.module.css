@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 88%;
   margin: 0 20px;
 }
 
@@ -15,7 +15,7 @@
   font-weight: 900;
   color: var(--blue-600);
   text-align: center;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .title2 {
@@ -23,8 +23,8 @@
   color: var(--gray-700);
   position: relative;
   text-align: center;
-  font-size: 25px;
-  top: -10px;
+  font-size: 33px;
+  top: -15px;
 }
 
 .form_container {
@@ -55,8 +55,10 @@
 
 .checkbox_container {
   display: flex;
-  gap: 10;
+  gap: 10px;
   user-select: none;
+  color: #757575;
+  font-weight: 500;
 }
 
 .checkbox_container:hover {
@@ -113,24 +115,31 @@
   padding: 3.5px;
 }
 
-@media (min-width: 425px) {
+@media (min-width: 375px) {
   .main {
-    margin: 0 40px;
+    width: 88%;
   }
 
   .title1 {
-    font-size: 25px;
+    font-size: 24px;
   }
   
   .title2 {
-    font-size: 32px;
+    font-size: 33px;
     top: -12px;
+  }
+}
+
+@media (min-width: 425px) {
+  .main {
+    width: 91%;
   }
 }
 
 @media (min-width: 768px) {
   .main {
     margin: 0 80px;
+    width: 78%;
   }
 }
 

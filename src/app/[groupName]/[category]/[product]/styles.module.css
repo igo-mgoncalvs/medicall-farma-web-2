@@ -31,7 +31,7 @@
   width: 160px;
   height: 160px;
   border: 2px solid var(--black);
-  border-radius: 8;
+  border-radius: 8px;
   background-color: var(--white);
 }
 

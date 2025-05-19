@@ -77,9 +77,19 @@
   font-weight: 600;
   margin: auto;
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   margin-top: 32px;
 }
+
+.divisorAboutUs {
+  display: block;
+  width: 90%;
+  height: 3px;
+  background: linear-gradient(90deg, #FFFFFF 2.53%, #1887FF 100%);
+  margin-bottom: 20px;
+  border-radius: 50px;
+}
+
 
 .units_container {
   display: flex;
@@ -245,10 +255,32 @@
 }
 
 .values_container {
+  position: relative;
   display: flex;
   flex-direction: column;
   background-color: var(--blue-600);
-  margin-bottom: 130px;
+  margin-bottom: 40px;
+  padding-bottom: 50px;
+}
+
+.values_title_container {
+  position: absolute;
+  left: calc(50% - 93px); 
+}
+
+.values_title_shadow {
+  font-size: 38px;
+  padding-top: 21px;
+  font-family: var(--font-mrDafoe);
+  color: #FFFFFF29;
+}
+
+.values_title {
+  font-weight: 600;
+  position: relative;
+  color: var(--white);
+  font-size: 25px;
+  top: -15px;
 }
 
 .values_width {
@@ -256,7 +288,7 @@
   justify-content: space-between;
   max-width: 1440px;
   margin: auto;
-  height: 430px;
+  height: 485px;
   width: 100%;
 }
 
@@ -274,7 +306,8 @@
   color: var(--white);
   text-align: center;
   height: 300px;
-  gap: 15px
+  gap: 15px;
+  margin-top: 80px;
 }
 
 .icon {
@@ -326,6 +359,10 @@
 /* Backgrounds */
 
 .circle_points_background {
+  display: none;
+}
+
+.downArrow {
   display: none;
 }
 
@@ -519,12 +556,28 @@
     width: 450px;
   }
 
+  .values_container {
+    padding-bottom: 0;
+  }
+
+  .values_title_container {
+    display: none;
+  }
+
   .values_width {
-    height: 380px;
+    height: 350px;
   }
 
   .values_swiper {
     padding: 0 80px;
+  }
+
+  .values_card {
+    margin-top: 0;
+  }
+
+  .downArrow {
+    display: flex;
   }
 }
 

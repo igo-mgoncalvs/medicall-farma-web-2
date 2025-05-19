@@ -127,19 +127,21 @@ export default function Header () {
         <div
           className={styles.menus}
         >
-          {parseGroups.map((item) => (
+          {parseGroups.map((item, key) => (
             <div
               key={item.id}
               onMouseEnter={() => setOpenMenu(item.id)}
               onMouseLeave={() => setOpenMenu('')}
               className={styles.menu_container}
             >
-              <p>
+              <p
+                className={styles.group_name}
+              >
                 {item.groupName}
               </p>
 
               <div
-                className={`${styles.menu_categories} ${openMenu === item.id ? styles.openMenu : styles.closeMenu}`}
+                className={`${styles.menu_categories} ${openMenu === item.id ? styles.openMenu : styles.closeMenu} ${key === parseGroups.length - 1 ? styles.last_menu : ''}`}
               >
                 {item.categories.map((category) => (
                   <Link

@@ -58,6 +58,10 @@
   background-size: cover;
 }
 
+.swiper_slide {
+  margin-top: 20px;
+}
+
 @media (min-width: 768px) {
   .main {
     padding-top: 50px;

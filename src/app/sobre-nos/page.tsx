@@ -289,6 +289,11 @@ export default function AboutUs () {
       <div
         className={styles.values_container}
       >
+        <div className={styles.values_title_container}>
+          <p className={styles.values_title_shadow}>Nossos valores</p>
+          <p className={styles.values_title}>Nossos valores</p>
+        </div>
+
         <div
           className={styles.values_width}
           id="meu-swiper"
