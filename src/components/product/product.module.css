@@ -33,8 +33,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 8px;
-  height: 30px;
+  font-size: 10px;
   line-clamp: 3;
   box-orient: vertical;
 }

@@ -170,8 +170,8 @@ export default function AboutUs () {
           className={styles.units_infos_container}
         >
           <div>
-            <p className={styles.units_mainTitle}>{layout.aboutUsUnits.title}</p>
-            <p className={styles.units_title}>{layout.aboutUsUnits.titleColor}</p>
+            <p className={styles.units_mainTitle}>{layout.aboutUsUnits.titleColor}</p>
+            <p className={styles.units_title}>{layout.aboutUsUnits.title}</p>
           </div>
 
           <div className={styles.units_list}>
@@ -358,13 +358,15 @@ export default function AboutUs () {
                   <div
                     className={styles.icon}
                   >
-                    <Image
-                      src={item.icon}
-                      className={styles.icon_svg}
-                      width={100}
-                      height={100}
-                      alt="values icon"
-                    />
+                    <div className={styles.icon_container}>
+                      <Image
+                        src={item.icon}
+                        className={styles.icon_svg}
+                        width={100}
+                        height={100}
+                        alt="values icon"
+                      />
+                    </div>
                   </div>
 
                   <div className={styles.values_text_container}>

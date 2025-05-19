@@ -66,7 +66,7 @@
   display: grid;
   grid: auto-flow / repeat(1, 1fr);
   justify-items: center;
-  gap: 16px
+  gap: 10px
 }
 
 .product {
@@ -152,5 +152,11 @@
 
   .divisorLine {
     margin: 80px 0;
+  }
+}
+
+@media (min-width: 1500px) {
+  .main {
+    margin: auto;
   }
 }

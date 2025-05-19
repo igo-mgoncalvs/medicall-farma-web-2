@@ -18,7 +18,7 @@
 .menus_container {
   display: flex;
   flex-direction: column;
-  gap: 20px
+  gap: 15px
 }
 
 .links{ 
@@ -149,6 +149,7 @@
 
   .address_text {
     font-size: 12px;
+    font-weight: 500;
   }
   
   .social_container {

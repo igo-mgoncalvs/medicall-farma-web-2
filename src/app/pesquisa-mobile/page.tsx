@@ -43,6 +43,11 @@ export default function SearchMobile () {
     }
   }, [])
 
+  const handleCloseButton = useCallback(() => {
+    setSearch('')
+    route.replace('/pesquisa-mobile')
+  }, [route])
+
   return (
     <div
       className={styles.background}
@@ -71,12 +76,14 @@ export default function SearchMobile () {
               <input
                 placeholder="Qual produto você está procurando?"
                 onChange={(e) => setSearch(e.target.value)}
+                value={search}
               />
             </form>
 
             <Image
               src={circleClose}
               alt='teste-alt'
+              onClick={handleCloseButton}
             />
           </div>
 

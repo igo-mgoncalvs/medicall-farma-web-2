@@ -48,6 +48,6 @@
 
 .image_container {
   display: flex;
-  width: 150px;
+  width: 40vw;
   height: 150px;
 }

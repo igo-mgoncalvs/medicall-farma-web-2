@@ -20,6 +20,7 @@
   padding: 0 40px;
   text-align: center;
   font-weight: 600;
+  line-height: 27px;
 }
 
 .product_emphasis_description {
@@ -35,9 +36,9 @@
   display: block;
   background-image: linear-gradient(to right, #fff, #1A88FF);
   height: 3px;
-  width: 60%;
-  margin-top: 4px;
+  width: 58%;
   margin: auto;
+  margin-top: 5px;
   border-radius: 8px;
 } 
 

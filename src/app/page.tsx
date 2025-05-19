@@ -192,9 +192,9 @@ export default function Home() {
             className={styles.product_emphasis_title}
           >
             {homeData?.homeFeaturedProducts?.title}
+            <div className={styles.line} />
           </p>
 
-          <div className={styles.line} />
           <p
             className={styles.product_emphasis_description}
           >
