@@ -11,6 +11,7 @@
   height: 80vh;
   box-shadow: 10px 7.79334px 9.74168px rgba(0, 0, 0, 0.25);
   border-bottom-right-radius: 30px;
+  z-index: 100px;
 }
 
 .close {

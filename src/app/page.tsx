@@ -83,6 +83,7 @@ export default function Home() {
   const [banners, setBanners] = useState<IHomeBanners[]>([])
   const [clients, setClients] = useState<IListImages[]>([])
   const [suppliers, setSuppliers] = useState<IListImages[]>([])
+  const [autoplay, setAutoplay] = useState<boolean>(true)
 
   const size = useWindowSize()
 
@@ -133,13 +134,15 @@ export default function Home() {
                 src={prevArrow}
                 alt="prev-arrow"
                 className={styles.next_image}
-              />
+                onClick={() => setAutoplay(false)}
+                />
             </button>
             <button id="my-next-btn">
               <Image
                 src={nextArrow}
                 alt="next-arrow"
                 className={styles.next_image}
+                onClick={() => setAutoplay(false)}
               />
             </button>
           </div>
@@ -152,7 +155,7 @@ export default function Home() {
                 nextEl: '#my-next-btn',
                 prevEl: '#my-prev-btn',
               }}
-              autoplay={{
+              autoplay={autoplay && {
                 delay: 2000,
                 disableOnInteraction: false,
               }}
@@ -164,7 +167,7 @@ export default function Home() {
                 >
                   <a
                     href={item.href}
-                    target="_blank"
+                    target={item.href.includes('https://medicall-web-2.firebaseapp.com') ? '' : '_blank'}
                   >
                     <img
                       src={size.width >= 768 ? item.src: item.srcMobile}

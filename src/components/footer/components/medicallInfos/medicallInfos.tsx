@@ -87,10 +87,11 @@ export default function MedicallInfos ({data, social, links, addresses}: {data: 
                 key={item.id}
                 href={item.href}
                 target="_blank"
-              >
+                >
                 <img
                   src={item.icon}
                   alt={'icon'}
+                  className={styles.social_icon}
                 />
               </a>
             ))}

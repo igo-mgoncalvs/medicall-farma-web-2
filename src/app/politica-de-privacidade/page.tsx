@@ -38,7 +38,10 @@ export default function PolicyPrivacy () {
       className={styles.main}
     >
       <div>
-        <p className={styles.title}>{layout.title}</p>
+        <div>
+          <p className={styles.title}>{layout.title}</p>
+          <span className={styles.line}></span>
+        </div>
         <div dangerouslySetInnerHTML={{ __html: layout.text.replace(/\n/g, '<br />')}} className={styles.text} />
       </div>
 

@@ -37,11 +37,6 @@
     flex-direction: column;
   }
 
-  .second_banners_container {
-    display: flex;
-    flex-direction: column;
-  }
-
   .banners {
     width: 250px;
   } 
@@ -66,6 +61,11 @@
 
   .banner_horizontal img {
     width: 495px;
+  }
+
+  .second_banners_container {
+    display: flex;
+    flex-direction: column;
   }
 }
 

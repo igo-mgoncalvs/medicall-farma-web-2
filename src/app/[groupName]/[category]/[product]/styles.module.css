@@ -42,9 +42,9 @@
 .main_image_container {
   width: 100%;
   height: min-content;
+  max-height: 290px;
   padding: 0;
 }
-
 .product_infos_container {
   width: 430px;
   text-align: justify;
@@ -187,6 +187,7 @@
 
   .main_image_container {
     width: 80%;
+    max-height: 400px;
   }
   
   .product_image_detail {
@@ -221,6 +222,7 @@
 @media (min-width: 1024px) {
   .main_image_container {
     width: 400px;
+    max-height: 500px;
   }
 
   .images_container {
@@ -270,4 +272,8 @@
   .images_container {
     gap: 100px;
   }
+}
+
+.remove_padding {
+  padding: 0;
 }

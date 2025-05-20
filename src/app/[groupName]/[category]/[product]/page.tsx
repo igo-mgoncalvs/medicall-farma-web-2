@@ -69,7 +69,7 @@ export default function ProductPage () {
       <div
         className={styles.container}
       >
-        <div className={styles.images_container}>
+        <div className={`${styles.images_container} ${product.sizes.length === 1 ? styles.remove_padding : ''}`}>
           <div
             className={styles.products_images}
           >

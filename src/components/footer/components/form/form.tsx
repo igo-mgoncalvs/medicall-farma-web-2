@@ -1,11 +1,15 @@
 'use client'
+import CircularProgress from '@mui/material/CircularProgress';
+import Lottie from "lottie-react";
+import successAnimation from "@/public/animation/success.json";
 
 import { Controller, useForm } from 'react-hook-form'
 import styles from './styles.module.css'
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import checkIcon from '@/assets/check.svg'
 import Image from 'next/image';
 import api from '@/api/axios';
+import BreakLine from '@/components/breakLine/breakLine';
 
 interface IEmailForm {
   name: string
@@ -17,10 +21,21 @@ interface IEmailForm {
 
 export default function Form () {
   const [check, setCheck] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)  
+  const [sendForm, setSendForm] = useState<boolean>(false)  
 
   const { control, handleSubmit, setValue, reset } = useForm<IEmailForm>()
 
+  useEffect(() => {
+    if(sendForm) {
+      setTimeout(() => {
+        setSendForm(false)
+      }, 10000)
+    }
+  }, [sendForm])
+
   const onSubmit = useCallback(async (data: IEmailForm) => {
+    setLoading(true)
     api.post('/send-email', data)
       .then(() => {
         reset()
@@ -31,9 +46,39 @@ export default function Form () {
         setValue('phone', '')
         setCheck(false)
       })
+      .then(() => (
+        setSendForm(true)
+      ))
+      .finally(() => {
+        setLoading(false)
+      })
   }, [reset, setValue, setCheck])
 
-  return (
+  return sendForm ? (
+    <div
+      className={styles.success_container}
+    >
+      <p
+        className={styles.success_title}
+      >
+        {BreakLine('cotação enviada\ncom sucesso!')}
+      </p>
+
+      <div
+        className={styles.success_animation_container}
+      >
+        <Lottie
+          animationData={successAnimation}
+        />
+      </div>
+
+      <p
+        className={styles.success_description}
+      >
+        {BreakLine('Em breve nossa equipe comercial\nentrará em contato com você.')}
+      </p>
+    </div>
+  ) :(
     <div className={styles.main}>
       <div
         className={styles.title_container}
@@ -198,7 +243,12 @@ export default function Form () {
         className={styles.button}
         type='submit'
       >
-        Solicitar Cotação
+        {loading ? (
+          <CircularProgress
+            color='inherit'
+            size={16}
+          />
+        ): 'Solicitar Cotação'}
       </button>
     </div>
   )
