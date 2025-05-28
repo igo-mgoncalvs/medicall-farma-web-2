@@ -10,10 +10,12 @@ import circleClose from '@/assets/circleClose.svg'
 import { IProduct } from '@/components/product/product'
 import { usePathname } from 'next/navigation'
 import ProductSearchMobile from '@/components/productSearchMobile/product'
+import { CircularProgress } from '@mui/material'
 
 export default function SearchResponseMobile () {
   const [search, setSearch] = useState('')
   const [searchResponse, setSearchResponse] = useState<IProduct[]>([])
+  const [loading, setLoading] = useState(true)
 
   const pathname = usePathname();
   const route = useRouter()
@@ -30,6 +32,9 @@ export default function SearchResponseMobile () {
     api.get(`/search-product/${decodeURI(params.search)}`)
       .then(({data}) => {
         setSearchResponse(data)
+      })
+      .finally(() => {
+        setLoading(false)
       })
   }, [params])
 
@@ -103,22 +108,31 @@ export default function SearchResponseMobile () {
           <p className={styles.title_container_search}>{decodeURI(params.search)}</p>
         </div>
 
-        <div
-          className={styles.products_container}
-        >
-          {searchResponse.length > 0 ? searchResponse?.map((item) => (
-            <ProductSearchMobile
-              key={item.id}
-              product={item}
-            />
-          )): (
-            <div
-              className={styles.notFound_text}
-            >
-              Nenhum produto encontrado
-            </div>
-          )}
-        </div>
+        {loading ? (
+          <div
+            className={styles.loading}
+          >
+            <CircularProgress />
+          </div>
+        ): (
+          <div
+            className={styles.products_container}
+          >
+            {searchResponse.length > 0 ? searchResponse?.map((item) => (
+              <ProductSearchMobile
+                key={item.id}
+                product={item}
+              />
+            )): (
+              <div
+                className={styles.notFound_text}
+              >
+                Nenhum produto encontrado
+              </div>
+            )}
+          </div>
+        )}
+
 
       </div>
     </div>

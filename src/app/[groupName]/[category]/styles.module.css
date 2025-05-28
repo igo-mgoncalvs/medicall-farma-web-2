@@ -66,7 +66,8 @@
   display: grid;
   grid: auto-flow / repeat(1, 1fr);
   justify-items: center;
-  gap: 10px
+  gap: 10px;
+  column-gap: 0;
 }
 
 .product {
@@ -131,6 +132,7 @@
   .products_container {
     justify-items: flex-start;
     grid: auto-flow / repeat(3, 1fr);
+    column-gap: 10px;
   }
 
   .product {

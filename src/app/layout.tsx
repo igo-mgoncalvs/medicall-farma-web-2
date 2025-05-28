@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import FloatButtons from "@/components/floatButtons/floatButtons";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -29,6 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
+      <head>
+        <meta name="adopt-website-id" content="a1a1c34d-1460-461f-a5b7-cc9e2e92e740" />
+        <Script
+          src="//tag.goadopt.io/injector.js?website_code=a1a1c34d-1460-461f-a5b7-cc9e2e92e740"
+          strategy="afterInteractive"
+          className="adopt-injector"
+        />
+      </head>
       <body className={`${montserrat.variable} ${mrDafoe.variable}`}>
         <div
           className="header"

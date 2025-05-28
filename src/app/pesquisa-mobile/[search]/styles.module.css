@@ -96,6 +96,10 @@
   padding: 40px 0;
 }
 
+.loading {
+  margin: 80px 0;
+}
+
 @media (min-width: 768px) {
   .searchBar_container {
     font-size: 18px;

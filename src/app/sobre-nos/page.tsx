@@ -98,18 +98,14 @@ export default function AboutUs () {
 
   return layout && (
     <div>
-      <div
-        style={{
-          backgroundImage: `url(${size.width > 426 ? layout.aboutUsWellcome.image : layout.aboutUsWellcome.imageMobile})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover'
-        }}
-        className={styles.wellcome_container}
-      >
-        <p className={styles.wellcome_title}>{layout.aboutUsWellcome.title}</p>
-        <p className={styles.wellcome_description}>{layout.aboutUsWellcome.description}</p>
+      <div>
+        <img
+          src={size.width > 426 ? layout.aboutUsWellcome.image : layout.aboutUsWellcome.imageMobile}
+          alt=""
+          className={styles.main_banner}
+        />
       </div>
-
+      
       <div
         className={styles.aboutUs_container}
       >

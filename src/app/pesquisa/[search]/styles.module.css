@@ -21,3 +21,10 @@
   grid: auto-flow / repeat(4, 1fr);
   gap: 30px
 }
+
+.loading_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 80px 0;
+}

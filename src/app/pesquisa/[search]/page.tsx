@@ -6,9 +6,11 @@ import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 import styles from './styles.module.css'
+import { CircularProgress } from "@mui/material";
 
 export default function SearchDesck () {
-  const [searchResponse, setSearchResponse] = useState<IProduct[]>()
+  const [searchResponse, setSearchResponse] = useState<IProduct[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   const pathname = usePathname();
 
@@ -25,6 +27,9 @@ export default function SearchDesck () {
       .then(({data}) => {
         setSearchResponse(data)
       })
+      .finally(() => {
+        setLoading(false)
+      })
   }, [params])
 
   return (
@@ -36,16 +41,29 @@ export default function SearchDesck () {
         <p className={styles.search}>{decodeURI(params.search)}</p>
       </div>
 
-      <div
-        className={styles.products_container}
-      >
-        {searchResponse?.map((item) => (
-          <Product
-            product={item}
-            key={item.id}
-          />
-        ))}
-      </div>
+      {!loading ? (
+        <div
+          className={styles.products_container}
+        >
+          {searchResponse?.length > 0 ? searchResponse?.map((item) => (
+            <Product
+              product={item}
+              key={item.id}
+            />
+          )): (
+            <p>
+              Nenhum produto encontrado
+            </p>
+          )}
+        </div>
+      ): (
+        <div
+          className={styles.loading_container}
+        >
+          <CircularProgress />
+        </div>
+      )}
+
     </div>
   )
 }

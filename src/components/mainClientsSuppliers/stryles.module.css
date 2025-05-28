@@ -116,6 +116,7 @@
   .banner {
     margin: auto;
     max-width: 150px;
+    padding-bottom: 60px;
   }
 }
 

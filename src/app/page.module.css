@@ -49,7 +49,7 @@
   max-width: 1400px;
   width: 100%;
   margin: auto;
-  height: 370px;
+  height: 400px;
 }
 
 .banners_container {
@@ -135,6 +135,10 @@
 } 
 
 @media (min-width: 425px) {
+  .product_emphasis_section {
+    height: 430px;
+  }
+
   .product_emphasis_text {
     display: flex;
     flex-direction: column;

@@ -66,6 +66,7 @@ export interface IHomeData {
     buttonText: string
     catalogLink: string
     image: string
+    imageMobile: string
   }
   homeGridBanners: IHomeGridBanners[]
 }
@@ -156,7 +157,7 @@ export default function Home() {
                 prevEl: '#my-prev-btn',
               }}
               autoplay={autoplay && {
-                delay: 2000,
+                delay: 4000,
                 disableOnInteraction: false,
               }}
               loop
@@ -170,7 +171,9 @@ export default function Home() {
                     target={item.href.includes('https://medicall-web-2.firebaseapp.com') ? '' : '_blank'}
                   >
                     <img
-                      src={size.width >= 768 ? item.src: item.srcMobile}
+                      src={size.width >= 768 ?
+                        `${process.env.NEXT_PUBLIC_API_URL}/home-banner-image/${item.id}`
+                        : `${process.env.NEXT_PUBLIC_API_URL}/home-banner-mobile-image/${item.id}`}
                       alt={item.alt}
                       width={10}
                       height={10}
@@ -311,7 +314,7 @@ export default function Home() {
         href={homeData?.banners[0]?.href}
       >
         <img
-          src={homeData?.banners[0]?.src}
+          src={`${process.env.NEXT_PUBLIC_API_URL}/home-banner-image/${homeData?.banners[0]?.id}`}
           alt={homeData?.banners[0]?.alt}
           width={10}
           height={10}

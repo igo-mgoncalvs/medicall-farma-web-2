@@ -47,6 +47,18 @@ export default function Footer () {
   const [addresses, setAddresses] = useState<IAddresses[]>([])
 
   useEffect(() => {
+    const loadHome = async ()  => {
+      const db = await dbPromise();
+      if (!db) return;
+
+      api.get<IHomeData>('/get-home')
+        .then(({data}) => {
+          db.put('home', data, 'home')
+        })
+    }
+
+    loadHome()
+
     const loadData = async () => {
       const db = await dbPromise();
       if (!db) return;
@@ -56,7 +68,6 @@ export default function Footer () {
         api.get('/get-top-products'),
         api.get('/get-featured-products'),
         api.get('/list-all-products'),
-        api.get<IHomeData>('/get-home'),
         api.get('/get-footer'),
         api.get('/get-footer-social'),
         api.get('/get-footer-links'),
@@ -75,7 +86,6 @@ export default function Footer () {
           topProducts,
           featuredProducts,
           products,
-          home,
           footer,
           footerSocial,
           footerLinks,
@@ -94,7 +104,6 @@ export default function Footer () {
             db.put('topProducts', topProducts.data, 'topProducts'),
             db.put('featuredProducts', featuredProducts.data, 'featuredProducts'),
             db.put('products', products.data, 'products'),
-            db.put('home', home.data, 'home'),
             db.put('footer', footer.data, 'footer'),
             db.put('footerSocial', footerSocial.data, 'footerSocial'),
             db.put('footerLinks', footerLinks.data, 'footerLinks'),

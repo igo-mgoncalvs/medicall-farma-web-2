@@ -1,7 +1,5 @@
 'use client'
 import CircularProgress from '@mui/material/CircularProgress';
-import Lottie from "lottie-react";
-import successAnimation from "@/public/animation/success.json";
 
 import { Controller, useForm } from 'react-hook-form'
 import styles from './styles.module.css'
@@ -9,7 +7,7 @@ import { useCallback, useEffect, useState } from 'react';
 import checkIcon from '@/assets/check.svg'
 import Image from 'next/image';
 import api from '@/api/axios';
-import BreakLine from '@/components/breakLine/breakLine';
+import dynamic from 'next/dynamic';
 
 interface IEmailForm {
   name: string
@@ -18,6 +16,11 @@ interface IEmailForm {
   cnpj: string
   description: string
 }
+
+const SuccessAnimation = dynamic(
+  () => import('../successAnimation'), 
+  { ssr: false }
+);
 
 export default function Form () {
   const [check, setCheck] = useState<boolean>(false)
@@ -55,29 +58,7 @@ export default function Form () {
   }, [reset, setValue, setCheck])
 
   return sendForm ? (
-    <div
-      className={styles.success_container}
-    >
-      <p
-        className={styles.success_title}
-      >
-        {BreakLine('cotação enviada\ncom sucesso!')}
-      </p>
-
-      <div
-        className={styles.success_animation_container}
-      >
-        <Lottie
-          animationData={successAnimation}
-        />
-      </div>
-
-      <p
-        className={styles.success_description}
-      >
-        {BreakLine('Em breve nossa equipe comercial\nentrará em contato com você.')}
-      </p>
-    </div>
+    <SuccessAnimation />
   ) :(
     <div className={styles.main}>
       <div

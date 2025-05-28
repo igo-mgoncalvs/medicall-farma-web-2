@@ -20,6 +20,10 @@
   margin-top: 4px;
 }
 
+.main_banner {
+  width: 100vw;
+}
+
 .aboutUs_container {
   display: flex;
   flex-direction: column-reverse;
@@ -472,6 +476,10 @@
 
   .aboutUs_image {
     width: 500px;
+  }
+
+  .divisorAboutUs {
+    margin: 50px 0;
   }
 
   .units_container {

@@ -27,7 +27,9 @@ export default function TopProducts ({categories, groupName}: {categories: ICate
     <div
       className={styles.main}
     >
-      <div>
+      <div
+        className={styles.title_container}
+      >
         <div
           className={styles.title}
         >
@@ -35,14 +37,17 @@ export default function TopProducts ({categories, groupName}: {categories: ICate
           Produtos destaques
         </div>
 
-
-        <p
-          className={styles.type}
+        <div
+          className={styles.type_container}
         >
-          {groupName}
-        </p>
+          <p
+            className={styles.type}
+          >
+            {groupName}
+          </p>
 
-        <div className={styles.line} />
+          <div className={styles.line} />
+        </div>
       </div>
 
       <div
