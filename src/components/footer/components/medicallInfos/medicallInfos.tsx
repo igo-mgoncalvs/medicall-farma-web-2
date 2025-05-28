@@ -52,9 +52,13 @@ export default function MedicallInfos ({data, social, links, addresses}: {data: 
           <p>
             {data.sacPhone}
           </p>
-          <p>
-            {data.sacEmail}
-          </p>
+          <a
+            href={`mailto:${data.sacEmail}`}
+          >
+            <p>
+              {data.sacEmail}
+            </p>
+          </a>
         </div>
       </div>
 

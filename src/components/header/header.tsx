@@ -14,11 +14,13 @@ import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import MobileMenu from '../mobileMenu'
 import { dbPromise } from '@/utils/dbPromise'
+import { IWhatsapp } from '../floatButtons/floatButtons'
 
 export default function Header () {
   const [openMenu, setOpenMenu] = useState('')
   const [openMenuMobile, setOpenMenuMobile] = useState(false)
   const [parseGroups, setParseGroups] = useState<IGroup[]>([])
+  const [phoneData, setPhoneData] = useState<IWhatsapp>()
 
   useEffect(() => {
     const loadData = async () => {
@@ -26,10 +28,13 @@ export default function Header () {
       if (!db) return;
   
       const interval = setInterval(async () => {
-        const getListGroups = await db.get('listGroups', 'listGroups');   
+        const getListGroups = await db.get('listGroups', 'listGroups');
+        const getContactPhone = await db.get('contactPhone', 'contactPhone');
 
-        if (getListGroups) {
+
+        if (getListGroups && getContactPhone) {
           setParseGroups(getListGroups)
+          setPhoneData(getContactPhone)
           clearInterval(interval)
         }
       }, 500)
@@ -114,7 +119,10 @@ export default function Header () {
                 </Link>
               </div>
             </div>
-            <a>
+            <a
+              href={phoneData?.link}
+              target='_blank'
+            >
               Fale conosco
             </a>
           </div>

@@ -168,7 +168,8 @@ export default function Footer () {
           className={styles.social_contact_container}
         >
           <SocialContactMobile
-            data={footerSocial}
+            dataSocial={footerSocial}
+            data={footerData}
           />
         </div>
       </div>

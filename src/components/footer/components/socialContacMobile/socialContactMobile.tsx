@@ -3,9 +3,9 @@ import footerJson from '@/mockdata/footer.json'
 
 import styles from './styles.module.css'
 import BreakLine from '@/components/breakLine/breakLine'
-import { IFooterSocial } from '../../footer'
+import { IFooter, IFooterSocial } from '../../footer'
 
-export default function SocialContactMobile ({data}: {data: IFooterSocial[]}) {
+export default function SocialContactMobile ({dataSocial, data}: {dataSocial: IFooterSocial[], data: IFooter}) {
   return (
     <div
       className={styles.main}
@@ -15,7 +15,7 @@ export default function SocialContactMobile ({data}: {data: IFooterSocial[]}) {
       <div
         className={styles.social_images}
       >
-        {data.map((item) => (
+        {dataSocial.map((item) => (
           <a
             key={item.id}
             className={styles.social_image}
@@ -39,25 +39,38 @@ export default function SocialContactMobile ({data}: {data: IFooterSocial[]}) {
           <p
             className={styles.contact_title}
           >
-            {footerJson.data.contact.title}
+            Fale conosco
           </p>
-          <p>
-            {footerJson.data.contact.number}
-          </p>
+
+          <a
+            href={`tel:${data.phoneNumber}`}
+          >
+            <p>
+              {data.phoneNumber}
+            </p>
+          </a>
         </div>
 
         <div
           className={styles.sac_container}
         >
           <p className={styles.sac_title}>
-            {footerJson.data.sac.title}
+            SAC
           </p>
-          <p>
-            {footerJson.data.sac.number}
-          </p>
-          <p>
-            {footerJson.data.sac.email}
-          </p>
+          <a
+            href={`tel:${data.sacPhone}`}
+          >
+            <p>
+              {data.sacPhone}
+            </p>
+          </a>
+          <a
+            href={`mailto:${data.sacEmail}`}
+          >
+            <p>
+              {footerJson.data.sac.email}
+            </p>
+          </a>
         </div>
       </div>
     </div>

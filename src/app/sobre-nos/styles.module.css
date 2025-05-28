@@ -225,7 +225,6 @@
 
 .space_title_shadow {
   font-size: 38px;
-  padding-top: 21px;
   font-family: var(--font-mrDafoe);
   color: var(--gray-550);
 }
@@ -240,7 +239,6 @@
 
 .space_description {
   font-size: 13px;
-  font-weight: 500;
 }
 
 .slide_container {
