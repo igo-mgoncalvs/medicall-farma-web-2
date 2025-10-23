@@ -37,6 +37,13 @@ export default function RootLayout({
           strategy="afterInteractive"
           className="adopt-injector"
         />
+        <Script
+          id="TAGS"
+          dangerouslySetInnerHTML={{
+            __html: `gtag('event', 'conversion', {'send_to': 'AW-11054079198/KxgrCOPcv-gZEN65_5Yp'});`,
+          }}
+        >
+        </Script>
       </head>
       <body className={`${montserrat.variable} ${mrDafoe.variable}`}>
         <div
