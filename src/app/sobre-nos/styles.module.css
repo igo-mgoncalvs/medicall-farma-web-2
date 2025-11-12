@@ -257,21 +257,26 @@
 }
 
 .values_container {
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+}
+
+.values_container {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: var(--blue-600);
+  background-color: #0077FF;
   margin-bottom: 40px;
-  padding-bottom: 50px;
 }
 
 .values_title_container {
-  position: absolute;
-  left: calc(50% - 93px); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .values_title_shadow {
-  font-size: 38px;
+  font-size: 31px;
   padding-top: 21px;
   font-family: var(--font-mrDafoe);
   color: #FFFFFF29;
@@ -288,10 +293,18 @@
 .values_width {
   display: flex;
   justify-content: space-between;
-  max-width: 1440px;
+  max-width: 1176px;
   margin: auto;
-  height: 485px;
+  height: 260px;
   width: 100%;
+  overflow: visible;
+}
+
+.values_swiper {
+  overflow: hidden;
+  padding-bottom: 50px;
+  padding-right: 50px;
+  padding-left: 20px;
 }
 
 .values_card {
@@ -423,6 +436,14 @@
   
   .map_background_mg {
     transform: translateY(350px);
+  }
+
+  .values_swiper {
+    padding: 50px 0;
+  }
+  
+  .values_width {
+    height: 340px;
   }
 }
 
@@ -572,11 +593,13 @@
   }
 
   .values_width {
-    height: 350px;
+    height: 550px;
+    overflow: visible;
   }
-
+  
   .values_swiper {
-    padding: 0 80px;
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
 
   .values_card {
@@ -709,6 +732,11 @@
 
   .space_description {
     font-size: 20px;
+  }
+
+  .values_swiper {
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 

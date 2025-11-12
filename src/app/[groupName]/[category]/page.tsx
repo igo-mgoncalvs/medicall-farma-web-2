@@ -12,6 +12,7 @@ export interface ICategories {
   id: string
   categoryName: string
   categoryLink: string
+  isMenu?: boolean
   products: IProduct[]
 }
 
@@ -23,7 +24,7 @@ export interface IGroup {
   categories: ICategories[]
 }
 
-export default function GroupName () {
+export default function CertificatesGroupName () {
   const [products, setProducts] = useState<IGroup[] | undefined>()
 
   const pathname = usePathname();
@@ -70,8 +71,8 @@ export default function GroupName () {
       className={styles.main}
     >
       <div className={styles.main_container}>
-        <div>
-          <div>
+        <div className={styles.groups_container}>
+          <div className={styles.groupName_title_container}>
             <p className={styles.groupName_title}>{dataGroup.groupName}</p>
             <span className={styles.line} />
           </div>
