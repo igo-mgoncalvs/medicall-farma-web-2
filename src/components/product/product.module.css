@@ -48,6 +48,11 @@
   border-radius: 6px;
   font-size: 10px;
   margin-top: 10px;
+  cursor: pointer;
+}
+
+.product_button[data-type="certificate"] {
+  background-color: var(--certificate-button);
 }
 
 .image {
@@ -60,7 +65,6 @@
 
 @media (min-width: 425px) {
   .container {
-    width: 180px;
     height: 370px;
   }
 

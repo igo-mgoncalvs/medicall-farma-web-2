@@ -12,6 +12,7 @@ export interface IProduct {
   contactLink: string
   groupName: string
   isTop: boolean
+  certificateLink: string
   sizes: {
     id: string
     src: string
@@ -22,8 +23,9 @@ export interface IProduct {
 }
 
 export default function Product ({
-  product
-}: { product: IProduct }) {
+  product,
+  type = 'default'
+}: { product: IProduct, type?: 'default' | 'certificate' }) {
   const findProduct = product.sizes?.find((p) => p.isMain)
 
   return findProduct && (
@@ -57,12 +59,16 @@ export default function Product ({
         >
           {product.shortDescription}
         </p>
-        <a
-          className={styles.product_button}
-          href={encodeURI(product.link)}
-        >
-          Saber mais
-        </a>
+        {(type === 'default' ? product.link : product.certificateLink) && (
+          <a
+            data-type={type}
+            className={styles.product_button}
+            target={type === 'default' ? '_self' : '_blank'}
+            href={type === 'default' ? encodeURI(product.link): product.certificateLink}
+          >
+            {type === 'default' ? 'Saber mais' : 'Baixar certificado'}
+          </a>
+        )}
       </div>
     </div>
   )
