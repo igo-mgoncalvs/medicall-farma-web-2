@@ -117,6 +117,11 @@ export default function Header () {
                 >
                   Política da Qualidade
                 </Link>
+                <Link
+                  href='/blog'
+                >
+                  Blog
+                </Link>
               </div>
             </div>
             <a

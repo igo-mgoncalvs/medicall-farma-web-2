@@ -1,0 +1,26 @@
+.banner {
+  width: 100%;
+  height: auto;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.loading_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 272px;
+  height: 127px;
+}
+
+.icon {
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -194,12 +194,12 @@ export default function Home() {
         <div
           className={styles.product_emphasis_text}
         >
-          <p
+          <div
             className={styles.product_emphasis_title}
           >
             {homeData?.homeFeaturedProducts?.title}
-            <div className={styles.line} />
-          </p>
+            <span className={styles.line} />
+          </div>
 
           <p
             className={styles.product_emphasis_description}

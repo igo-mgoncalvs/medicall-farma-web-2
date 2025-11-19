@@ -10,6 +10,8 @@
   --blue-600: #1887FF;
   --blue-700: #0077FF;
 
+  --red-700: #FF1818;
+
   --dark-blue-700: #00254F;
 
   --gray-550: #EFEFEF;
@@ -44,6 +46,7 @@ body {
   font-family: var(--font-montserrat);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F6F6F6;
 }
 
 * {
