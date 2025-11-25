@@ -1,0 +1,15 @@
+.main {
+  background: linear-gradient(#F6F6F6, 99%, transparent);
+}
+
+@media (min-width: 786px) {
+  .main {
+    background: linear-gradient(#F6F6F6, 99%, transparent);
+  }
+}
+
+@media (min-width: 1440px) {
+  .main {
+    background: linear-gradient(#F6F6F6, 97%, transparent);
+  }
+}

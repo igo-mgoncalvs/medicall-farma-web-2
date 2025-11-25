@@ -1,0 +1,135 @@
+.container {
+  border-radius: 15px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  border: 0 solid transparent;
+}
+
+.container a {
+  background-color: #fff;
+}
+
+.container[data-type="blog"]:hover {
+  border: 2px solid var(--blue-600);
+}
+
+.banner {
+  width: 100%;
+  height: max-content;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: none;
+}
+
+.iframe {
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: none;
+  min-height: 200px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  padding-bottom: 28px;
+  position: relative;
+}
+
+.tag {
+  position: absolute;
+  top: -17px;
+  padding: 4px 28px;
+  color: var(--white);
+  border-radius: 100px;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.tag[data-type="blog"] {
+  background-color: var(--blue-600);
+}
+
+.tag[data-type="medicall-cast"] {
+  background-color: var(--red-700);
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #070707;
+  margin-top: 8px;
+}
+
+.resume {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  color: #585858;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 10px;
+}
+
+.button p {
+  margin-bottom: 2px;
+}
+
+.date {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .content {
+    position: relative;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .resume[data-type='blog'] {
+    min-height: 90px;
+  }
+
+  .resume[data-type='medicall-cast'] {
+    min-height: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .resume {
+    font-size: 14px;
+  }
+
+  .resume[data-type='blog'] {
+    min-height: 150px;
+  }
+
+  .resume[data-type='medicall-cast'] {
+    min-height: 70px;
+  }
+
+  .button {
+    font-size: 12px;
+  }
+  
+  .date {
+    font-size: 12px;
+  }
+}

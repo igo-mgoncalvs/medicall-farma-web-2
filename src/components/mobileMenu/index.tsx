@@ -67,6 +67,11 @@ export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpen
                   categoryName: "Política da Qualidade",
                   categoryLink: "/politica-de-privacidade",
               },
+              {
+                  id: "3",
+                  categoryName: "Blog",
+                  categoryLink: "/blog",
+              },
             ]
           },
           ...parseGroups

@@ -1,0 +1,173 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 26px 24px; 
+  padding-bottom: 100px;
+}
+
+.post_container {
+  background-color: var(--white);
+  padding: 24px 18px;
+  border-radius: 15px;
+}
+
+.post_image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.left_container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px
+}
+
+.related_blogs_container {
+  display: flex;
+  gap: 21px;
+  flex-direction: column;
+  background-color: var(--white);
+  padding: 16px;
+  border-radius: 15px;
+}
+
+.related_blogs_title {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.similar_products_container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background-color: var(--white);
+  padding: 21px 14px;
+  border-radius: 15px;
+}
+
+.similar_products_title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.similar_products_content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.iframe {
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 20px;
+}
+
+.product_title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.product_resume {
+  font-size: 9px;
+}
+
+.html_content h1 span,
+.html_content h2 span,
+.html_content h2 span,
+.html_content h4 span,
+.html_content h5 span,
+.html_content h6 span {
+  font-size: 21px !important;
+}
+
+.html_content p span {
+  font-size: 12px !important;
+  text-align: justify;
+}
+
+@media (min-width: 768px) {
+  .iframe {
+    height: 300px;
+  }
+
+  .product_title {
+    font-size: 20px;
+  }
+
+  .product_resume {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    flex-direction: row;
+    gap: 29px;
+    max-width: 1400px;
+    padding-top: 60px;
+    margin: auto;
+    margin-bottom: 70px;
+  }
+
+  .post_container {
+    padding: 37px 45px;
+    border-radius: 21px;
+  }
+
+  .post_image {
+    border-radius: 12px;
+  }
+
+  .html_content h1 span,
+  .html_content h2 span,
+  .html_content h2 span,
+  .html_content h4 span,
+  .html_content h5 span,
+  .html_content h6 span {
+    font-size: 30px !important;
+  }
+
+  .html_content p span {
+    font-size: 17px !important;
+    text-align: justify;
+  }
+
+  .left_container {
+    font-size: 16px;
+    width: min-content;
+  }
+
+  .related_blogs_title {
+    font-size: 24px;
+    margin-right: 40px;
+    white-space: nowrap;
+  }
+
+  .similar_products_title {
+    font-size: 25px;
+    white-space: nowrap;
+    margin-right: 40px;
+  }
+
+  .similar_products_content {
+    gap: 10px
+  }
+
+  .iframe {
+    height: 200px;
+  }
+
+  .product_title {
+    font-size: 14px;
+  }
+
+  .product_resume {
+    font-size: 12px;
+  }
+}

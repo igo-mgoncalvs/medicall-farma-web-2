@@ -1,0 +1,159 @@
+.main {
+  padding: 27px 24px;
+  padding-bottom: 130px;
+}
+
+.emphasis {
+  display: flex;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.title b {
+  font-style: italic;
+}
+
+.emphasis_post_card {
+  height: 480px !important;
+}
+
+.medicall_cast_card {
+  height: 370px !important;
+}
+
+.medicall_cast_title_container, .blog_title_container {
+  margin: 21px 0;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.medicall_cast_subtitle {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.blog_title_container {
+  display: flex;
+  align-items: center;
+  gap: 6px
+}
+
+.menu_icon {
+  width: 17px;
+}
+
+.blogs_container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px
+}
+
+.lastest_blogs {
+  display: flex;
+  flex-direction: column;
+  gap: 18px
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding: 0;
+    padding-bottom: 100px;
+  }
+
+  .title {
+    padding-left: 20px;
+    padding-top: 42px;
+  }
+
+  .emphasis_post_card {
+    padding: 20px;
+  }
+
+  .medicall_cast_title_container {
+    display: flex;
+    gap: 8px;
+    padding-left: 20px;
+  }
+
+  .medicall_cast_card {
+    padding: 0 20px;
+    padding-right: 0;
+  }
+
+  .medicall_cast_card[data-last=true] {
+    padding-right: 20px;
+  }
+
+  .blog_title_container {
+    padding-left: 20px;
+  }
+
+  .lastest_blogs {
+    display: grid;
+    grid: auto-flow / repeat(2, 1fr);
+    gap: 20px;
+    margin: 0 20px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 30px;
+    padding-top: 62px;
+    max-width: 1400px;
+    margin: auto;
+  }
+
+  .medicall_cast_container {
+    max-width: 1400px;
+    margin: auto;
+  }
+
+  .medicall_cast_title_container {
+    font-size: 26px;
+    padding-bottom: 24px;
+  }
+
+  .blogs_container {
+    max-width: 1400px;
+    margin: auto;
+  }
+
+  .blog_title_container {
+    font-size: 26px;
+    margin-top: 84px;
+  }
+
+  .lastest_blogs {
+    grid: auto-flow / repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .title {
+    font-size: 36px;
+    margin-bottom: 27px;
+  }
+
+  .medicall_cast_card {
+    padding: 0 26px;
+    padding-right: 0;
+  }
+
+  .medicall_cast_card[data-last=true] {
+    padding-right: 26px;
+  }
+
+  .blogs_container {
+    margin-bottom: 80px;
+  }
+  
+  .lastest_blogs {
+    gap: 26px
+  }
+}

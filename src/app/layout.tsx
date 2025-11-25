@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <head>
+      {/* <head>
         <meta name="adopt-website-id" content="a1a1c34d-1460-461f-a5b7-cc9e2e92e740" />
         <Script
           src="//tag.goadopt.io/injector.js?website_code=a1a1c34d-1460-461f-a5b7-cc9e2e92e740"
@@ -44,7 +44,7 @@ export default function RootLayout({
           }}
         >
         </Script>
-      </head>
+      </head> */}
       <body className={`${montserrat.variable} ${mrDafoe.variable}`}>
         <div
           className="header"
