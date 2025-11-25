@@ -69,6 +69,21 @@
   animation-delay: 5s, 10s;
 }
 
+.to_top_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  background-color: #0061D0;
+  color: var(--white);
+  padding: 8px 12px;
+  gap: 8px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 @keyframes slideInRight {
   from {
     transform: translateX(100%);
@@ -110,5 +125,11 @@
 
   .triangule {
     right: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .to_top_button {
+    display: none;
   }
 }
