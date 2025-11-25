@@ -40,7 +40,7 @@ export default function BlogCard ({
           setGetImage(data)
         })
     }
-  }, [image])
+  }, [])
 
   return (
     <div className={styles.container} data-type={type}>

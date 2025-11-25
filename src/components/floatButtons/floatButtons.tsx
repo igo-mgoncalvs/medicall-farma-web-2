@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import FloatWhatsapp from '../floatWhatsapp'
 import styles from './styles.module.css'
 import { dbPromise } from '@/utils/dbPromise'
