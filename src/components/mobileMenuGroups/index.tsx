@@ -1,25 +1,17 @@
 'use client'
 
 import closeIcon from '@/assets/close.svg'
-import accordionIcon from '@/assets/accordion.svg'
-import accordionUpIcon from '@/assets/accordionUp.svg'
-import accordionIconBlack from '@/assets/accordionBlack.svg'
-import accordionUpIconBlack from '@/assets/accordionUpBlack.svg'
 
 import styles from './styles.module.css'
 import Image from 'next/image'
 import { IGroup } from '@/app/[groupName]/[category]/page'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { dbPromise } from '@/utils/dbPromise'
 import LateralMenuGroups from '../lateralMenuGroups'
-import { useSearchParams } from 'next/navigation'
 
 export default function MobileMenuGroups ({ handleOpenMenuMobile, open }: { handleOpenMenuMobile: () => void, open: boolean }) {
   const [selectedGroup, setSelectedGroup] = useState<string>('')
   const [parseGroups, setParseGroups] =useState<IGroup[]>([])
-
-  const searchParams = useSearchParams();
   
   useEffect(() => {
     const loadData = async () => {
@@ -42,14 +34,14 @@ export default function MobileMenuGroups ({ handleOpenMenuMobile, open }: { hand
   }, [])
 
   useEffect(() => {
-    const groupParam = searchParams.get('grupo') 
+    const groupParam = new URLSearchParams(window.location.search).get('grupo')
 
     if(groupParam) {
       setSelectedGroup(groupParam)
     } else {
       setSelectedGroup('')
     }
-  }, [searchParams])
+  }, [])
 
   return (
     <div

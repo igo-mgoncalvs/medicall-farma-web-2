@@ -3,8 +3,7 @@
 import Product, { IProduct } from '@/components/product/product'
 
 import styles from './styles.module.css'
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useCallback, useEffect, useState } from 'react';
 import { dbPromise } from '@/utils/dbPromise';
 import Image from 'next/image';
 import searchIcon from '@/assets/search.svg'
@@ -35,19 +34,6 @@ export default function CertificatesGroupName () {
   const [search, setSearch] = useState<string>('')
   const [openMenu, setOpenMenu] = useState<boolean>(false)
 
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  const params = useMemo(() => {
-    const segments = pathname.split('/').filter(Boolean);
-
-    return {
-      groupName: segments[1] || '',
-      category: segments[2] || '',
-      product: segments[3] || '',
-    };
-  }, [pathname]);
-
   useEffect(() => {
     const loadData = async () => {
       const db = await dbPromise();
@@ -67,7 +53,7 @@ export default function CertificatesGroupName () {
 
         if(listGroups) {
           setGroups(listGroups)
-          setSelectedGroup(searchParams.get('grupo') || listGroups.groupName)
+          setSelectedGroup(new URLSearchParams(window.location.search).get('grupo') || listGroups.groupName)
         }
       }, 500)
   
@@ -83,12 +69,12 @@ export default function CertificatesGroupName () {
     
     setProductsList(dataCategory.filter((item) => item.certificateLink))
 
-    const groupParam = searchParams.get('grupo') 
+    const groupParam = new URLSearchParams(window.location.search).get('grupo')
 
     if(groupParam) {
       setSelectedGroup(groupParam)
     }
-  }, [selectedGroup, products, searchParams])
+  }, [selectedGroup, products])
 
   const handleSearch = useCallback((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()

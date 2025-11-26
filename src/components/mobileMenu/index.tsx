@@ -13,7 +13,6 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { dbPromise } from '@/utils/dbPromise'
 import LateralMenuGroups from '../lateralMenuGroups'
-import { useSearchParams } from 'next/navigation'
 
 export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpenMenuMobile: () => void, open: boolean }) {
   const [openMenu, setOpenMenu] = useState<string>('')
@@ -21,8 +20,6 @@ export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpen
   const [selectedGroup, setSelectedGroup] = useState<string>('')
   const [parseGroups, setParseGroups] =useState<IGroup[]>([])
 
-  const searchParams = useSearchParams();
-  
   useEffect(() => {
     const loadData = async () => {
       const db = await dbPromise();
@@ -44,14 +41,14 @@ export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpen
   }, [])
 
   useEffect(() => {
-    const groupParam = searchParams.get('grupo') 
+    const groupParam = new URLSearchParams(window.location.search).get('grupo')
 
     if(groupParam) {
       setSelectedGroup(groupParam)
     } else {
       setSelectedGroup('')
     }
-  }, [searchParams])
+  }, [])
 
   return (
     <div
@@ -129,7 +126,7 @@ export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpen
               className={`${styles.open_itens} ${openMenu !== item.id ? styles.open_itens_container: ''}`}
             >
               {item.categories.map((category) => category.isMenu ? (
-                <div>
+                <div key={category.id}>
                   <div
                     className={styles.open_itens_title}
                     data-status={openSecondMenu === category.id}
