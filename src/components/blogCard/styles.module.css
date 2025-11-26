@@ -3,6 +3,7 @@
   background-color: #fff;
   transition: all 0.3s ease-in-out;
   border: 0 solid transparent;
+  height: 100%;
 }
 
 .container a {

@@ -48,35 +48,39 @@ export default function BlogDetails () {
       </div>
 
       <div className={styles.left_container}>
-        <div className={styles.related_blogs_container}>
-          <h3 className={styles.related_blogs_title}>Blogs Relacionados:</h3>
+        {!!blog.relatedBlogs.length && (
+          <div className={styles.related_blogs_container}>
+            <h3 className={styles.related_blogs_title}>Blogs Relacionados:</h3>
 
-          {blog.relatedBlogs.map((item) => (
-            <RelatedBlogs 
-              key={item.related.id}
-              alt={item.related.image.alt}
-              src={item.related.image.src}
-              date={item.related.date}
-              id={item.related.id}
-              title={item.related.title}
-            />
-          ))}
-        </div>
-
-        <div className={styles.similar_products_container}>
-          <h3 className={styles.similar_products_title}>Produtos Semelhantes</h3>
-
-          <div className={styles.similar_products_content}>
-            <iframe
-              src={blog.similarProducts[0].productLink }
-              title="YouTube video player"
-              className={styles.iframe}
-            />
-
-            <p className={styles.product_title}>{blog.similarProducts[0].title}</p>
-            <p className={styles.product_resume}>{blog.similarProducts[0].description}</p>
+            {blog.relatedBlogs.map((item) => (
+              <RelatedBlogs 
+                key={item.related.id}
+                alt={item.related.image.alt}
+                src={item.related.image.src}
+                date={item.related.date}
+                id={item.related.id}
+                title={item.related.title}
+              />
+            ))}
           </div>
-        </div>
+        )}
+
+        {!!blog.similarProducts.length && (
+          <div className={styles.similar_products_container}>
+            <h3 className={styles.similar_products_title}>Produtos Semelhantes</h3>
+
+            <div className={styles.similar_products_content}>
+              <iframe
+                src={blog.similarProducts[0].productLink }
+                title="YouTube video player"
+                className={styles.iframe}
+              />
+
+              <p className={styles.product_title}>{blog.similarProducts[0].title}</p>
+              <p className={styles.product_resume}>{blog.similarProducts[0].description}</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

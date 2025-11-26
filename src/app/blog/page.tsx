@@ -104,7 +104,7 @@ export default function Blog () {
           modules={[Autoplay, Pagination]}
           pagination={true}
           autoplay={{
-            delay: 2000,
+            delay: 10000,
             disableOnInteraction: false,
           }}
         >
@@ -146,7 +146,7 @@ export default function Blog () {
           modules={[Autoplay, Pagination]}
           pagination={true}
           autoplay={{
-            delay: 2000,
+            delay: 5000,
             disableOnInteraction: false,
           }}
         >

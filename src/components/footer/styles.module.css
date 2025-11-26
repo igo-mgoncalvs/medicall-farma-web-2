@@ -33,10 +33,23 @@
   padding-bottom: 93px;
 }
 
+.divisor_line {
+  display: block;
+  width: 100%;
+  transform: translateX(-24); 
+  height: 3px;
+  margin: 40px 0;
+  background: linear-gradient(90deg, #F6F6F6 2.53%, #1887FF 100%);
+  max-width: calc((100vw + 1400px) / 2);
+}
 
 @media (min-width: 768px) {
   .medicallInfos {
     padding-top: 40px;
+  }
+
+  .divisor_line {
+    transform: translateX(-20); 
   }
 }
 

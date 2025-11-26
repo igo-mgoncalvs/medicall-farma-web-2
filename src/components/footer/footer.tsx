@@ -10,6 +10,7 @@ import styles from './styles.module.css'
 import api from "@/api/axios"
 import { IHomeData } from "@/app/page"
 import { dbPromise } from "@/utils/dbPromise"
+import { usePathname } from "next/navigation"
 
 export interface IFooter {
   description: string
@@ -45,6 +46,8 @@ export default function Footer () {
   const [footerSocial, setFooterSocial] = useState<IFooterSocial[]>([])
   const [footerLinks, setFooterLinks] = useState<IFooterLinks[]>([])
   const [addresses, setAddresses] = useState<IAddresses[]>([])
+
+  const route = usePathname()
 
   useEffect(() => {
     const loadHome = async ()  => {
@@ -145,6 +148,10 @@ export default function Footer () {
     <div
       className={styles.footer}
     >
+      {(route.includes('blog') || route.includes('certificados')) && (
+        <span className={styles.divisor_line} /> 
+      )}
+
       <div
         className={styles.form}
       >

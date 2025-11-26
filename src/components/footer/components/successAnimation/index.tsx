@@ -3,7 +3,6 @@ import styles from './styles.module.css'
 import Lottie from 'lottie-react'
 import successAnimation from "@/public/animation/success.json";
 
-
 export default function SuccessAnimation () {
   return (
     <div

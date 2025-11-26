@@ -1,6 +1,6 @@
 .main {
   padding: 27px 24px;
-  padding-bottom: 130px;
+  padding-bottom: 43px;
 }
 
 .emphasis {
@@ -18,11 +18,12 @@
 }
 
 .emphasis_post_card {
-  height: 480px !important;
+  height: 500px !important;
 }
 
 .medicall_cast_card {
-  height: 370px !important;
+  height: 480px !important;
+  padding-bottom: 50px;
 }
 
 .medicall_cast_title_container, .blog_title_container {
@@ -61,7 +62,6 @@
 @media (min-width: 768px) {
   .main {
     padding: 0;
-    padding-bottom: 100px;
   }
 
   .title {
