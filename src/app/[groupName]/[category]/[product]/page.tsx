@@ -54,7 +54,7 @@ export default function ProductPage () {
 
   const group = products?.find((group) => group.groupLink === params.groupName)
   const category = group?.categories.find((category) => category.categoryLink.includes(params.category))
-  const product = category?.products?.find((product) => product.link.includes(decodeURI(params.product)))
+  const product = category?.products?.find((product) => product.link.endsWith(decodeURI(params.product)))
 
   useEffect(() => {
     const findMain = product?.sizes.find((item) => item.isMain)?.id
