@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Montserrat, Mr_Dafoe } from "next/font/google";
+import { Montserrat, Mr_Dafoe, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import FloatButtons from "@/components/floatButtons/floatButtons";
 import Script from "next/script";
+
+const josefinSans = Josefin_Sans({
+  variable: "--font-josefin-sans",
+  display: 'swap',
+  subsets: ['latin']
+})
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -45,7 +51,7 @@ export default function RootLayout({
         >
         </Script>
       </head>
-      <body className={`${montserrat.variable} ${mrDafoe.variable}`}>
+      <body className={`${montserrat.variable} ${mrDafoe.variable} ${josefinSans.variable}`}>
         <div
           className="header"
         >
