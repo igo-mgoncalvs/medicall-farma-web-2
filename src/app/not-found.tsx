@@ -1,9 +1,13 @@
 'use client'
 import styles from './notfound.module.css'
-import Lottie from 'lottie-react'
 import notFoundAnimation from "@/public/animation/notFoundAnimation.json";
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('lottie-react'), {
+  ssr: false
+})
 
 export default function NotFound () {
   const rote = useRouter()

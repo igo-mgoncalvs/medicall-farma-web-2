@@ -1,7 +1,7 @@
 {
   "hosting": {
     "source": ".",
-    "site": "medicall-web-2",
+    "site": "medicall-blog",
     "ignore": [
       "firebase.json",
       "**/.*",
