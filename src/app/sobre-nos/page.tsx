@@ -340,7 +340,7 @@ export default function AboutUs () {
               }
             }}
             autoplay={{
-              delay: 2000,
+              delay: 5000,
               disableOnInteraction: false,
             }}
             className={styles.values_swiper}
@@ -367,28 +367,6 @@ export default function AboutUs () {
                     />
                   </div>
                 )}
-                {/* <div
-                  className={styles.values_card}
-                >
-                  <div
-                    className={styles.icon}
-                  >
-                    <div className={styles.icon_container}>
-                      <Image
-                        src={item.icon}
-                        className={styles.icon_svg}
-                        width={100}
-                        height={100}
-                        alt="values icon"
-                      />
-                    </div>
-                  </div>
-
-                  <div className={styles.values_text_container}>
-                    <p className={styles.values_card_title}>{BreakLine(item.title)}</p>
-                    <p className={styles.values_card_description}>{BreakLine(item.description)}</p>
-                  </div>
-                </div> */}
               </SwiperSlide>
             ))}
           </Swiper>
