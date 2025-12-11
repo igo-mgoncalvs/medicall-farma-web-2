@@ -3,6 +3,8 @@
 import closeIcon from '@/assets/close.svg'
 import accordionIcon from '@/assets/accordion.svg'
 import accordionUpIcon from '@/assets/accordionUp.svg'
+import accordionIconBlack from '@/assets/accordionBlack.svg'
+import accordionUpIconBlack from '@/assets/accordionUpBlack.svg'
 
 import styles from './styles.module.css'
 import Image from 'next/image'
@@ -10,9 +12,12 @@ import { IGroup } from '@/app/[groupName]/[category]/page'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { dbPromise } from '@/utils/dbPromise'
+import LateralMenuGroups from '../lateralMenuGroups'
 
 export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpenMenuMobile: () => void, open: boolean }) {
   const [openMenu, setOpenMenu] = useState<string>('')
+  const [openSecondMenu, setOpenSecondMenu] = useState<string>('')
+  const [selectedGroup, setSelectedGroup] = useState<string>('')
   const [parseGroups, setParseGroups] =useState<IGroup[]>([])
 
   useEffect(() => {
@@ -33,6 +38,16 @@ export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpen
     }
 
     loadData()
+  }, [])
+
+  useEffect(() => {
+    const groupParam = new URLSearchParams(window.location.search).get('grupo')
+
+    if(groupParam) {
+      setSelectedGroup(groupParam)
+    } else {
+      setSelectedGroup('')
+    }
   }, [])
 
   return (
@@ -58,14 +73,20 @@ export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpen
             groupName: "Institucional",
             categories: [
               {
-                  id: "1",
-                  categoryName: "Quem somos",
-                  categoryLink: "/sobre-nos",
+                id: "1",
+                categoryName: "Quem somos",
+                categoryLink: "/sobre-nos",
               },
               {
-                  id: "2",
-                  categoryName: "Política da Qualidade",
-                  categoryLink: "/politica-de-privacidade",
+                id: "2",
+                categoryName: "Política da Qualidade",
+                categoryLink: "/politica-de-privacidade",
+              },
+              {
+                id: "3",
+                categoryName: "Certificados De Análise",
+                isMenu: true,
+                categoryLink: ""
               },
               {
                   id: "3",
@@ -87,6 +108,7 @@ export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpen
                   setOpenMenu(item.id)
                 } else {
                   setOpenMenu('')
+                  setOpenSecondMenu('')
                 }
               }}
             >
@@ -108,7 +130,45 @@ export default function MobileMenu ({ handleOpenMenuMobile, open }: { handleOpen
             <div
               className={`${styles.open_itens} ${openMenu !== item.id ? styles.open_itens_container: ''}`}
             >
-              {item.categories.map((category) => (
+              {item.categories.map((category) => category.isMenu ? (
+                <div key={category.id}>
+                  <div
+                    className={styles.open_itens_title}
+                    data-status={openSecondMenu === category.id}
+                    onClick={() => {
+                      if(category.id !== openSecondMenu) {
+                        setOpenSecondMenu(category.id)
+                      } else {
+                        setOpenSecondMenu('')
+                      }
+                    }}
+                  >
+                    {category.categoryName}
+
+                    {openSecondMenu === category.id ? (
+                      <Image
+                        src={accordionUpIconBlack}
+                        alt='teste-alt'
+                      />
+                      ): (
+                      <Image
+                        src={accordionIconBlack}
+                        alt='teste-alt'
+                      />
+                    )}
+                  </div>
+
+                  {openSecondMenu === category.id && (
+                    <LateralMenuGroups
+                      groups={parseGroups}
+                      isMenu
+                      selectedGroup={selectedGroup}
+                      onCloseMenu={handleOpenMenuMobile}
+                    />
+                  )}
+
+                </div>
+              ): (
                 <Link
                   key={category.id}
                   className={styles.open_itens_title}

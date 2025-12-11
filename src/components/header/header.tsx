@@ -118,6 +118,11 @@ export default function Header () {
                   Política da Qualidade
                 </Link>
                 <Link
+                  href='/certificados-de-analise?grupo=Curativos'
+                >
+                  Certificados de Análise
+                </Link>
+                <Link
                   href='/blog'
                 >
                   Blog

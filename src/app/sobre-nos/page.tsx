@@ -2,7 +2,7 @@
 'use client'
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import 'swiper/css/pagination';
 import 'swiper/css';
 
@@ -23,6 +23,7 @@ import unitsDivisorMobile from '@/assets/unitsDivisorMobile.svg'
 import circlePoints from '@/assets/circlePoints.svg'
 import mapBackgroundSp from '@/assets/mapBackgroundSp.svg'
 import mapBackgroundMg from '@/assets/mapBackgroundMg.svg'
+import ValuesCard from "@/components/valuesCard";
 
 interface IAbouUsLayout {
   aboutUsSection: {
@@ -295,81 +296,77 @@ export default function AboutUs () {
           id="meu-swiper"
         >
           <Swiper
-            modules={[Autoplay, Pagination]}
-            pagination={{
-              clickable: true,
-              renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + (index + 1) + '</span>';
-              },
+            effect="coverflow"
+            loop
+            modules={[
+              Autoplay,
+              EffectCoverflow,
+              Pagination
+            ]}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: -45,
+              slideShadows: false,
+              modifier: 1.5,
             }}
+            slidesPerView={3}
             breakpoints={{
               320: {
-                spaceBetween: 10,
-                slidesPerView: 1.2,
-                slidesOffsetBefore: 24,
-                slidesOffsetAfter: 24
-              },
-              375: {
-                slidesPerView: 1.4,
-                spaceBetween: 10,
-                slidesOffsetBefore: 24,
-                slidesOffsetAfter: 24
-              },
-              425: {
-                slidesPerView: 1.8,
-                slidesOffsetBefore: 24,
-                slidesOffsetAfter: 24
-              },
-              768: {
-                slidesPerView: 2.4,
-                spaceBetween: 10,
-                slidesOffsetBefore: 24,
-                slidesOffsetAfter: 24
+                slidesPerView: 3,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: -20,
+                  slideShadows: false,
+                  modifier: 1.5,
+                }
               },
               1024: {
                 slidesPerView: 3,
-                spaceBetween: 30,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: -20,
+                  slideShadows: false,
+                  modifier: 2,
+                }
               },
               1440: {
                 slidesPerView: 3,
-                spaceBetween: 160,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: -25,
+                  slideShadows: false,
+                  modifier: 1.5,
+                }
               }
             }}
             autoplay={{
-              delay: 2000,
+              delay: 5000,
               disableOnInteraction: false,
             }}
             className={styles.values_swiper}
             style={{
-              paddingTop: 50
+              // margin: '0 20px',
             }}
           >
-            {layout.values.map((item) => (
+            {[...layout.values, ...layout.values].map((item, index) => (
               <SwiperSlide
-                key={item.id}
-              >
-                <div
-                  className={styles.values_card}
+                key={`${item.id}_${index}`}
                 >
+                {({isVisible}) => (
                   <div
-                    className={styles.icon}
+                    key={`${item.id}_${index}`}
+                    style={{
+                      opacity: !isVisible ? 0 : 1,
+                      height: '100%',
+                      transition: 'all 0.2s ease-in-out',
+                    }}
                   >
-                    <div className={styles.icon_container}>
-                      <Image
-                        src={item.icon}
-                        className={styles.icon_svg}
-                        width={100}
-                        height={100}
-                        alt="values icon"
-                      />
-                    </div>
+                    <ValuesCard
+                      title={item.title}
+                      description={item.description}
+                    />
                   </div>
-
-                  <div className={styles.values_text_container}>
-                    <p className={styles.values_card_title}>{BreakLine(item.title)}</p>
-                    <p className={styles.values_card_description}>{BreakLine(item.description)}</p>
-                  </div>
-                </div>
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
