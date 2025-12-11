@@ -20,7 +20,7 @@
     "idb": "^8.0.2",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.503.0",
-    "next": "15.2.4",
+    "next": "15.5.7",
     "radix-ui": "^1.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
