@@ -81,7 +81,9 @@ export default function CertificatesGroupName () {
           <div
             className={styles.categories_container}
           >
-            {dataGroup.categories.map((item) => (
+            {dataGroup.categories
+            .sort((a, b) => a.categoryName.localeCompare(b.categoryName))
+            .map((item) => (
               <Link
                 key={item.id}
                 className={`${item.categoryLink.includes(params.category) ? styles.categorySelected : styles.category}`}
