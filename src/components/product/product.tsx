@@ -61,6 +61,7 @@ export default function Product ({
         </p>
         {(type === 'default' ? product.link : product.certificateLink) && (
           <a
+            id={`product-${product.id}`}
             data-type={type}
             className={styles.product_button}
             target={type === 'default' ? '_self' : '_blank'}

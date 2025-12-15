@@ -129,6 +129,7 @@ export default function ProductPage () {
             className={styles.contact_container}
             href={product.contactLink}
             target='_blank'
+            id={`contact-icon-${product.name}`}
           >
             <img
               alt='teste-alt'

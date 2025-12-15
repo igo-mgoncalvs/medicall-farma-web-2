@@ -78,6 +78,8 @@ export default function RootLayout({
           />
         </noscript>
 
+        <Script defer src="https://teste.igormgoncalvs.com/script.js" data-website-id="07982236-8530-4475-97ee-09fb9b3f2b9a" strategy="beforeInteractive"/>
+
         <div
           className="header"
         >
